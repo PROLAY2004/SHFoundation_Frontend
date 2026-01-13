@@ -12,34 +12,11 @@ body {
 	line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-	font-family: $font-heading;
-	font-weight: 700;
-	color: $dark-color;
-}
-
-.section-title {
-	position: relative;
-	margin-bottom: 3rem;
-	text-align: center;
-}
-
-.section-title:after {
-	content: '';
-	position: absolute;
-	width: 80px;
-	height: 4px;
-	background-color: $primary-color;
-	bottom: -15px;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
 .btn-primary{
 	background-color: $primary-color !important;
 	border: 1px solid $primary-dark !important;
+}
+
+.text-primary {
+	color: $primary-color !important;
 }

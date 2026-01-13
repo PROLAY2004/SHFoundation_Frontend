@@ -1,0 +1,70 @@
+/* Navbar Styles */
+.navbar {
+	background-color: rgba(255, 255, 255, 0.95) !important;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	padding: 0.8rem 0;
+}
+
+.navbar.scrolled {
+	padding: 0.5rem 0;
+	background-color: white !important;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+	font-weight: 700;
+	font-size: 1.8rem;
+	color: $primary-color !important;
+}
+
+.navbar-nav .nav-link {
+	color: $dark-color !important;
+	font-weight: 500;
+	margin: 0 0.3rem;
+	transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+	color: $primary-color !important;
+}
+
+.navbar-nav .nav-link.active {
+	color: $primary-color !important;
+	font-weight: 600;
+}
+
+.search-input {
+	border-radius: 50px;
+	padding-left: 2.5rem;
+	border: 1px solid $gray-light;
+	width: 200px;
+	transition: all 0.3s;
+}
+
+.search-input:focus {
+	width: 250px;
+	box-shadow: 0 0 0 3px rgba(44, 140, 153, 0.2);
+	border-color: $primary-color;
+}
+
+.search-btn {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: transparent;
+	border: none;
+	color: $gray-color;
+}
+
+.btn-login,
+.btn-login:hover {
+	background-color: $primary-color;
+	border-color: $primary-color;
+	color: $primary-light;
+	border-radius: 50px;
+	padding: 0.5rem 1.5rem;
+	font-weight: 500;
+	transition: all 0.3s;
+}

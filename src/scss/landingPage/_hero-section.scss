@@ -1,0 +1,71 @@
+/* Hero Section */
+.hero-section {
+	position: relative;
+	height: 90vh;
+	min-height: 600px;
+	overflow: hidden;
+}
+
+.carousel-item {
+	height: 90vh;
+	min-height: 600px;
+}
+
+.carousel-item img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	filter: brightness(0.3);
+}
+
+.carousel-caption {
+	top: 50%;
+	transform: translateY(-50%);
+	bottom: auto;
+	z-index: 10;
+	width: clamp(auto, 80%, 800px);
+}
+
+.hero-title {
+	font-size: clamp(2rem, 5vw, 4rem);
+	font-weight: 700;
+	color: $primary-light;
+	margin-bottom: 1.5rem;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+	font-size: clamp(1rem, 2.5vw, 1.5rem);
+	max-width: 800px;
+	margin: 0 auto 2rem;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-hero {
+	background-color: $secondary-color;
+	border-color: $secondary-color;
+	color: white;
+	padding: clamp(0.6rem, 0.7vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+	font-weight: 500;
+	border-radius: 50px;
+	font-size: clamp(1rem, 2.5vw, 1.2rem);
+	transition: all 0.3s;
+}
+
+.btn-hero:focus {
+	background-color: $secondary-dark;
+	border-color: $secondary-dark;
+	color: white;
+}
+
+.btn-hero:hover {
+	background-color: $secondary-dark;
+	border-color: $secondary-dark;
+	color: white;
+}
+
+@media (max-width: 768px) {
+	.hero-title {
+		font-size: 2.5rem;
+	}
+}

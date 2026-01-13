@@ -1,0 +1,34 @@
+/* Activities Section */
+.activities-section {
+	padding: $section-padding;
+}
+
+.activity-card {
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: $card-shadow;
+	transition: all 0.3s;
+	height: 100%;
+	border: none;
+}
+
+.activity-card:hover {
+	transform: translateY(-10px);
+	box-shadow: $card-hover-shadow;
+}
+
+.activity-img {
+	height: 200px;
+	object-fit: cover;
+}
+
+.activity-date {
+	color: $primary-color;
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+
+.activity-title {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}

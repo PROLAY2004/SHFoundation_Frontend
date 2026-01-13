@@ -1,0 +1,51 @@
+/* About Section */
+.about-section {
+	padding: $section-padding;
+	background-color: $light-color;
+}
+
+.about-image {
+	border-radius: 10px;
+	box-shadow: $card-shadow;
+	overflow: hidden;
+}
+
+.about-image img {
+	transition: transform 0.5s;
+	width: 100%;
+	height: auto;
+}
+
+.about-image:hover img {
+	transform: scale(1.03);
+}
+
+.about-stats {
+	grid-template-columns: auto auto;
+	flex-wrap: wrap;
+}
+
+.stat-item {
+	text-align: center;
+	flex: 1;
+	min-width: 120px;
+	margin: 0.5rem;
+}
+
+.stat-number {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: $primary-color;
+	line-height: 1;
+}
+
+.stat-label {
+	font-size: 0.9rem;
+	color: $gray-color;
+	text-transform: uppercase;
+	margin-top: 0.5rem;
+}
+
+.about-btn {
+	width: 150px;
+}

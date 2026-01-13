@@ -1,0 +1,109 @@
+/* Footer */
+.footer {
+	background-color: $dark-color;
+	color: white;
+	padding: 4rem 0 2rem;
+}
+
+.footer-logo {
+	font-size: 2rem;
+	font-weight: 700;
+	color: white;
+	margin-bottom: 1rem;
+}
+
+.footer-about {
+	color: $gray-light;
+	margin-bottom: 1.5rem;
+}
+
+.footer-heading {
+	color: white;
+	font-size: 1.2rem;
+	margin-bottom: 1.5rem;
+	position: relative;
+	padding-bottom: 0.8rem;
+}
+
+.footer-heading:after {
+	content: '';
+	position: absolute;
+	width: 50px;
+	height: 3px;
+	background-color: $primary-color;
+	bottom: 0;
+	left: 0;
+}
+
+.footer-links {
+	list-style: none;
+	padding: 0;
+}
+
+.footer-links li {
+	margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+	color: $gray-light;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+
+.footer-links a:hover {
+	color: $primary-light;
+}
+
+.social-links {
+	display: flex;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.social-link {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+.social-link:hover {
+	background-color: $primary-color;
+	transform: translateY(-3px);
+}
+
+.newsletter-form {
+	display: flex;
+	margin-top: 1rem;
+}
+
+.newsletter-input {
+	flex-grow: 1;
+	border-radius: 50px 0 0 50px;
+	border: none;
+	padding: 0.7rem 1.2rem;
+}
+
+.newsletter-btn {
+	background-color: $primary-color;
+	border: none;
+	color: white;
+	border-radius: 0 50px 50px 0;
+	padding: 0 1.5rem;
+	font-weight: 500;
+}
+
+.footer-bottom {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	margin-top: 3rem;
+	padding-top: 2rem;
+	text-align: center;
+	color: $gray-light;
+	font-size: 0.9rem;
+}

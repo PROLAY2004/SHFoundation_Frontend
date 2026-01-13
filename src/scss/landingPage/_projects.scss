@@ -1,0 +1,51 @@
+/* Projects Section */
+.projects-section {
+	padding: $section-padding;
+	background-color: $light-color;
+}
+
+.project-card {
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: $card-shadow;
+	transition: all 0.3s;
+	height: 100%;
+	border: none;
+}
+
+.project-card:hover {
+	transform: translateY(-8px);
+	box-shadow: $card-hover-shadow;
+}
+
+.project-img {
+	height: 220px;
+	object-fit: cover;
+}
+
+.project-progress {
+	height: 8px;
+	border-radius: 4px;
+}
+
+.project-progress .progress-bar {
+	background-color: $primary-color;
+}
+
+.project-status {
+	display: inline-block;
+	padding: 0.3rem 0.8rem;
+	border-radius: 50px;
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+.status-ongoing {
+	background-color: rgba(40, 167, 69, 0.1);
+	color: $success-color;
+}
+
+.status-completed {
+	background-color: rgba(44, 140, 153, 0.1);
+	color: $primary-color;
+}

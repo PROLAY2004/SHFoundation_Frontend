@@ -1,0 +1,46 @@
+/* Contact Section */
+.contact-section {
+	padding: $section-padding;
+}
+
+.contact-form {
+	background-color: white;
+	border-radius: 10px;
+	padding: 2.5rem;
+	box-shadow: $card-shadow;
+}
+
+.form-control {
+	border-radius: 8px;
+	padding: 0.8rem 1rem;
+	border: 1px solid $gray-light;
+	transition: all 0.3s;
+}
+
+.form-control:focus {
+	border-color: $primary-color;
+	box-shadow: 0 0 0 3px rgba(44, 140, 153, 0.2);
+}
+
+.contact-info {
+	padding-left: 2rem;
+}
+
+.contact-item {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+	background-color: $primary-light;
+	color: $primary-color;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1rem;
+	flex-shrink: 0;
+}
