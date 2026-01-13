@@ -7,9 +7,16 @@
 			content="width=device-width, initial-scale=1, user-scalable=no"
 		/>
 		<title>Shared Hope Foundation</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
 		<script src="./src/js/main.js" type="module" defer></script>
-		<link rel="icon" href="./src/assets/lcons/favicon.png" type="image/x-icon">
+		<link
+			rel="icon"
+			href="./src/assets/lcons/favicon.png"
+			type="image/x-icon"
+		/>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</head>
 	<body>
@@ -18,7 +25,7 @@
 			<div class="container-fluid px-3">
 				<a class="navbar-brand me-0" href="">SH Foundation</a>
 				<button
-					class="navbar-toggler border-0 p-1"
+					class="navbar-toggler outline-none shadow-none border-0 p-1"
 					type="button"
 					data-bs-toggle="collapse"
 					data-bs-target="#navbarContent"
@@ -33,22 +40,24 @@
 							<a class="nav-link active px-2" href="#home">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link px-2 " href="#about">About</a>
+							<a class="nav-link px-2" href="#about">About</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link px-2" href="#projects">Projects</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link px-2 " href="#events">Events</a>
+							<a class="nav-link px-2" href="#events">Events</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link px-2" href="#contact">Contact</a>
 						</li>
 					</ul>
 					<div
-						class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center mt-3 mt-md-0 "
+						class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center mt-3 mt-md-0"
 					>
-						<form class="search-form d-none d-lg-flex flex-lg-row order-2 order-lg-1">
+						<form
+							class="search-form d-none d-lg-flex flex-lg-row order-2 order-lg-1 me-3 position-relative"
+						>
 							<div class="position-relative">
 								<input
 									class="form-control search-input"
@@ -87,6 +96,11 @@
 						data-bs-target="#heroCarousel"
 						data-bs-slide-to="2"
 					></button>
+					<button
+						type="button"
+						data-bs-target="#heroCarousel"
+						data-bs-slide-to="3"
+					></button>
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
@@ -103,6 +117,21 @@
 								underserved communities.</p
 							>
 							<a href="#contact" class="btn btn-hero">Join Our Mission</a>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img
+							src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+							class="d-block w-100"
+							alt="Community development"
+						/>
+						<div class="carousel-caption">
+							<h1 class="hero-title">Building Sustainable Futures</h1>
+							<p class="hero-text"
+								>We empower communities through skill development, clean water
+								initiatives, and environmental conservation projects.</p
+							>
+							<a href="#about" class="btn btn-hero">Learn More</a>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -159,7 +188,7 @@
 		</section>
 
 		<!-- About Section -->
-		<section class="about-section" id="about">
+		<section class="about-section pb-5 px-2" id="about">
 			<div class="container">
 				<h2 class="section-title">About Shared Hope Foundation</h2>
 				<div class="row align-items-center">
@@ -173,7 +202,7 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="about-content">
-							<h3>Making a Difference Since 2010</h3>
+							<h3>Making a Difference Since 2026</h3>
 							<p
 								>Shared Hope Foundation is a non-profit organization dedicated
 								to empowering underserved communities through sustainable
@@ -187,7 +216,7 @@
 								and economic empowerment programs.</p
 							>
 
-							<div class="about-stats">
+							<div class="about-stats d-grid">
 								<div class="stat-item">
 									<div class="stat-number">13+</div>
 									<div class="stat-label">Years of Service</div>
@@ -196,17 +225,18 @@
 									<div class="stat-number">245</div>
 									<div class="stat-label">Projects Completed</div>
 								</div>
-								<div class="stat-item">
-									<div class="stat-number">75k+</div>
-									<div class="stat-label">Lives Impacted</div>
-								</div>
+
 								<div class="stat-item">
 									<div class="stat-number">32</div>
 									<div class="stat-label">Countries</div>
 								</div>
+								<div class="stat-item">
+									<div class="stat-number">75k+</div>
+									<div class="stat-label">Lives Impacted</div>
+								</div>
 							</div>
 
-							<a href="#contact" class="btn btn-primary mt-4">Get Involved</a>
+							<a href="#contact" class="btn btn-primary mt-4 m-auto d-block about-btn">Get Involved</a>
 						</div>
 					</div>
 				</div>
@@ -214,7 +244,7 @@
 		</section>
 
 		<!-- Activities Section -->
-		<section class="activities-section">
+		<section class="activities-section pt-5">
 			<div class="container">
 				<h2 class="section-title">Recent Activities</h2>
 				<div class="row">
