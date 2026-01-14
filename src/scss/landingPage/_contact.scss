@@ -1,20 +1,18 @@
 /* Contact Section */
-.contact-section {
-	padding: $section-padding;
-}
 
 .contact-form {
 	background-color: white;
 	border-radius: 10px;
 	padding: 2.5rem;
-	box-shadow: $card-shadow;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .form-control {
 	border-radius: 8px;
-	padding: 0.8rem 1rem;
+	padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.8rem, 1.5vw, 1rem);
 	border: 1px solid $gray-light;
 	transition: all 0.3s;
+	background-color: $light-color;
 }
 
 .form-control:focus {
@@ -30,17 +28,20 @@
 	display: flex;
 	align-items: flex-start;
 	margin-bottom: 1.5rem;
+	p{
+		font-size: clamp(14px, 3vw, 16px);
+	}
 }
 
 .contact-icon {
 	background-color: $primary-light;
 	color: $primary-color;
-	width: 50px;
-	height: 50px;
+	width: clamp(30px, 10vw, 50px);
+	aspect-ratio: 1 / 1;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-right: 1rem;
+	margin-right: clamp(0.8rem, 1vw, 1rem);
 	flex-shrink: 0;
 }
