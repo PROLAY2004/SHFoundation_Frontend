@@ -462,9 +462,7 @@
 								>
 								<div class="d-flex justify-content-between align-items-center">
 									<span class="badge bg-light text-dark">Sports</span>
-									<a href="#" class="btn btn-primary btn-sm px-4"
-										>Learn More</a
-									>
+									<a href="#" class="btn btn-primary btn-sm px-4">Learn More</a>
 								</div>
 							</div>
 						</div>
@@ -546,9 +544,7 @@
 								>
 								<div class="d-flex justify-content-between align-items-center">
 									<span class="badge bg-light text-dark">Fundraiser</span>
-									<a href="#" class="btn btn-primary btn-sm px-4"
-										>Learn More</a
-									>
+									<a href="#" class="btn btn-primary btn-sm px-4">Learn More</a>
 								</div>
 							</div>
 						</div>
@@ -562,20 +558,276 @@
 		</section>
 
 		<!-- Analytics Section -->
-		<section class="analytics-section py-5 px-2">
+		<section class="analytics-section py-5 px-2 px-md-4" id="analytics">
 			<div class="container">
-				<h2 class="section-title">Our Impact in Numbers</h2>
-				<div class="row">
-					<div class="col-lg-6 mb-4">
-						<div class="chart-container">
-							<h4 class="mb-4">Project Distribution by Domain</h4>
-							<canvas id="domainChart"></canvas>
+				<div class="row mb-5">
+					<div class="col-12 text-center">
+						<h2 class="section-title mb-3">Our Impact in Numbers</h2>
+					</div>
+				</div>
+
+				<div class="row align-items-center">
+					<div class="col-lg-6 mb-5 mb-lg-0">
+						<div class="chart-container position-relative">
+							<div
+								class="chart-header d-flex justify-content-between align-items-center mb-4"
+							>
+								<h4 class="mb-0 fw-bold text-dark"
+									>Project Distribution by Domain</h4
+								>
+								<div class="chart-legend-toggle">
+									<button class="btn btn-primary toggle-legend">
+										 Toggle Legend
+									</button>
+								</div>
+							</div>
+							<div class="chart-wrapper">
+								<canvas id="domainChart"></canvas>
+								<div
+									class="chart-center-text position-absolute top-50 start-50 translate-middle text-center"
+								>
+									<div
+										class="total-projects fw-bold"
+										style="font-size: 2rem; color: #2c8c99"
+										>48</div
+									>
+									<div class="text-muted small">Total Projects</div>
+								</div>
+							</div>
+							<div class="chart-footer mt-4 text-center">
+								<div class="row g-3 impact-stats">
+									<div class="col-6 col-sm-3">
+										<div class="stat-box p-3">
+											<div class="stat-number fw-bold" style="color: #2c8c99"
+												>35%</div
+											>
+											<div class="stat-label small text-muted">Education</div>
+										</div>
+									</div>
+									<div class="col-6 col-sm-3">
+										<div class="stat-box p-3">
+											<div class="stat-number fw-bold" style="color: #ff8c42"
+												>25%</div
+											>
+											<div class="stat-label small text-muted">Healthcare</div>
+										</div>
+									</div>
+									<div class="col-6 col-sm-3">
+										<div class="stat-box p-3">
+											<div class="stat-number fw-bold" style="color: #28a745"
+												>20%</div
+											>
+											<div class="stat-label small text-muted"
+												>Women Empowerment</div
+											>
+										</div>
+									</div>
+									<div class="col-6 col-sm-3">
+										<div class="stat-box p-3">
+											<div class="stat-number fw-bold" style="color: #6f42c1"
+												>15%</div
+											>
+											<div class="stat-label small text-muted">Clean Water</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 mb-4">
-						<div class="chart-container">
-							<h4 class="mb-4">Annual Impact Growth</h4>
-							<canvas id="impactChart"></canvas>
+
+					<div class="col-lg-6">
+						<div class="impact-cards">
+							<div class="impact-card-wrapper">
+								<!-- Education Impact Card -->
+								<div class="impact-card mb-4" data-category="education">
+									<div class="card border-0 shadow-sm">
+										<div class="card-body p-4">
+											<div class="d-flex align-items-start">
+												<div
+													class="impact-icon me-3"
+													style="background-color: rgba(44, 140, 153, 0.1)"
+												>
+													<i
+														class="fa fa-book text-primary"
+														style="color: #2c8c99; font-size: 1.5rem"
+													></i>
+												</div>
+												<div class="flex-grow-1">
+													<h5 class="fw-bold mb-2">Education</h5>
+													<p class="text-muted small mb-3"
+														>Building schools, providing scholarships, and
+														digital literacy programs</p
+													>
+													<div
+														class="d-flex justify-content-between align-items-center"
+													>
+														<div class="impact-stats">
+															<div class="d-flex align-items-center">
+																<span class="me-3">
+																	<i class="fa fa-users me-1"></i>
+																	<span class="fw-bold">5,200+</span> Students
+																</span>
+																<span>
+																	<i class="fa fa-building me-1"></i>
+																	<span class="fw-bold">24</span> Schools
+																</span>
+															</div>
+														</div>
+														<span
+															class="badge rounded-pill"
+															style="background-color: #2c8c99; color: white"
+															>35%</span
+														>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Healthcare Impact Card -->
+								<div class="impact-card mb-4" data-category="healthcare">
+									<div class="card border-0 shadow-sm">
+										<div class="card-body p-4">
+											<div class="d-flex align-items-start">
+												<div
+													class="impact-icon me-3"
+													style="background-color: rgba(255, 140, 66, 0.1)"
+												>
+													<i
+														class="fa fa-heart"
+														style="color: #ff8c42; font-size: 1.5rem"
+													></i>
+												</div>
+												<div class="flex-grow-1">
+													<h5 class="fw-bold mb-2">Healthcare</h5>
+													<p class="text-muted small mb-3"
+														>Medical camps, mobile clinics, and community health
+														awareness</p
+													>
+													<div
+														class="d-flex justify-content-between align-items-center"
+													>
+														<div class="impact-stats">
+															<div class="d-flex align-items-center">
+																<span class="me-3">
+																	<i class="fa fa-building me-1"></i>
+																	<span class="fw-bold">120+</span> Camps
+																</span>
+																<span>
+																	<i class="fa fa-user-plus me-1"></i>
+																	<span class="fw-bold">18,500</span> Patients
+																</span>
+															</div>
+														</div>
+														<span
+															class="badge rounded-pill"
+															style="background-color: #ff8c42; color: white"
+															>25%</span
+														>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Women Empowerment Impact Card -->
+								<div class="impact-card mb-4" data-category="women-empowerment">
+									<div class="card border-0 shadow-sm">
+										<div class="card-body p-4">
+											<div class="d-flex align-items-start">
+												<div
+													class="impact-icon me-3"
+													style="background-color: rgba(40, 167, 69, 0.1)"
+												>
+													<i
+														class="fa fa-female"
+														style="color: #28a745; font-size: 1.5rem"
+													></i>
+												</div>
+												<div class="flex-grow-1">
+													<h5 class="fw-bold mb-2">Women Empowerment</h5>
+													<p class="text-muted small mb-3"
+														>Skill development, entrepreneurship, and financial
+														literacy programs</p
+													>
+													<div
+														class="d-flex justify-content-between align-items-center"
+													>
+														<div class="impact-stats">
+															<div class="d-flex align-items-center">
+																<span class="me-3">
+																	<i class="fa fa-briefcase me-1"></i>
+																	<span class="fw-bold">850+</span>
+																	Entrepreneurs
+																</span>
+																<span>
+																	<i class="fa fa-gift me-1"></i>
+																	<span class="fw-bold">15</span> Programs
+																</span>
+															</div>
+														</div>
+														<span
+															class="badge rounded-pill"
+															style="background-color: #28a745; color: white"
+															>20%</span
+														>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Clean Water Impact Card -->
+								<div class="impact-card" data-category="clean-water">
+									<div class="card border-0 shadow-sm">
+										<div class="card-body p-4">
+											<div class="d-flex align-items-start">
+												<div
+													class="impact-icon me-3"
+													style="background-color: rgba(111, 66, 193, 0.1)"
+												>
+													<i
+														class="fa fa-tint"
+														style="color: #6f42c1; font-size: 1.5rem"
+													></i>
+												</div>
+												<div class="flex-grow-1">
+													<h5 class="fw-bold mb-2">Clean Water</h5>
+													<p class="text-muted small mb-3"
+														>Water purification plants, wells, and sanitation
+														facilities</p
+													>
+													<div
+														class="d-flex justify-content-between align-items-center"
+													>
+														<div class="impact-stats">
+															<div class="d-flex align-items-center">
+																<span class="me-3">
+																	<i class="fa fa-tint me-1"></i>
+																	<span class="fw-bold">45</span> Wells
+																</span>
+																<span>
+																	<i class="fa fa-users me-1"></i>
+																	<span class="fw-bold">12,000</span>
+																	Beneficiaries
+																</span>
+															</div>
+														</div>
+														<span
+															class="badge rounded-pill"
+															style="background-color: #6f42c1; color: white"
+															>15%</span
+														>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -685,11 +937,13 @@
 		</section>
 
 		<!-- Footer -->
-		<footer class="footer px-2 ">
+		<footer class="footer px-2">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 mb-4">
-						<a href="#" class="footer-logo text-decoration-none">SH Foundation</a>
+						<a href="#" class="footer-logo text-decoration-none"
+							>SH Foundation</a
+						>
 						<p class="footer-about"
 							>Shared Hope Foundation is dedicated to empowering underserved
 							communities through sustainable development initiatives in

@@ -1,13 +1,221 @@
 /* Analytics Section */
 .analytics-section {
 	padding: $section-padding;
-	background-color: $light-color;
+	background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+.analytics-section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba($primary-color, 0.3), transparent);
 }
 
 .chart-container {
-	background-color: white;
-	border-radius: 10px;
+	background: white;
+	border-radius: 16px;
 	padding: 2rem;
-	box-shadow: $card-shadow;
-	height: 100%;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.chart-container:hover {
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+	transform: translateY(-5px);
+}
+
+.chart-wrapper {
+	position: relative;
+	min-height: 300px;
+}
+
+.chart-center-text {
+	pointer-events: none;
+	z-index: 1;
+}
+
+.total-projects {
+	font-size: 2.5rem;
+	line-height: 1;
+	margin-bottom: 0.25rem;
+}
+
+.impact-stats .stat-box {
+	background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($primary-color, 0.02));
+	border-radius: 12px;
+	transition: all 0.3s ease;
+	border: 1px solid rgba($primary-color, 0.1);
+}
+
+.impact-stats .stat-box:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+	font-size: 1.75rem;
+	margin-bottom: 0.25rem;
+}
+
+.stat-label {
+	font-weight: 500;
+}
+
+/* Impact Cards */
+.impact-card {
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.impact-card:hover {
+	transform: translateY(-5px);
+}
+
+.impact-card .card {
+	border-radius: 12px;
+	transition: all 0.3s ease;
+	border-left: 4px solid transparent;
+}
+
+.impact-card[data-category="education"] .card {
+	border-left-color: #2c8c99;
+}
+
+.impact-card[data-category="healthcare"] .card {
+	border-left-color: #ff8c42;
+}
+
+.impact-card[data-category="women-empowerment"] .card {
+	border-left-color: #28a745;
+}
+
+.impact-card[data-category="clean-water"] .card {
+	border-left-color: #6f42c1;
+}
+
+.impact-card:hover .card {
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.impact-icon {
+	width: 56px;
+	height: 56px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.impact-card:hover .impact-icon {
+	transform: scale(1.1);
+}
+
+.impact-stats span {
+	font-size: 0.875rem;
+	color: #666;
+}
+
+.impact-stats .fw-bold {
+	font-size: 1rem;
+}
+
+.badge {
+	font-size: 0.875rem;
+	font-weight: 600;
+	padding: 0.25rem 0.75rem;
+}
+
+.toggle-legend {
+	font-size: 0.875rem;
+	padding: 0.25rem 0.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+	.section-title {
+		font-size: 2rem;
+	}
+	
+	.chart-container {
+		padding: 1.5rem;
+	}
+	
+	.total-projects {
+		font-size: 2rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.analytics-section {
+		padding: 3rem 1rem;
+	}
+	
+	.section-title {
+		font-size: 1.75rem;
+	}
+	
+	.chart-header {
+		flex-direction: column;
+		align-items: flex-start !important;
+		gap: 1rem;
+	}
+	
+	.impact-stats .stat-box {
+		padding: 1rem;
+	}
+	
+	.stat-number {
+		font-size: 1.5rem;
+	}
+	
+	.impact-stats .d-flex {
+		flex-direction: column;
+		gap: 0.5rem;
+		align-items: flex-start !important;
+	}
+	
+	.impact-card .card-body {
+		padding: 1.5rem !important;
+	}
+}
+
+/* Animation */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.impact-card {
+	animation: fadeIn 0.5s ease forwards;
+	opacity: 0;
+}
+
+.impact-card:nth-child(1) {
+	animation-delay: 0.1s;
+}
+
+.impact-card:nth-child(2) {
+	animation-delay: 0.2s;
+}
+
+.impact-card:nth-child(3) {
+	animation-delay: 0.3s;
+}
+
+.impact-card:nth-child(4) {
+	animation-delay: 0.4s;
 }
