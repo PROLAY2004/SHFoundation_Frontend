@@ -1,4 +1,7 @@
 import configaration from '../config/config.js';
+import Api from '../api/Api.js';
+
+const api = new Api();
 
 const tokenMissingCard = document.getElementById('tokenMissingCard');
 const tokenExpiredCard = document.getElementById('tokenExpiredCard');
@@ -12,14 +15,9 @@ export default async function displaySignupCards() {
 		tokenMissingCard.classList.remove('d-none');
 	} else {
 		try {
-			const response = await fetch(
+			const response = await api.patchApi(
 				`${configaration.BASE_URL}/user/auth/signup`,
-				{
-					method: 'PATCH',
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
-				}
+				token
 			);
 
 			const result = await response.json();

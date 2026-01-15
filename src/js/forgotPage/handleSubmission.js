@@ -1,48 +1,40 @@
-import configaration from '../config/config';
-import Templates from '../common/Templates';
+import configaration from '../config/config.js';
 import Api from '../api/Api.js';
+import Templates from '../common/Templates.js';
 
-const displayToast = new Templates();
 const api = new Api();
-
+const displayToast = new Templates();
+const resetEmail = document.getElementById('resetEmail');
 const toastSection = document.getElementById('toastSection');
-const signupName = document.getElementById('signupName');
-const signupEmail = document.getElementById('signupEmail');
-const signupPassword = document.getElementById('signupPassword');
-const registerForm = document.getElementById('registerForm');
-const signupBtn = document.getElementById('signupBtn');
+const resetBtn = document.getElementById('resetBtn');
 const spinnerContainer = document.getElementById('spinnerContainer');
+const forgotForm = document.getElementById('forgotForm');
 
-export default async function userRegistration(e) {
+export default async function resetFormHandler(e) {
 	try {
 		e.preventDefault();
 
-		const userData = {
-			name: signupName.value.trim(),
-			email: signupEmail.value.trim(),
-			password: signupPassword.value.trim(),
-		};
-
-		signupBtn.classList.add('disabled');
+		resetBtn.classList.add('disabled');
 		spinnerContainer.innerHTML = `<div class="spinner-border text-dark custom-spinner" role="status"></div>`;
 
 		const response = await api.postApi(
-			`${configaration.BASE_URL}/user/auth/signup`,
-			userData
+			`${configaration.BASE_URL}/user/auth/forgot-password`,
+			{ email: resetEmail.value.trim() }
 		);
 
 		const result = await response.json();
 
 		if (result.success) {
+			forgotForm.reset();
+
 			toastSection.innerHTML = displayToast.successToast(result.message);
-			registerForm.reset();
 		} else {
 			toastSection.innerHTML = displayToast.errorToast(result.message);
 		}
 	} catch (err) {
 		toastSection.innerHTML = displayToast.errorToast(err.message);
 	} finally {
-		signupBtn.classList.remove('disabled');
+		resetBtn.classList.remove('disabled');
 		spinnerContainer.innerHTML = ``;
 
 		setTimeout(() => {

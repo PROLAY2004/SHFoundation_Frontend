@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Reset Password</title>
+    <link rel="icon" type="image/png" href="../../assets/lcons/favicon.png" />
+    <script type="module" src="../../js/forgotPage/resetPassword.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="resetPageBody" style="display: none;">
+    <div id="toastSection"></div>
+
+    <div class="auth-wrapper" id="authWrapper">
+        <div class="auth-form-box reset-form-box">
+            <form id="resetForm" class="d-none">
+                <div class="form-header">
+                    <h1>Set New Password</h1>
+                    <p class="form-subtitle">Create a new secure password for your account</p>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" placeholder="New Password" id="newPassword" autocomplete="new-password"
+                        required />
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" placeholder="Confirm New Password" id="confirmPassword"
+                        autocomplete="new-password" required />
+                </div>
+
+                <button type="submit" class="w-100 submit-btn" id="resetBtn">
+                    <span class="text-white">Update Password</span>
+                    <i class="fas fa-key btn-icon"></i>
+                </button>
+
+                <div class="form-footer">
+                    <p>Remember your password?</p>
+                    <a href="/src/pages/auth/login.html" class="back-to-login">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Login
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <div class="slide-panel-wrapper">
+            <div class="slide-panel">
+                <div class="panel-content panel-content-center">
+                    <div class="panel-logo">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h1>Secure Your Account</h1>
+                    <p>Create a strong, unique password to protect your account. We recommend using a mix of letters,
+                        numbers, and special characters.</p>
+
+                    <div class="security-tip">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>Tip:</strong> Avoid using personal information or common words. The longer your
+                            password, the more secure it is.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Token Expired Card (Hidden by default) -->
+        <div class="token-expired-card" id="tokenExpiredCard">
+            <div class="expired-card-content">
+                <div class="expired-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2>Link Expired</h2>
+                <p class="expired-message">This password reset link has expired or is invalid.</p>
+
+                <div class="expired-actions">
+                    <a href="/src/pages/auth/forgot.html" class="action-btn primary-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Request New Link
+                    </a>
+                    <a href="/src/pages/auth/login.html" class="action-btn secondary-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Back to Login
+                    </a>
+                </div>
+
+                <div class="expired-help">
+                    <p><i class="fas fa-info-circle"></i> Reset links expire after 5 minutes for security.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

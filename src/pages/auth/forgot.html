@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Forgot Password</title>
+    <link rel="icon" type="image/png" href="../../assets/lcons/favicon.png" />
+    <script src="../../js/forgotPage/forgotPassword.js" type="module" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="forgotPageBody" style="display: none;">
+    <div id="toastSection"></div>
+
+    <div class="auth-wrapper" id="authWrapper">
+        <div class="auth-form-box forgot-form-box">
+            <form id="forgotForm">
+                <div class="form-header">
+                    <h1>Reset Password</h1>
+                    <p class="form-subtitle">Enter your email to receive reset instructions</p>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" placeholder="Email Address" id="resetEmail" autocomplete="email" required />
+                </div>
+
+                <div class="info-message">
+                    <i class="fas fa-info-circle"></i>
+                    <p>We'll send you a link to reset your password. Check your inbox and spam folder.</p>
+                </div>
+
+                <button type="submit" class="w-100 submit-btn" id="resetBtn">
+                    <div id="spinnerContainer"></div>
+                    <span class="text-white">Send Reset Link</span>
+                    <i class="fas fa-paper-plane btn-icon"></i>
+                </button>
+
+                <div class="form-footer">
+                    <p>Remember your password?</p>
+                    <a href="/src/pages/auth/login.html" class="back-to-login">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Login
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <div class="slide-panel-wrapper d-none d-lg-block">
+            <div class="slide-panel">
+                <div class="panel-content panel-content-center">
+                    <div class="panel-logo">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h1>Forgot Password?</h1>
+                    <p>Don't worry! It happens to the best of us. Enter your email address and we'll help you regain
+                        access to your account.</p>
+                    <div class="security-tip">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Your security is our priority. Reset links expire in 5 minutes for your protection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

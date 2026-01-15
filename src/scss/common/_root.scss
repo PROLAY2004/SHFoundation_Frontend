@@ -42,3 +42,13 @@ body {
 		transform: translateX(0);
 	}
 }
+.disabled {
+	pointer-events: none;
+	opacity: 0.6;
+	background-color: $light-color !important;
+}
+
+.custom-spinner {
+	width: 1.2rem;
+	height: 1.2rem;
+}
