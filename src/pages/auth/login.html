@@ -64,19 +64,20 @@
 
 				<div class="input-group">
 					<i class="fas fa-envelope input-icon"></i>
-					<input type="email" placeholder="Email Address" required />
+					<input type="email" placeholder="Email Address" id="loginEmial" required />
 				</div>
 
 				<div class="input-group">
 					<i class="fas fa-lock input-icon"></i>
-					<input type="password" placeholder="Password" required />
+					<input type="password" placeholder="Password" id="loginPassword" required />
 				</div>
 
 				<div class="form-options">
 					<a href="/src/pages/auth/forgot.html" class="forgot-password">Forgot password?</a>
 				</div>
 
-				<button type="submit" class="w-100 submit-btn">
+				<button type="submit" class="w-100 submit-btn" id="signinBtn">
+					<div id="spinnerContainer"></div>
 					<span class="text-white">Sign In</span>
 					<i class="fas fa-arrow-right btn-icon"></i>
 				</button>
