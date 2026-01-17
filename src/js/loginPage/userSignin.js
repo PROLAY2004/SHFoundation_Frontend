@@ -1,6 +1,7 @@
 import configaration from '../config/config';
 import Templates from '../common/Templates';
 import Api from '../api/Api.js';
+import authPageLoader from './login.js';
 
 const displayToast = new Templates();
 const api = new Api();
@@ -39,8 +40,7 @@ export default async function userLogin(e) {
 			localStorage.setItem('SHF_refresh_token', result.refresh_token);
 
 			setTimeout(() => {
-				toastSection.innerHTML = '';
-				window.location.href = '/src/pages/account/dashboard.html';
+				authPageLoader();
 			}, 1000);
 		} else {
 			toastSection.innerHTML = displayToast.errorToast(result.message);

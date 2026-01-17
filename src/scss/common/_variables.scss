@@ -18,3 +18,10 @@ $font-body: 'Open Sans', sans-serif;
 $section-padding: 5rem 0;
 $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 $card-hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+// Custom Variables
+$border-radius-lg: 20px;
+$border-radius-md: 16px;
+$border-radius-sm: 12px;
+$border-radius-xs: 8px;
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

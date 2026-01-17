@@ -11,13 +11,14 @@ const loginPageBody = document.getElementById('loginPageBody');
 const registerForm = document.getElementById('registerForm');
 const loginForm = document.getElementById('loginForm');
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', authPageLoader);
+registerForm.addEventListener('submit', userRegistration);
+loginForm.addEventListener('submit', userLogin);
+
+export default function authPageLoader() {
 	if (isAuthenticated()) {
-		window.location.href = '/src/pages/account/dashboard.html';
+		window.location.href = '/src/pages/account/profile.html';
 	} else {
 		loginPageBody.style.display = 'flex';
 	}
-});
-
-registerForm.addEventListener('submit', userRegistration);
-loginForm.addEventListener('submit', userLogin);
+}

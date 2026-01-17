@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>My Profile</title>
+
+    <link rel="icon" type="image/png" href="../../assets/lcons/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="module" src="../../js/profilePage/profile.js" defer></script>
+</head>
+
+<body id="profilePageBody" style="display: none;">
+    <div id="toastSection"></div>
+
+    <!-- Header -->
+    <header class="profile-header bg-light p-3 py-md-0 z-3">
+        <div class="container-fluid d-flex p-0 py-3 flex-column flex-sm-row justify-content-between gap-3">
+            <div class="header-left d-flex align-items-center gap-3 ">
+                <div class="logo-container d-flex gap-3 align-items-center">
+                    <div class="logo-icon d-flex align-items-center justify-content-center text-white fs-2 rounded-3">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="m-0 fs-3 fw-semibold">Profile</h1>
+                        <p class="m-0 fw-normal fs-6">Manage your account settings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right d-flex align-items-center gap-3 justify-content-center">
+                <a href="/" class="header-btn back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                </a>
+
+                <a href="#" class="header-btn logout-btn d-none">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Admin</span>
+                </a>
+
+                <button class="header-btn logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="d-block">Logout</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-fluid profile-main pt-5 px-3 d-flex flex-column gap-md-3">
+        <!-- Left Column - Profile Info -->
+        <div class="col d-flex flex-column flex-md-row gap-3 justify-content-center">
+            <!-- Profile Card -->
+            <div class="profile-card w-100">
+                <div class="card-header">
+                    <h3><i class="fas fa-id-card"></i> Profile Overview</h3>
+                </div>
+                <div class="card-body p-3">
+                    <div class="profile-image-container position-relative mb-4">
+                        <div class="profile-img-wrapper position-relative my-0 mx-auto">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=2c8c99&color=fff&size=200"
+                                alt="Profile" class="profile-img w-100 h-100 rounded-circle" id="profileImage">
+                            <div class="profile-img-edit">
+                                <button
+                                    class="img-edit-btn d-flex justify-content-center align-items-center text-white rounded-circle"
+                                    id="changeImageBtn">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-info text-center mb-4">
+                        <h2 class="profile-name mb-0 fw-bold" id="userName">John Doe</h2>
+                        <div
+                            class="profile-email d-flex align-items-center justify-content-center gap-3 mb-2 fw-normal">
+                            <i class="fas fa-envelope"></i>
+                            <span id="userEmail">john.doe@example.com</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-status d-flex gap-2 flex-column flex-sm-row">
+                        <div class="status-badge verified">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Verified Account</span>
+                        </div>
+                        <div class="status-badge active">
+                            <i class="fas fa-circle"></i>
+                            <span>Active Now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Profile Form -->
+            <div class="edit-card w-100">
+                <div class="card-header">
+                    <h3><i class="fas fa-user-edit"></i> Edit Profile</h3>
+                </div>
+                <div class="card-body p-3">
+                    <form id="editProfileForm">
+                        <div class="form-group">
+                            <label for="editName">
+                                <i class="fas fa-user"></i>
+                                Full Name
+                            </label>
+                            <div class="input-with-icon position-relative">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="editName" value="John Doe" placeholder="Enter your full name"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editEmail">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                            </label>
+                            <div class="input-with-icon cursor-not-allowed position-relative opacity-75">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="editEmail" value="john.doe@example.com" disabled
+                                    placeholder="Your email address">
+                            </div>
+                            <small class="form-hint"><i class="fa fa-info-circle me-1"></i>Email address cannot be
+                                changed</small>
+                        </div>
+
+                        <div class="form-actions d-flex mb-3 gap-3">
+                            <button type="button" class="btn-cancel d-none">
+                                <i class="fas fa-times"></i>
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-save"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Edit Profile & Volunteer Form -->
+        <div class="col d-flex flex-column flex-md-row gap-3 justify-content-center">
+            <!-- Newsletter Settings -->
+            <div class="settings-card w-100 mb-auto">
+                <div class="card-header">
+                    <h3><i class="fas fa-bell"></i> Newsletter</h3>
+                </div>
+                <div class="card-body p-3">
+                    <p class="settings-description mb-3">Choose how often you want to receive updates from us</p>
+
+                    <div class="settings-options d-flex flex-column gap-2 mb-3 ">
+                        <label class="settings-option">
+                            <input type="radio" name="newsletter" value="weekly" checked>
+                            <div class="option-content">
+                                <div class="option-icon">
+                                    <i class="fas fa-calendar-week"></i>
+                                </div>
+                                <div class="option-text">
+                                    <h4>Weekly Digest</h4>
+                                    <p>Weekly summary of updates</p>
+                                </div>
+                            </div>
+
+                        </label>
+
+                        <label class="settings-option">
+                            <input type="radio" name="newsletter" value="monthly">
+                            <div class="option-content">
+                                <div class="option-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="option-text">
+                                    <h4>Monthly Summary</h4>
+                                    <p>Monthly reports and insights</p>
+                                </div>
+                            </div>
+
+                        </label>
+
+                        <label class="settings-option">
+                            <input type="radio" name="newsletter" value="disabled">
+                            <div class="option-content">
+                                <div class="option-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <div class="option-text">
+                                    <h4>Disabled</h4>
+                                    <p>No newsletter emails</p>
+                                </div>
+                            </div>
+
+                        </label>
+                    </div>
+
+                    <button
+                        class="btn-save-settings disabled w-100 p-3 text-white border-0 fw-semibold gap-2 d-flex justify-content-center align-items-center">
+                        <i class="fas fa-save"></i>
+                        Save Preferences
+                    </button>
+                </div>
+            </div>
+
+            <!-- Volunteer Form -->
+            <div class="volunteer-card w-100">
+                <div class="card-header">
+                    <h3><i class="fas fa-hands-helping"></i> Become a Volunteer</h3>
+                </div>
+                <div class="card-body p-3">
+                    <div class="form-intro d-flex align-items-start gap-3 mb-4 p-3">
+                        <i class="fas fa-heart"></i>
+                        <p>Join our community of volunteers and make a real difference. Share your skills and
+                            passion to help others.</p>
+                    </div>
+
+                    <form id="volunteerForm">
+                        <div class="form-group mb-4">
+                            <label for="volunteerSkills">
+                                <i class="fas fa-tools"></i>
+                                Select Your Skills
+                            </label>
+                            <div class="custom-dropdown position-relative">
+                                <div class="dropdown-toggle w-100 d-flex justify-content-between align-items-center bg-light py-3 px-4 cursor-pointer"
+                                    id="skillsDropdown">
+                                    <span class="dropdown-placeholder">Select skills (multiple)</span>
+                                </div>
+                                <div class="dropdown-menu position-absolute start-0 end-0 bg-light z-1">
+                                    <div class="dropdown-item">
+                                        <input type="checkbox" id="skillWeb" value="web-dev">
+                                        <label for="skillWeb">
+                                            <i class="fas fa-code"></i>
+                                            Web Development
+                                        </label>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <input type="checkbox" id="skillDesign" value="design">
+                                        <label for="skillDesign">
+                                            <i class="fas fa-palette"></i>
+                                            UI/UX Design
+                                        </label>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <input type="checkbox" id="skillMarketing" value="marketing">
+                                        <label for="skillMarketing">
+                                            <i class="fas fa-bullhorn"></i>
+                                            Digital Marketing
+                                        </label>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <input type="checkbox" id="skillWriting" value="writing">
+                                        <label for="skillWriting">
+                                            <i class="fas fa-pen"></i>
+                                            Content Writing
+                                        </label>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <input type="checkbox" id="skillTeaching" value="teaching">
+                                        <label for="skillTeaching">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                            Teaching/Tutoring
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="availability">
+                                <i class="fas fa-clock"></i>
+                                Weekly Availability
+                            </label>
+                            <div class="availability-options d-grid gap-3 mb-4">
+                                <label class="availability-option">
+                                    <input type="radio" name="availability" value="1-5">
+                                    <div class="availability-content">
+                                        <div class="availability-icon">
+                                            <i class="fas fa-calendar-day"></i>
+                                        </div>
+                                        <div class="availability-text">
+                                            <h5>1-5 hours</h5>
+                                            <p>Casual commitment</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="availability-option">
+                                    <input type="radio" name="availability" value="5-10" checked>
+                                    <div class="availability-content">
+                                        <div class="availability-icon">
+                                            <i class="fas fa-calendar-week"></i>
+                                        </div>
+                                        <div class="availability-text">
+                                            <h5>5-10 hours</h5>
+                                            <p>Regular commitment</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="availability-option">
+                                    <input type="radio" name="availability" value="10+">
+                                    <div class="availability-content">
+                                        <div class="availability-icon">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                        <div class="availability-text">
+                                            <h5>10+ hours</h5>
+                                            <p>High commitment</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="volunteerMotivation">
+                                <i class="fas fa-comment-dots"></i>
+                                Your Motivation
+                            </label>
+                            <textarea id="volunteerMotivation" rows="3"
+                                placeholder="Tell us why you want to volunteer and what you hope to achieve..."
+                                required></textarea>
+                        </div>
+
+                        <div class="form-check p-0">
+                            <input type="checkbox" id="agreeTerms" class="cursor-pointer term-check" required>
+                            <label for="agreeTerms" class="m-0">
+                                I agree to the <a href="#" class="link-primary">Volunteer Agreement</a> and
+                                understand this is a voluntary position.
+                            </label>
+                        </div>
+
+                        <button type="submit"
+                            class="btn-volunteer p-3 border-0 text-white w-100 fw-semibold d-flex justify-content-center align-items-center mt-4 cursor-pointer gap-2">
+                            <i class="fas fa-user-plus"></i>
+                            Join as Volunteer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="profile-footer text-center p-4 mt-5">
+        <div class="container">
+            <p class="m-0">© 2026 Shared Hope Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

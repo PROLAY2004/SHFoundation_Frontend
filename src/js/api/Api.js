@@ -34,7 +34,7 @@ export default class Api {
 		try {
 			const res = await fetch(url, {
 				method: 'GET',
-				headers: { Authorization: `Bearer ${token}` },
+				headers: { 'Authorization': `Bearer ${token}` },
 			});
 
 			return res;
