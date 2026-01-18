@@ -3,8 +3,13 @@ import * as bootstrap from 'bootstrap';
 import '../../scss/profilePage/profile.scss';
 import logout from '../utils/userLogout.js';
 import displayProfileData from './fetchUserData.js';
-
-const logoutBtn = document.getElementById('logoutBtn');
+import profileElements from './profileSelector.js';
+import updateProfileData from './updateData.js';
 
 document.addEventListener('DOMContentLoaded', displayProfileData);
-logoutBtn.addEventListener('click', logout);
+profileElements.logoutBtn.addEventListener('click', logout);
+profileElements.editProfileForm.addEventListener('submit', updateProfileData);
+profileElements.editCancelBtn.addEventListener('click', displayProfileData);
+profileElements.editName.addEventListener('input', () => {
+	profileElements.editBtn.classList.remove('disabled');
+});

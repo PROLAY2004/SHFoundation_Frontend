@@ -6,4 +6,6 @@ export default function clearData() {
 	profileElements.userEmail.innerHTML = '';
 	profileElements.editName.value = '';
 	profileElements.editEmail.value = '';
+	profileElements.editBtn.classList.add('disabled');
+	profileElements.newsLetterSaveBtn.classList.add('disabled');
 }
