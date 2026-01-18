@@ -2,11 +2,9 @@ import * as bootstrap from 'bootstrap';
 
 import '../../scss/profilePage/profile.scss';
 import logout from '../utils/userLogout.js';
+import displayProfileData from './fetchUserData.js';
 
-const profilePageBody = document.getElementById('profilePageBody');
 const logoutBtn = document.getElementById('logoutBtn');
 
-document.addEventListener('DOMContentLoaded', () => {
-	profilePageBody.style.display = 'block';
-});
+document.addEventListener('DOMContentLoaded', displayProfileData);
 logoutBtn.addEventListener('click', logout);

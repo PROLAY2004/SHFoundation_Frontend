@@ -9,6 +9,8 @@ export default class Api {
 
 			return res;
 		} catch (err) {
+			console.log(err.message);
+			
 			throw new Error(err);
 		}
 	};
