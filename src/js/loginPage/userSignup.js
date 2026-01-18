@@ -11,7 +11,7 @@ const signupEmail = document.getElementById('signupEmail');
 const signupPassword = document.getElementById('signupPassword');
 const registerForm = document.getElementById('registerForm');
 const signupBtn = document.getElementById('signupBtn');
-const spinnerContainer = document.getElementById('spinnerContainer');
+const spinnerContainer = document.getElementById('signupSpinnerContainer');
 
 export default async function userRegistration(e) {
 	try {

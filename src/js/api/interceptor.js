@@ -46,7 +46,7 @@ export default async function apiInterceptor(method, endpoint, body = null) {
 				refresh_token,
 			);
 
-			if (!res.ok && res.status === 401) {
+			if (res.status === 401) {
 				localStorage.clear();
 			} else {
 				const result = await res.json();

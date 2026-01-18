@@ -7,6 +7,7 @@ const profileElements = {
 	editEmail: document.getElementById('editEmail'),
 	newsLetter: document.querySelectorAll('input[name="newsletter"]'),
 	newsLetterSaveBtn: document.getElementById('newsLetterSaveBtn'),
+	toastSection: document.getElementById('toastSection'),
 };
 
 export default profileElements;
