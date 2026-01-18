@@ -33,14 +33,14 @@ export default class Api {
 	};
 
 	getApi = async (url, token) => {
-		try {
+		try {			
 			const res = await fetch(url, {
 				method: 'GET',
 				headers: { 'Authorization': `Bearer ${token}` },
-			});
+			});			
 
 			return res;
-		} catch (err) {
+		} catch (err) {			
 			throw new Error(err);
 		}
 	};
