@@ -52,3 +52,47 @@ body {
 	width: 1.2rem;
 	height: 1.2rem;
 }
+// --- Utilities ---
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.transition-all {
+	transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fs-xs {
+	font-size: 0.75rem !important;
+}
+
+.fs-sm {
+	font-size: 0.875rem !important;
+}
+
+.ls-1 {
+	letter-spacing: 0.05em;
+}
+
+.mt-n5 {
+	margin-top: -4rem !important;
+}
+
+.text-primary {
+	color: $primary-color !important;
+}
+
+.bg-primary-subtle {
+	background-color: rgba($primary-color, 0.1) !important;
+}
+
+.bg-warning-subtle {
+	background-color: rgba($secondary-color, 0.1) !important;
+}
+
+.bg-info-subtle {
+	background-color: rgba(#0dcaf0, 0.1) !important;
+}
+
+.bg-success-subtle {
+	background-color: rgba($success-color, 0.1) !important;
+}

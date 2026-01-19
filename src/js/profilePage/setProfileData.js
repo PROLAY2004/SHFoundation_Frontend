@@ -12,7 +12,6 @@ export default function setData(data) {
 	profileElements.userName.textContent = name;
 	profileElements.userEmail.textContent = email;
 	profileElements.editName.value = name;
-	profileElements.editEmail.value = email;
 
 	profileElements.newsLetter.forEach((radio) => {
 		radio.checked = false;

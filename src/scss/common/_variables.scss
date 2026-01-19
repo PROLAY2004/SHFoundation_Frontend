@@ -25,3 +25,11 @@ $border-radius-md: 16px;
 $border-radius-sm: 12px;
 $border-radius-xs: 8px;
 $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// --- Sexy Variables & Mixins ---
+$blur-bg: rgba(255, 255, 255, 0.85);
+$card-radius: 24px;
+$btn-radius: 12px;
+$input-bg: #f8f9fa;
+$shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.05);
+$shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);

@@ -4,7 +4,6 @@ const profileElements = {
 	userName: document.getElementById('userName'),
 	userEmail: document.getElementById('userEmail'),
 	editName: document.getElementById('editName'),
-	editEmail: document.getElementById('editEmail'),
 	newsLetter: document.querySelectorAll('input[name="newsletter"]'),
 	newsLetterSaveBtn: document.getElementById('newsLetterSaveBtn'),
 	toastSection: document.getElementById('toastSection'),
