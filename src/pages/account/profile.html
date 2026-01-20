@@ -152,7 +152,7 @@
                             </div>
 
 
-                            <form class="settings-options row g-3">
+                            <form class="settings-options row g-3" id="newsletterForm">
                                 <div class="col-12 col-md-4">
                                     <label class="settings-option cursor-pointer w-100 h-100">
                                         <input type="radio" name="newsletter" value="weekly" class="d-none">
@@ -234,17 +234,17 @@
                             <div>
                                 <h3 class="h5 fw-bold m-0">Join as Volunteer</h3>
                                 <p class="small text-secondary m-0">Join the community</p>
-                                </div>
-                                </div>
-                                
-                                <form id="volunteerForm">
-                                    <div class="form-group mb-4">
-                                        <label class="form-label text-uppercase fs-xs fw-bold text-secondary ls-1 mb-2">My
-                                            Skills</label>
-                                        <div class="custom-dropdown position-relative">
-                                            <div class="dropdown-toggle form-control form-control-lg bg-light border-0 d-flex justify-content-between align-items-center cursor-pointer"
-                                                id="skillsDropdown">
-                                                <span class="dropdown-placeholder">Select skills...</span>
+                            </div>
+                            </div>
+                            
+                            <form id="volunteerForm">
+                                <div class="form-group mb-4">
+                                    <label class="form-label text-uppercase fs-xs fw-bold text-secondary ls-1 mb-2">My
+                                        Skills</label>
+                                    <div class="custom-dropdown position-relative">
+                                        <div class="dropdown-toggle form-control form-control-lg bg-light border-0 d-flex justify-content-between align-items-center cursor-pointer"
+                                            id="skillsDropdown">
+                                            <span class="fs-6">Select skills...</span>
                                             </div>
                                             <div class="dropdown-menu w-100 border-0 shadow-lg mt-2 p-2 rounded-3">
                                                 <div class="dropdown-item p-2 rounded-2 d-flex align-items-center gap-2 hover-bg-light">
@@ -270,47 +270,47 @@
                                                     <input type="checkbox" id="skillTeaching" value="teaching" class="form-check-input mt-0">
                                                     <label for="skillTeaching" class="cursor-pointer flex-grow-1">Teaching</label>
                                                 </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            
+                                            <div class="form-group mb-4">
+                                                <label class="form-label text-uppercase fs-xs fw-bold text-secondary ls-1 mb-2">Availability
+                                                    (Weekly)</label>
+                                                <div class="availability-options d-grid gap-2" style="grid-template-columns: repeat(3, 1fr);">
+                                                    <label class="availability-option cursor-pointer">
+                                                        <input type="radio" name="availability" value="1-5" class="d-none">
+                                                        <div class="availability-content card h-100 border-2 text-center p-2 rounded-3 transition-all">
+                                                            <span class="d-block h5 fw-bold m-0">1-5</span>
+                                                            <span class="d-block fs-xs text-secondary">Hrs</span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="availability-option cursor-pointer">
+                                                        <input type="radio" name="availability" value="5-10" checked class="d-none">
+                                                        <div class="availability-content card h-100 border-2 text-center p-2 rounded-3 transition-all">
+                                                            <span class="d-block h5 fw-bold m-0">5-10</span>
+                                                            <span class="d-block fs-xs text-secondary">Hrs</span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="availability-option cursor-pointer">
+                                                        <input type="radio" name="availability" value="10+" class="d-none">
+                                                        <div class="availability-content card h-100 border-2 text-center p-2 rounded-3 transition-all">
+                                                            <span class="d-block h5 fw-bold m-0">10+</span>
+                                                            <span class="d-block fs-xs text-secondary">Hrs</span>
+                                                        </div>
+                                                    </label>
                                                 </div>
-                                                </div>
-                                                </div>
-                                                
-                                                <div class="form-group mb-4">
-                                        <label class="form-label text-uppercase fs-xs fw-bold text-secondary ls-1 mb-2">Availability
-                                            (Weekly)</label>
-                                        <div class="availability-options d-grid gap-2" style="grid-template-columns: repeat(3, 1fr);">
-                                            <label class="availability-option cursor-pointer">
-                                                <input type="radio" name="availability" value="1-5" class="d-none">
-                                                <div class="availability-content card h-100 border-2 text-center p-2 rounded-3 transition-all">
-                                                    <span class="d-block h5 fw-bold m-0">1-5</span>
-                                                    <span class="d-block fs-xs text-secondary">Hrs</span>
-                                                </div>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <textarea id="volunteerMotivation" rows="3" class="form-control bg-light border-0 p-3 rounded-3"
+                                                    placeholder="What motivates you to join us?" required></textarea>
+                                            </div>
+                                            
+                                            <div class="form-check mb-4">
+                                                <input type="checkbox" id="agreeTerms" class="form-check-input term-check" required>
+                                                <label for="agreeTerms" class="form-check-label small text-secondary">
+                                                    I agree to the <a href="#" class="link-primary fw-bold text-decoration-none">Terms</a>.
                                                 </label>
-                                                <label class="availability-option cursor-pointer">
-                                                    <input type="radio" name="availability" value="5-10" checked class="d-none">
-                                                <div class="availability-content card h-100 border-2 text-center p-2 rounded-3 transition-all">
-                                                    <span class="d-block h5 fw-bold m-0">5-10</span>
-                                                    <span class="d-block fs-xs text-secondary">Hrs</span>
-                                                </div>
-                                                </label>
-                                                <label class="availability-option cursor-pointer">
-                                                    <input type="radio" name="availability" value="10+" class="d-none">
-                                                <div class="availability-content card h-100 border-2 text-center p-2 rounded-3 transition-all">
-                                                    <span class="d-block h5 fw-bold m-0">10+</span>
-                                                    <span class="d-block fs-xs text-secondary">Hrs</span>
-                                                </div>
-                                                </label>
-                                                </div>
-                                                </div>
-                                    <div class="form-group mb-4">
-                                        <textarea id="volunteerMotivation" rows="3" class="form-control bg-light border-0 p-3 rounded-3"
-                                            placeholder="What motivates you to join us?" required></textarea>
-                                        </div>
-                                        
-                                        <div class="form-check mb-4">
-                                            <input type="checkbox" id="agreeTerms" class="form-check-input term-check" required>
-                                            <label for="agreeTerms" class="form-check-label small text-secondary">
-                                            I agree to the <a href="#" class="link-primary fw-bold text-decoration-none">Terms</a>.
-                                            </label>
                                             </div>
                                             
                                             <button type="submit"

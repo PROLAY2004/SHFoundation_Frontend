@@ -16,6 +16,7 @@ const profileElements = {
 	spinnerContainer: document.getElementById('spinnerContainer'),
 	updateImageBtn: document.getElementById('updateImageBtn'),
 	changeImageModal: document.getElementById('changeImageModal'),
+	newsletterForm: document.getElementById('newsletterForm'),
 };
 
 export default profileElements;
