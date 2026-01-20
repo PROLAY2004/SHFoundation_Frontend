@@ -17,6 +17,7 @@ const profileElements = {
 	updateImageBtn: document.getElementById('updateImageBtn'),
 	changeImageModal: document.getElementById('changeImageModal'),
 	newsletterForm: document.getElementById('newsletterForm'),
+	adminBtn: document.getElementById('adminBtn'),
 };
 
 export default profileElements;

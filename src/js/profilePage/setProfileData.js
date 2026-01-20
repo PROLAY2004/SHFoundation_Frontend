@@ -4,7 +4,7 @@ import profileElements from './profileSelector.js';
 export default function setData(data) {
 	clearData();
 
-	const { imagePath, name, email } = data.user;
+	const { imagePath, name, email, role } = data.user;
 	const image = `https://ui-avatars.com/api/?name=${name.split(' ').join('+')}&background=2c8c99&color=fff&size=200`;
 	const originalType = data.newsLetterDetails.type;
 
@@ -12,6 +12,11 @@ export default function setData(data) {
 	profileElements.userName.textContent = name;
 	profileElements.userEmail.textContent = email;
 	profileElements.editName.value = name;
+
+	if (role === 'admin') {
+		profileElements.adminBtn.classList.remove('d-none');
+		profileElements.logoutBtn.classList.add('d-none');
+	}
 
 	profileElements.newsLetter.forEach((radio) => {
 		radio.checked = false;
