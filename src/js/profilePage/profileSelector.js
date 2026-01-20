@@ -11,6 +11,11 @@ const profileElements = {
 	editProfileForm: document.getElementById('editProfileForm'),
 	editCancelBtn: document.getElementById('editCancelBtn'),
 	editBtn: document.getElementById('editBtn'),
+	changeImageForm: document.getElementById('changeImageForm'),
+	imageInput: document.getElementById('imageInput'),
+	spinnerContainer: document.getElementById('spinnerContainer'),
+	updateImageBtn: document.getElementById('updateImageBtn'),
+	changeImageModal: document.getElementById('changeImageModal'),
 };
 
 export default profileElements;

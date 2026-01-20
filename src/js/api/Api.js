@@ -1,16 +1,19 @@
 export default class Api {
-	postApi = async (url, reqBody = {}) => {
+	postApi = async (url, token, reqBody = {}) => {
 		try {
 			const res = await fetch(url, {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
+				headers: {
+					Authorization: `Bearer ${token}`,
+					'Content-Type': 'application/json',
+				},
 				body: JSON.stringify(reqBody),
 			});
 
 			return res;
 		} catch (err) {
 			console.log(err.message);
-			
+
 			throw new Error(err);
 		}
 	};
@@ -20,7 +23,7 @@ export default class Api {
 			const res = await fetch(url, {
 				method: 'PATCH',
 				headers: {
-					'Authorization': `Bearer ${token}`,
+					Authorization: `Bearer ${token}`,
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify(reqBody),
@@ -33,14 +36,14 @@ export default class Api {
 	};
 
 	getApi = async (url, token) => {
-		try {			
+		try {
 			const res = await fetch(url, {
 				method: 'GET',
-				headers: { 'Authorization': `Bearer ${token}` },
-			});			
+				headers: { Authorization: `Bearer ${token}` },
+			});
 
 			return res;
-		} catch (err) {			
+		} catch (err) {
 			throw new Error(err);
 		}
 	};

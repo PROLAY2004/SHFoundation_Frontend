@@ -17,6 +17,7 @@ export default async function apiInterceptor(method, endpoint, body = null) {
 			case 'POST':
 				response = await api.postApi(
 					`${configaration.BASE_URL}${endpoint}`,
+					access_token,
 					body,
 				);
 				break;
