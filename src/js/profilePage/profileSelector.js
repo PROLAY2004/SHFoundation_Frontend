@@ -18,6 +18,8 @@ const profileElements = {
 	changeImageModal: document.getElementById('changeImageModal'),
 	newsletterForm: document.getElementById('newsletterForm'),
 	adminBtn: document.getElementById('adminBtn'),
+	termModalBody: document.getElementById('termModalBody'),
+	profileHeader : document.getElementById('profileHeader'),
 };
 
 export default profileElements;
