@@ -9,6 +9,9 @@ export default async function updateProfileData(e) {
 	try {
 		e.preventDefault();
 
+		profileElements.updateSpinner.innerHTML = `<div class="spinner-border spinner-border-sm text-white" role="status"></div>`;
+		profileElements.editBtn.classList.add('disabled');
+
 		const response = await apiInterceptor(`PATCH`, `/user/account/updateData`, {
 			name: profileElements.editName.value.trim(),
 		});
@@ -29,6 +32,9 @@ export default async function updateProfileData(e) {
 			err.message,
 		);
 	} finally {
+		profileElements.updateSpinner.innerHTML = ``;
+		profileElements.editBtn.classList.remove('disabled');
+
 		setTimeout(() => {
 			profileElements.toastSection.innerHTML = '';
 		}, 3000);

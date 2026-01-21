@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	landingPageBody.style.display = 'block';
 
 	if (isAuthenticated()) {
-		mainLoginBtn.innerHTML = 'Dashboard';
+		mainLoginBtn.innerHTML = 'Profile';
 	}
 });
 

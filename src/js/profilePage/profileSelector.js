@@ -19,7 +19,15 @@ const profileElements = {
 	newsletterForm: document.getElementById('newsletterForm'),
 	adminBtn: document.getElementById('adminBtn'),
 	termModalBody: document.getElementById('termModalBody'),
-	newsletterSpinnerContainer : document.getElementById('newsletterSpinnerContainer'),
+	newsletterSpinnerContainer: document.getElementById('newsSpinnerContainer'),
+	termAcceptBtn: document.getElementById('termAcceptBtn'),
+	agreeTerms: document.getElementById('agreeTerms'),
+	termsModal: document.getElementById('termsModal'),
+	volunteerForm: document.getElementById('volunteerForm'),
+	volunteerMotivation: document.getElementById('volunteerMotivation'),
+	voluenteerBtn: document.getElementById('voluenteerBtn'),
+	voluenteerSpinner: document.getElementById('voluenteerSpinner'),
+	updateSpinner: document.getElementById('updateSpinner'),
 };
 
 export default profileElements;

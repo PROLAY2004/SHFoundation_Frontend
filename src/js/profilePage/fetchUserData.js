@@ -1,7 +1,7 @@
 import apiInterceptor from '../api/interceptor.js';
 import profileElements from './profileSelector.js';
 import setData from './setProfileData.js';
-import displayTerm from '../templates/Profile/termTemplate.js';
+import displayTerm from '../templates/profile/termTemplate.js';
 
 export default async function displayProfileData() {
 	try {

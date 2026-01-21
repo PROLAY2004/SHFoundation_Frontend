@@ -1,6 +1,9 @@
 export default class Api {
 	postApi = async (url, token, reqBody = {}) => {
 		try {
+
+			console.log(url, token, reqBody);
+			
 			const res = await fetch(url, {
 				method: 'POST',
 				headers: {
@@ -12,8 +15,6 @@ export default class Api {
 
 			return res;
 		} catch (err) {
-			console.log(err.message);
-
 			throw new Error(err);
 		}
 	};

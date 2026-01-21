@@ -19,6 +19,9 @@ export default async function displayCard(token) {
 				resetForm.classList.remove('d-none');
 				tokenExpiredCard.classList.add('d-none');
 			}
+			else{
+				tokenExpiredCard.classList.remove('d-none');
+			}
 		} catch (error) {
 			tokenExpiredCard.classList.add('d-none');
 		}

@@ -28,6 +28,7 @@ export default async function userRegistration(e) {
 
 		const response = await api.postApi(
 			`${configaration.BASE_URL}/user/auth/signup`,
+			null,
 			userData
 		);
 

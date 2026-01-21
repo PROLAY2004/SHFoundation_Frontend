@@ -7,7 +7,7 @@ const displayToast = new Templates();
 const api = new Api();
 
 const toastSection = document.getElementById('toastSection');
-const loginEmial = document.getElementById('loginEmial');
+const loginEmail = document.getElementById('loginEmail');
 const loginPassword = document.getElementById('loginPassword');
 const loginForm = document.getElementById('loginForm');
 const signinBtn = document.getElementById('signinBtn');
@@ -18,7 +18,7 @@ export default async function userLogin(e) {
 		e.preventDefault();
 
 		const userData = {
-			email: loginEmial.value.trim(),
+			email: loginEmail.value.trim(),
 			password: loginPassword.value.trim(),
 		};
 
@@ -27,6 +27,7 @@ export default async function userLogin(e) {
 
 		const response = await api.postApi(
 			`${configaration.BASE_URL}/user/auth/login`,
+			null,
 			userData,
 		);
 

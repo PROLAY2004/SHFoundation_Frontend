@@ -19,6 +19,7 @@ export default async function resetFormHandler(e) {
 
 		const response = await api.postApi(
 			`${configaration.BASE_URL}/user/auth/forgot-password`,
+			null,
 			{ email: resetEmail.value.trim() }
 		);
 
