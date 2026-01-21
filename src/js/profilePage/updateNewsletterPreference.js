@@ -9,6 +9,9 @@ export default async function updateNewsletterPreference(e) {
 	try {
 		e.preventDefault();
 
+		profileElements.newsletterSpinnerContainer.innerHTML = `<div class="spinner-border spinner-border-sm text-white" role="status"></div>`;
+		profileElements.newsLetterSaveBtn.classList.add('disabled');
+
 		const selected = document.querySelector(
 			'input[name="newsletter"]:checked',
 		)?.value;
@@ -39,6 +42,9 @@ export default async function updateNewsletterPreference(e) {
 			err.message,
 		);
 	} finally {
+		profileElements.newsletterSpinnerContainer.innerHTML = ``;
+		profileElements.newsLetterSaveBtn.classList.remove('disabled');
+		
 		setTimeout(() => {
 			profileElements.toastSection.innerHTML = '';
 		}, 3000);

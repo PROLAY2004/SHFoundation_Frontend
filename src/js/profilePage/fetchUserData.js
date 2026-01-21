@@ -1,12 +1,12 @@
 import apiInterceptor from '../api/interceptor.js';
 import profileElements from './profileSelector.js';
 import setData from './setProfileData.js';
-import render from './renderProfilePage.js';
+import displayTerm from '../templates/Profile/termTemplate.js';
 
 export default async function displayProfileData() {
 	try {
-		render();
-		
+		profileElements.termModalBody.innerHTML = displayTerm();
+
 		const response = await apiInterceptor(`GET`, `/user/account/getUserData`);
 		const result = await response.json();
 

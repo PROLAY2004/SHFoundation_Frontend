@@ -19,7 +19,7 @@ const profileElements = {
 	newsletterForm: document.getElementById('newsletterForm'),
 	adminBtn: document.getElementById('adminBtn'),
 	termModalBody: document.getElementById('termModalBody'),
-	profileHeader : document.getElementById('profileHeader'),
+	newsletterSpinnerContainer : document.getElementById('newsletterSpinnerContainer'),
 };
 
 export default profileElements;
