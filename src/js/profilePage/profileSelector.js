@@ -29,6 +29,8 @@ const profileElements = {
 	voluenteerSpinner: document.getElementById('voluenteerSpinner'),
 	updateSpinner: document.getElementById('updateSpinner'),
 	textCount: document.getElementById('textCount'),
+	imagePreview: document.getElementById('imagePreview'),
+	previewContainer : document.getElementById('previewContainer'),
 };
 
 export default profileElements;

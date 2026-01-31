@@ -7,4 +7,6 @@ export default function clearData() {
 	profileElements.editName.value = '';
 	profileElements.editBtn.classList.add('disabled');
 	profileElements.newsLetterSaveBtn.classList.add('disabled');
+	profileElements.imagePreview.src = '';
+	profileElements.previewContainer.classList.add('d-none');
 }
