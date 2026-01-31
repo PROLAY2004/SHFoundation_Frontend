@@ -7,7 +7,7 @@ import Templates from '../common/Templates.js';
 const termsModal = new bootstrap.Modal(profileElements.termsModal);
 const displayToast = new Templates();
 
-const acceptTermsAndConditions = () => {
+const acceptTerms = () => {
 	profileElements.agreeTerms.checked = true;
 	termsModal.hide();
 };
@@ -56,4 +56,4 @@ const submitVolunteerForm = async (e) => {
 	}
 };
 
-export { acceptTermsAndConditions, submitVolunteerForm };
+export { acceptTerms, submitVolunteerForm };

@@ -39,13 +39,13 @@
                         <span class="d-none d-sm-inline">Go Back</span>
                     </a>
 
-                    <a href="#" class="btn btn-primary rounded-pill px-4 py-2 d-none hover-lift" id="adminBtn">
+                    <a href="/src/pages/admin/dashboard.html" class="btn btn-primary rounded-pill px-4 py-2 d-none hover-lift" id="adminBtn">
                         <i class="fas fa-cog me-2"></i>Admin
                     </a>
 
                     <button
                         class="btn btn-outline-danger rounded-pill px-4 py-2 d-flex align-items-center gap-2 hover-lift"
-                        onclick="logout()">
+                        onclick="logout()" id="logoutBtn">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="d-none d-sm-inline">Logout</span>
                     </button>
@@ -392,11 +392,11 @@
                                     Your Motivation
                                 </label>
                                 <div class="motivation-textarea position-relative">
-                                    <textarea id="volunteerMotivation" rows="4"
+                                    <textarea id="volunteerMotivation" rows="4" maxlength="500"
                                         class="form-control border-0 bg-light rounded-3 p-4"
                                         placeholder="What inspires you to volunteer with us? Share your passion and motivation..."
                                         required></textarea>
-                                    <div class="textarea-char-count small text-muted mt-2 text-end">0/500</div>
+                                    <div class="textarea-char-count small text-muted mt-2 text-end" id="textCount">0/500</div>
                                 </div>
                             </div>
 

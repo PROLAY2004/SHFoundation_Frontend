@@ -33,3 +33,11 @@ $btn-radius: 12px;
 $input-bg: #f8f9fa;
 $shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.05);
 $shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+
+// --- Modern Variables ---
+$card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+$card-hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+$header-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+$element-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+$primary-gradient: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 15%) 100%);
+$warning-gradient: linear-gradient(135deg, $secondary-color 0%, darken($secondary-color, 10%) 100%);

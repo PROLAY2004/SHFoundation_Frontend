@@ -7,6 +7,7 @@ const profileElements = {
 	newsLetter: document.querySelectorAll('input[name="newsletter"]'),
 	newsLetterSaveBtn: document.getElementById('newsLetterSaveBtn'),
 	toastSection: document.getElementById('toastSection'),
+	logoutBtn: document.getElementById('logoutBtn'),
 	editProfileForm: document.getElementById('editProfileForm'),
 	editCancelBtn: document.getElementById('editCancelBtn'),
 	editBtn: document.getElementById('editBtn'),
@@ -27,6 +28,7 @@ const profileElements = {
 	voluenteerBtn: document.getElementById('voluenteerBtn'),
 	voluenteerSpinner: document.getElementById('voluenteerSpinner'),
 	updateSpinner: document.getElementById('updateSpinner'),
+	textCount: document.getElementById('textCount'),
 };
 
 export default profileElements;
