@@ -2,8 +2,7 @@ import * as bootstrap from 'bootstrap';
 
 import '../../../scss/admin/dashboard.scss';
 
-import dashboardElements from './dashboardSelector.js';
+import adminDashboardVisualization from './fetchDashboardData.js';
+import '../../utils/userLogout.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    dashboardElements.dashboardBody.style.display = 'block';
-});
+document.addEventListener('DOMContentLoaded', adminDashboardVisualization);

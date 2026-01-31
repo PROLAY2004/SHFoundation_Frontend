@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Admin Dashboard</title>
     <link rel="icon" type="image/png" href="../../assets/lcons/favicon.png" />
     <script type="module" src="../../js/admin/dashboardPage/dashboard.js"></script>
@@ -14,73 +14,14 @@
 </head>
 
 <body id="dashboardBody" style="display: none;">
-    <!-- Common Sidebar and Topbar Container -->
+    <div id="toastSection"></div>
+
     <div class="dashboard-wrapper">
         <!-- Sidebar Overlay for Mobile -->
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-brand">
-                <div class="user-avatar">A</div>
-                <h3>AdminPanel</h3>
-            </div>
-
-            <nav class="sidebar-nav">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/src/pages/admin/dashboard.html">
-                            <i class="bi bi-speedometer2"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-files"></i>
-                            <span>Page Management</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-folder"></i>
-                            <span>Project Management</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-calendar-event"></i>
-                            <span>Event Management</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-envelope"></i>
-                            <span>Newsletter</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i>
-                            <span>Volunteer</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-chat-left-text"></i>
-                            <span>Contact Responses</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- Fixed Logout Button at Bottom -->
-            <div class="sidebar-footer">
-                <a class="nav-link logout" href="#">
-                    <i class="bi bi-box-arrow-right"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
-        </aside>
+        <aside class="sidebar" id="dashboardSidebar"></aside>
 
         <!-- Main Content -->
         <main class="main-content" id="mainContent">
@@ -91,9 +32,10 @@
                 </button>
 
                 <div class="topbar-user">
-                    <div class="user-avatar"><img src="https://res.cloudinary.com/deqtoxfnc/image/upload/v1769843459/profile_images/iluu4atayyu3ogmaeddd.jpg" class="w-100 h-100 rounded-circle object-fit-cover" alt=""></div>
+                    <div class="user-avatar"><img id="userImage" class="w-100 h-100 rounded-circle object-fit-cover"
+                            alt="DP"></div>
                     <div>
-                        <h6 class="mb-0">John Doe</h6>
+                        <h6 class="mb-0 fw-semibold" id="userName"></h6>
                         <small class="text-muted">Administrator</small>
                     </div>
                 </div>
@@ -127,14 +69,17 @@
                             <div class="icon-wrapper">
                                 <i class="bi bi-people-fill" style="font-size: 1.5rem;"></i>
                             </div>
-                            <h3>1,248</h3>
+                            <h3 id="totalUsers">00</h3>
                             <p>Total Users</p>
                             <div class="d-flex justify-content-between mt-3">
-                                <span class="badge badge-pill bg-success-subtle text-success">1,042 Verified</span>
-                                <span class="badge badge-pill bg-warning-subtle text-warning">206 Pending</span>
+                                <span class="badge badge-pill bg-success-subtle text-success"><span
+                                        id="totalUsersVerified">0</span> Verified</span>
+                                <span class="badge badge-pill bg-warning-subtle text-warning"><span
+                                        id="totalUsersPending">0</span> Pending</span>
                             </div>
                         </div>
                     </div>
+
 
                     <!-- Newsletter Users Card -->
                     <div class="col-xl-3 col-sm-6">
@@ -142,11 +87,11 @@
                             <div class="icon-wrapper">
                                 <i class="bi bi-envelope-fill" style="font-size: 1.5rem;"></i>
                             </div>
-                            <h3>3,567</h3>
+                            <h3 id="totalNewsletter">00</h3>
                             <p>Newsletter Subscribers</p>
                             <div class="d-flex justify-content-between mt-3">
-                                <span class="badge badge-pill bg-success-subtle text-success">3,210 Active</span>
-                                <span class="badge badge-pill bg-light text-secondary">357 Inactive</span>
+                                <span class="badge badge-pill bg-success-subtle text-success"><span id="activeNewsLetter">00</span> Active</span>
+                                <span class="badge badge-pill bg-danger-subtle text-danger"><span id="blockedNewsLetter">00</span> Blocked</span>
                             </div>
                         </div>
                     </div>
@@ -157,11 +102,11 @@
                             <div class="icon-wrapper">
                                 <i class="bi bi-person-badge-fill" style="font-size: 1.5rem;"></i>
                             </div>
-                            <h3>89</h3>
+                            <h3 id="totalVoluenteer">00</h3>
                             <p>Volunteer Requests</p>
                             <div class="d-flex justify-content-between mt-3">
-                                <span class="badge badge-pill bg-warning-subtle text-warning">42 Pending</span>
-                                <span class="badge badge-pill bg-success-subtle text-success">32 Approved</span>
+                                <span class="badge badge-pill bg-warning-subtle text-warning"><span id="pendingVoluenteer">00</span> Pending</span>
+                                <span class="badge badge-pill bg-success-subtle text-success"><span id="approvedVoluenteer">00</span> Approved</span>
                             </div>
                         </div>
                     </div>
@@ -185,7 +130,7 @@
                 <!-- Charts and Additional Stats -->
                 <div class="row g-4 mt-3 px-3 pb-5">
                     <!-- User Verification Chart -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                         <div class="chart-card">
                             <div class="chart-card-header">
                                 <h4>User Verification Status</h4>
@@ -208,7 +153,7 @@
                     </div>
 
                     <!-- Newsletter Subscription Chart -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                         <div class="chart-card">
                             <div class="chart-card-header">
                                 <h4>Newsletter Subscription Growth</h4>
@@ -281,24 +226,10 @@
                                 </div>
                                 <div class="request-item">
                                     <div class="request-info">
-                                        <h6>Robert Chen</h6>
-                                        <p>Applied for Youth Mentorship • 3 days ago</p>
-                                    </div>
-                                    <div class="request-status status-pending">Pending</div>
-                                </div>
-                                <div class="request-item">
-                                    <div class="request-info">
                                         <h6>Lisa Rodriguez</h6>
                                         <p>Applied for Food Bank Assistance • 2 weeks ago</p>
                                     </div>
                                     <div class="request-status status-rejected">Rejected</div>
-                                </div>
-                                <div class="request-item">
-                                    <div class="request-info">
-                                        <h6>David Kim</h6>
-                                        <p>Applied for Tech Workshop Volunteer • 5 days ago</p>
-                                    </div>
-                                    <div class="request-status status-approved">Approved</div>
                                 </div>
                             </div>
                         </div>
@@ -310,39 +241,33 @@
 
     <script>
         // Toggle sidebar on mobile with overlay
-        // const sidebarToggle = document.getElementById('sidebarToggle');
-        // const sidebar = document.querySelector('.sidebar');
-        // const sidebarOverlay = document.getElementById('sidebarOverlay');
-        // const mainContent = document.getElementById('mainContent');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const mainContent = document.getElementById('mainContent');
 
-        // function toggleSidebar() {
-        //     sidebar.classList.toggle('active');
-        //     sidebarOverlay.classList.toggle('active');
-        // }
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        }
 
-        // function closeSidebar() {
-        //     sidebar.classList.remove('active');
-        //     sidebarOverlay.classList.remove('active');
-        // }
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        }
 
-        // sidebarToggle.addEventListener('click', toggleSidebar);
-        // sidebarOverlay.addEventListener('click', closeSidebar);
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
 
-        // // Close sidebar when clicking on a nav link on mobile
-        // const navLinks = document.querySelectorAll('.nav-link');
-        // navLinks.forEach(link => {
-        //     link.addEventListener('click', function () {
-        //         if (window.innerWidth < 992) {
-        //             closeSidebar();
-        //         }
-
-        //         if (!this.classList.contains('logout')) {
-        //             event.preventDefault();
-        //             navLinks.forEach(item => item.classList.remove('active'));
-        //             this.classList.add('active');
-        //         }
-        //     });
-        // });
+        // Close sidebar when clicking on a nav link on mobile
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 992) {
+                    closeSidebar();
+                }
+            });
+        });
 
         // Initialize charts
         document.addEventListener('DOMContentLoaded', function () {
