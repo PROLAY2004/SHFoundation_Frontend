@@ -8,7 +8,7 @@ export default async function adminDashboardVisualization() {
 		dashboardElements.dashboardSidebar.innerHTML = displaySidebar();
 
 		const response = await apiInterceptor(`GET`, `/user/admin/dashboard`);
-		const result = await response.json();     
+		const result = await response.json();
 
 		setDashboardData(result.data);
 	} catch (error) {

@@ -9,8 +9,6 @@
     <script type="module" src="../../js/admin/dashboardPage/dashboard.js"></script>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <!-- Chart.js for charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body id="dashboardBody" style="display: none;">
@@ -48,10 +46,7 @@
 
                 <div class="quick-actions">
                     <a href="#" class="quick-action-btn">
-                        <i class="bi bi-envelope-plus"></i> Send Newsletter
-                    </a>
-                    <a href="#" class="quick-action-btn">
-                        <i class="bi bi-clock-history"></i> View Recent Activity
+                        <i class="bi bi-person"></i> Manage Users
                     </a>
                     <a href="#" class="quick-action-btn">
                         <i class="bi bi-graph-up"></i> Generate Report
@@ -62,7 +57,7 @@
             <!-- Dashboard Content -->
             <div class="container-fluid">
                 <!-- Stats Cards -->
-                <div class="row g-4 px-3">
+                <div class="row g-4 px-md-3">
                     <!-- Users Card -->
                     <div class="col-xl-3 col-sm-6">
                         <div class="stat-card">
@@ -90,8 +85,10 @@
                             <h3 id="totalNewsletter">00</h3>
                             <p>Newsletter Subscribers</p>
                             <div class="d-flex justify-content-between mt-3">
-                                <span class="badge badge-pill bg-success-subtle text-success"><span id="activeNewsLetter">00</span> Active</span>
-                                <span class="badge badge-pill bg-danger-subtle text-danger"><span id="blockedNewsLetter">00</span> Blocked</span>
+                                <span class="badge badge-pill bg-success-subtle text-success"><span
+                                        id="activeNewsLetter">00</span> Active</span>
+                                <span class="badge badge-pill bg-danger-subtle text-danger"><span
+                                        id="blockedNewsLetter">00</span> Blocked</span>
                             </div>
                         </div>
                     </div>
@@ -105,8 +102,10 @@
                             <h3 id="totalVoluenteer">00</h3>
                             <p>Volunteer Requests</p>
                             <div class="d-flex justify-content-between mt-3">
-                                <span class="badge badge-pill bg-warning-subtle text-warning"><span id="pendingVoluenteer">00</span> Pending</span>
-                                <span class="badge badge-pill bg-success-subtle text-success"><span id="approvedVoluenteer">00</span> Approved</span>
+                                <span class="badge badge-pill bg-warning-subtle text-warning"><span
+                                        id="pendingVoluenteer">00</span> Pending</span>
+                                <span class="badge badge-pill bg-success-subtle text-success"><span
+                                        id="approvedVoluenteer">00</span> Approved</span>
                             </div>
                         </div>
                     </div>
@@ -117,34 +116,26 @@
                             <div class="icon-wrapper">
                                 <i class="bi bi-chat-left-text-fill" style="font-size: 1.5rem;"></i>
                             </div>
-                            <h3>156</h3>
+                            <h3>Null</h3>
                             <p>Contact Responses</p>
                             <div class="d-flex justify-content-between mt-3">
-                                <span class="badge badge-pill bg-primary-subtle text-primary">48 New</span>
-                                <span class="badge badge-pill bg-info-subtle text-info">67 In Progress</span>
+                                <span class="badge badge-pill bg-primary-subtle text-primary">Null New</span>
+                                <span class="badge badge-pill bg-info-subtle text-info">Null In Progress</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Charts and Additional Stats -->
-                <div class="row g-4 mt-3 px-3 pb-5">
+                <div class="row g-4 mt-3 px-md-3 pb-5">
                     <!-- User Verification Chart -->
-                    <div class="col-lg-5">
+                    <div class="col-md-6">
                         <div class="chart-card">
                             <div class="chart-card-header">
-                                <h4>User Verification Status</h4>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown">
-                                        This Month
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">This Week</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                                    </ul>
-                                </div>
+                                <h4>User Status</h4>
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    Show More
+                                </button>
                             </div>
                             <div class="chart-container">
                                 <canvas id="userVerificationChart"></canvas>
@@ -153,24 +144,16 @@
                     </div>
 
                     <!-- Newsletter Subscription Chart -->
-                    <div class="col-lg-7">
+                    <div class="col-md-6">
                         <div class="chart-card">
                             <div class="chart-card-header">
-                                <h4>Newsletter Subscription Growth</h4>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown">
-                                        This Year
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">This Week</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                                    </ul>
-                                </div>
+                                <h4>Newsletter Status</h4>
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    Show More
+                                </button>
                             </div>
                             <div class="chart-container">
-                                <canvas id="newsletterChart"></canvas>
+                                <canvas id="newsletterChart" class="w-100"></canvas>
                             </div>
                         </div>
                     </div>
@@ -180,24 +163,24 @@
                         <div class="additional-stats">
                             <h5 class="mb-3">Platform Statistics</h5>
                             <div class="stat-item">
-                                <span class="stat-label">Active Projects</span>
-                                <span class="stat-value">24</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Upcoming Events</span>
-                                <span class="stat-value">7</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Avg. Response Time</span>
-                                <span class="stat-value">2.4 hrs</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">System Uptime</span>
-                                <span class="stat-value">99.8%</span>
-                            </div>
-                            <div class="stat-item">
                                 <span class="stat-label">Storage Used</span>
-                                <span class="stat-value">78%</span>
+                                <span class="stat-value" id="storageUsed">0%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Bandwidth Used</span>
+                                <span class="stat-value" id="bandwidth">0%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Credits Used</span>
+                                <span class="stat-value" id="creditLimit">0%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Media Files</span>
+                                <span class="stat-value" id="assetsCount">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">API Calls Remaining</span>
+                                <span class="stat-value" id="apiLimit">0/0</span>
                             </div>
                         </div>
                     </div>
@@ -207,30 +190,10 @@
                         <div class="chart-card">
                             <div class="chart-card-header">
                                 <h4>Recent Volunteer Requests</h4>
-                                <a href="#" class="btn btn-sm btn-primary">View All</a>
+                                <a href="#" class="btn btn-sm btn-primary">Manage</a>
                             </div>
-                            <div class="request-list">
-                                <div class="request-item">
-                                    <div class="request-info">
-                                        <h6>Michael Johnson</h6>
-                                        <p>Applied for Community Outreach Program • 2 days ago</p>
-                                    </div>
-                                    <div class="request-status status-pending">Pending</div>
-                                </div>
-                                <div class="request-item">
-                                    <div class="request-info">
-                                        <h6>Sarah Williams</h6>
-                                        <p>Applied for Environmental Cleanup • 1 week ago</p>
-                                    </div>
-                                    <div class="request-status status-approved">Approved</div>
-                                </div>
-                                <div class="request-item">
-                                    <div class="request-info">
-                                        <h6>Lisa Rodriguez</h6>
-                                        <p>Applied for Food Bank Assistance • 2 weeks ago</p>
-                                    </div>
-                                    <div class="request-status status-rejected">Rejected</div>
-                                </div>
+                            <div class="request-list" id="voluenteerList">
+                               <!-- Recent Voluenteers -->
                             </div>
                         </div>
                     </div>
@@ -238,219 +201,6 @@
             </div>
         </main>
     </div>
-
-    <script>
-        // Toggle sidebar on mobile with overlay
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-        const mainContent = document.getElementById('mainContent');
-
-        function toggleSidebar() {
-            sidebar.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-        }
-
-        function closeSidebar() {
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-        }
-
-        sidebarToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', closeSidebar);
-
-        // Close sidebar when clicking on a nav link on mobile
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                if (window.innerWidth < 992) {
-                    closeSidebar();
-                }
-            });
-        });
-
-        // Initialize charts
-        document.addEventListener('DOMContentLoaded', function () {
-            // User Verification Chart
-            const userCtx = document.getElementById('userVerificationChart').getContext('2d');
-            const userVerificationChart = new Chart(userCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Verified Users', 'Not Verified'],
-                    datasets: [{
-                        data: [1042, 206],
-                        backgroundColor: [
-                            'rgba(40, 167, 69, 0.8)',
-                            'rgba(255, 140, 66, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(40, 167, 69, 1)',
-                            'rgba(255, 140, 66, 1)'
-                        ],
-                        borderWidth: 2,
-                        hoverOffset: 15
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                padding: 20,
-                                usePointStyle: true,
-                                pointStyle: 'circle',
-                                font: {
-                                    size: window.innerWidth < 768 ? 10 : 12
-                                }
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function (context) {
-                                    let label = context.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    label += context.raw.toLocaleString();
-                                    return label;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Newsletter Subscription Chart
-            const newsletterCtx = document.getElementById('newsletterChart').getContext('2d');
-            const newsletterChart = new Chart(newsletterCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    datasets: [{
-                        label: 'New Subscribers',
-                        data: [120, 190, 300, 500, 700, 800, 900, 1000, 1100, 1300, 1500, 1800],
-                        backgroundColor: 'rgba(44, 140, 153, 0.1)',
-                        borderColor: 'rgba(44, 140, 153, 1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: 'rgba(44, 140, 153, 1)',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: window.innerWidth < 768 ? 3 : 5,
-                        pointHoverRadius: window.innerWidth < 768 ? 5 : 7
-                    }, {
-                        label: 'Total Subscribers',
-                        data: [1200, 1400, 1700, 2200, 2900, 3700, 4500, 5300, 6400, 7700, 9200, 11000],
-                        backgroundColor: 'rgba(255, 140, 66, 0.1)',
-                        borderColor: 'rgba(255, 140, 66, 1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: 'rgba(255, 140, 66, 1)',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: window.innerWidth < 768 ? 3 : 5,
-                        pointHoverRadius: window.innerWidth < 768 ? 5 : 7
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                padding: 20,
-                                usePointStyle: true,
-                                pointStyle: 'circle',
-                                font: {
-                                    size: window.innerWidth < 768 ? 10 : 12
-                                }
-                            }
-                        },
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false,
-                            callbacks: {
-                                label: function (context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    label += context.parsed.y.toLocaleString();
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                drawBorder: false
-                            },
-                            ticks: {
-                                callback: function (value) {
-                                    if (value >= 1000) {
-                                        return (value / 1000) + 'k';
-                                    }
-                                    return value;
-                                },
-                                font: {
-                                    size: window.innerWidth < 768 ? 10 : 12
-                                }
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                font: {
-                                    size: window.innerWidth < 768 ? 10 : 12
-                                }
-                            }
-                        }
-                    },
-                    interaction: {
-                        intersect: false,
-                        mode: 'index'
-                    }
-                }
-            });
-
-            // Handle window resize for charts
-            let resizeTimeout;
-            window.addEventListener('resize', function () {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(function () {
-                    userVerificationChart.resize();
-                    newsletterChart.resize();
-
-                    // Update font sizes on resize
-                    userVerificationChart.options.plugins.legend.labels.font.size = window.innerWidth < 768 ? 10 : 12;
-                    newsletterChart.options.plugins.legend.labels.font.size = window.innerWidth < 768 ? 10 : 12;
-                    newsletterChart.options.scales.y.ticks.font.size = window.innerWidth < 768 ? 10 : 12;
-                    newsletterChart.options.scales.x.ticks.font.size = window.innerWidth < 768 ? 10 : 12;
-
-                    // Update point radius for line chart
-                    const pointRadius = window.innerWidth < 768 ? 3 : 5;
-                    const pointHoverRadius = window.innerWidth < 768 ? 5 : 7;
-
-                    newsletterChart.data.datasets.forEach(dataset => {
-                        dataset.pointRadius = pointRadius;
-                        dataset.pointHoverRadius = pointHoverRadius;
-                    });
-
-                    userVerificationChart.update();
-                    newsletterChart.update();
-                }, 250);
-            });
-        });
-    </script>
 </body>
 
 </html>

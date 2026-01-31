@@ -1,10 +1,28 @@
 import dashboardElements from './dashboardSelector.js';
+import newsChart from './displayNewsletterChart.js';
+import userChart from './displayUserChart.js';
+import voluenteerTemplate from '../../templates/admin/VoluenteerTemplate.js';
+
+const volenteerList = new voluenteerTemplate();
 
 export default function setDashboardData(data) {
 	const name = data.currentUser.name;
-	const userCount = data.allUsers.length;
+	const userCount = data.allUsersCount;
+	const verifiedCount = data.verifiedCount;
+	const pendingCount = data.pendingCount;
 	const newsCount = data.newsLetters.length;
 	const voluenteerCount = data.volunteers.length;
+	const activeNewsCount = data.activeNewsletter;
+	const blockedNewsCount = data.blockedNewsletter;
+	const usage = data.usage;
+	const LIMIT = 25 * 1024 * 1024 * 1024;
+	const totalAssets = usage.resources;
+	const storagePercent = ((usage.storage.usage / LIMIT) * 100).toFixed(2);
+	const bandwidthPercent = ((usage.bandwidth.usage / LIMIT) * 100).toFixed(2);
+	const apiRemaining = usage.rate_limit_remaining;
+	const apiLimit = usage.rate_limit_allowed;
+    const creditsUsedPercent = usage.credits.used_percent;
+
 	const image = `https://ui-avatars.com/api/?name=${name.split(' ').join('+')}&background=2c8c99&color=fff&size=200`;
 
 	//topbar details
@@ -13,13 +31,19 @@ export default function setDashboardData(data) {
 
 	//user cards details
 	dashboardElements.totalUsers.innerHTML = String(userCount).padStart(2, '0');
-	dashboardElements.totalUsersVerified.innerHTML = data.verifiedCount;
-	dashboardElements.totalUsersPending.innerHTML = data.pendingCount;
+	dashboardElements.totalUsersVerified.innerHTML = verifiedCount;
+	dashboardElements.totalUsersPending.innerHTML = pendingCount;
+	userChart(userCount, verifiedCount, pendingCount);
 
 	// newsletter card details
 	dashboardElements.totalNews.innerHTML = String(newsCount).padStart(2, '0');
-	dashboardElements.activeNews.innerHTML = data.activeNewsletter;
-	dashboardElements.blockedNews.innerHTML = data.blockedNewsletter;
+	dashboardElements.activeNews.innerHTML = activeNewsCount;
+	dashboardElements.blockedNews.innerHTML = blockedNewsCount;
+	newsChart(
+		activeNewsCount,
+		newsCount - activeNewsCount - blockedNewsCount,
+		blockedNewsCount,
+	);
 
 	//voluenteer card detsils
 	dashboardElements.totalVoluenteer.innerHTML = String(
@@ -28,8 +52,18 @@ export default function setDashboardData(data) {
 	dashboardElements.approvedVoluenteer.innerHTML = data.approvedVoluenteer;
 	dashboardElements.pendingVoluenteer.innerHTML = data.pendingVoluenteer;
 
-    
-	console.log(data);
+	// voluenteer list
+	for (let i = voluenteerCount - 1; i > voluenteerCount - 4; i--) {
+		dashboardElements.voluenteerList.innerHTML +=
+			volenteerList.recentVoluenteer(data.volunteers[i]);
+	}
+
+	// platform details
+	dashboardElements.storageUsed.innerHTML = `${storagePercent}%`;
+	dashboardElements.bandwidth.innerHTML = `${bandwidthPercent}%`;
+	dashboardElements.assetsCount.innerHTML = `${totalAssets}`;
+	dashboardElements.apiLimit.innerHTML = `${apiRemaining} / ${apiLimit}`;
+    dashboardElements.creditLimit.innerHTML = `${creditsUsedPercent}%`;
 
 	dashboardElements.dashboardBody.style.display = 'block';
 }

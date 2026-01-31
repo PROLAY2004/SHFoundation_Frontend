@@ -12,6 +12,17 @@ const dashboardElements = {
 	totalVoluenteer: document.getElementById('totalVoluenteer'),
 	pendingVoluenteer: document.getElementById('pendingVoluenteer'),
 	approvedVoluenteer: document.getElementById('approvedVoluenteer'),
+	sidebarToggle: document.getElementById('sidebarToggle'),
+	sidebarOverlay: document.getElementById('sidebarOverlay'),
+	sidebar: document.querySelector('.sidebar'),
+	userVerificationChart: document.getElementById('userVerificationChart'),
+	newsletterChart: document.getElementById('newsletterChart'),
+	voluenteerList: document.getElementById('voluenteerList'),
+	storageUsed: document.getElementById('storageUsed'),
+	bandwidth: document.getElementById('bandwidth'),
+	assetsCount: document.getElementById('assetsCount'),
+	apiLimit: document.getElementById('apiLimit'),
+	creditLimit: document.getElementById('creditLimit'),
 };
 
 export default dashboardElements;
