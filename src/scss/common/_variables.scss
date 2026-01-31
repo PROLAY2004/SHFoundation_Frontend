@@ -41,3 +41,15 @@ $header-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 $element-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 $primary-gradient: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 15%) 100%);
 $warning-gradient: linear-gradient(135deg, $secondary-color 0%, darken($secondary-color, 10%) 100%);
+
+/* Modern Variables */
+$blur-bg: rgba(255, 255, 255, 0.85);
+$card-radius: 24px;
+$btn-radius: 12px;
+$input-bg: #f8f9fa;
+$shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.05);
+$shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+$header-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+$element-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+$primary-gradient: linear-gradient(135deg, #2c8c99 0%, #3aa5b5 100%);
+$warning-gradient: linear-gradient(135deg, #ff8c42 0%, #ffa566 100%);

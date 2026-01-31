@@ -1,0 +1,333 @@
+// Import all of Bootstrap’s CSS
+@import 'bootstrap/scss/bootstrap';
+@import '../common/root';
+@import './sidebar';
+
+
+/* Common Container Styles */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    transition: $transition;
+}
+
+
+
+/* Topbar */
+.topbar {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    box-shadow: $header-shadow;
+    position: sticky;
+    top: 0;
+    z-index: 98;
+}
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $primary-gradient;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    padding: 1.5rem;
+}
+
+.dashboard-header h1 {
+    font-family: $font-heading;
+    font-weight: 700;
+    color: $dark-color;
+}
+
+.dashboard-header p {
+    color: $gray-color;
+    margin-bottom: 0;
+}
+
+/* Enhanced Cards */
+.stat-card {
+    background-color: white;
+    border-radius: $card-radius;
+    box-shadow: $card-shadow;
+    padding: 1.75rem;
+    transition: $transition;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat-card:hover {
+    box-shadow: $card-hover-shadow;
+    transform: translateY(-5px);
+}
+
+.stat-card .icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: $border-radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: $primary-gradient;
+    color: white;
+}
+
+.stat-card.secondary .icon-wrapper {
+    background: $warning-gradient;
+}
+
+.stat-card.success .icon-wrapper {
+    background: linear-gradient(135deg, $success-color) 0%, #34ce57 100%;
+}
+
+.stat-card.info .icon-wrapper {
+    background: linear-gradient(135deg, #0dcaf0 0%, #3dd5f3 100%);
+}
+
+.stat-card h3 {
+    font-family: $font-heading;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-size: 2.25rem;
+    color: $dark-color;
+}
+
+.stat-card p {
+    color: $gray-color;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Badge Styles */
+.badge-pill {
+    padding: 0.4em 0.9em;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+/* Chart Cards */
+.chart-card {
+    background-color: white;
+    border-radius: $card-radius;
+    box-shadow: $card-shadow;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chart-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.chart-card-header h4 {
+    font-family: $font-heading;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: $dark-color;
+}
+
+/* Chart Containers - Fixed Responsiveness */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+/* Volunteer Request Table */
+.request-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid $gray-light;
+    transition: $transition;
+    border-radius: $border-radius-xs;
+}
+
+.request-item:hover {
+    background-color: rgba(44, 140, 153, 0.03);
+}
+
+.request-item:last-child {
+    border-bottom: none;
+}
+
+.request-info h6 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: $dark-color;
+}
+
+.request-info p {
+    color: $gray-color;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.request-status {
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-pending {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+.status-approved {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: $success-color;
+}
+
+.status-rejected {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+/* Additional Stats Section */
+.additional-stats {
+    background-color: white;
+    border-radius: $card-radius;
+    box-shadow: $card-shadow;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $gray-light;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: $gray-color;
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    font-weight: 600;
+    color: $dark-color;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar-toggle {
+        display: block !important;
+    }
+
+    /* Responsive Chart Height */
+    .chart-container {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-card h3 {
+        font-size: 2rem;
+    }
+
+    .chart-container {
+        height: 200px;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .chart-container {
+        height: 180px;
+    }
+
+    .stat-card h3 {
+        font-size: 1.75rem;
+    }
+
+    .stat-card .icon-wrapper {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+.sidebar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: $dark-color;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.quick-action-btn {
+    padding: 0.5rem 1rem;
+    background-color: $primary-light;
+    border: 1px solid rgba(44, 140, 153, 0.2);
+    border-radius: $border-radius-xs;
+    color: $primary-color;
+    font-size: 0.875rem;
+    transition: $transition;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quick-action-btn:hover {
+    background-color: $primary-color;
+    color: white;
+    transform: translateY(-2px);
+}
