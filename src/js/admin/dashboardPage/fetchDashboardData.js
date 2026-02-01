@@ -5,7 +5,7 @@ import setDashboardData from './displayDashboard.js';
 
 export default async function adminDashboardVisualization() {
 	try {
-		dashboardElements.dashboardSidebar.innerHTML = displaySidebar();
+		dashboardElements.dashboardSidebar.innerHTML = displaySidebar('dashboard');
 
 		const response = await apiInterceptor(`GET`, `/user/admin/dashboard`);
 		const result = await response.json();
