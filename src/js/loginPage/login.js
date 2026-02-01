@@ -17,7 +17,11 @@ loginForm.addEventListener('submit', userLogin);
 
 export default function authPageLoader() {
 	if (isAuthenticated()) {
-		window.location.href = '/src/pages/account/profile.html';
+		const redirectUrl = localStorage.getItem('SHF_redirect_route');
+
+		localStorage.removeItem('SHF_redirect_route');
+		
+		window.location.href = redirectUrl || '/src/pages/account/profile.html';
 	} else {
 		loginPageBody.style.display = 'flex';
 	}

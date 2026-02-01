@@ -10,7 +10,9 @@ export default async function apiInterceptor(method, endpoint, body = null) {
 		let response;
 
 		if (!access_token && !refresh_token) {
-			window.location.href = '/';
+			localStorage.setItem('SHF_redirect_route', window.location.pathname);
+
+			window.location.href = '/src/pages/auth/login.html';
 		}
 
 		switch (method) {
