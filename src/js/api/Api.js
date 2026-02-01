@@ -1,7 +1,6 @@
 export default class Api {
 	postApi = async (url, token, reqBody = {}) => {
 		try {
-			
 			const res = await fetch(url, {
 				method: 'POST',
 				headers: {

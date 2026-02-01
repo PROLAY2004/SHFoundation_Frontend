@@ -1,3 +1,5 @@
+import Chart from 'chart.js/auto';
+
 export default function displayCharts() {
 	const domainCtx = document.getElementById('domainChart').getContext('2d');
 	const domainChart = new Chart(domainCtx, {
@@ -100,7 +102,7 @@ export default function displayCharts() {
 			if (index !== -1) {
 				domainChart.data.datasets[0].backgroundColor =
 					domainChart.data.datasets[0].backgroundColor.map((color, i) =>
-						i === index ? color : color + '80'
+						i === index ? color : color + '80',
 					);
 				domainChart.update();
 			}

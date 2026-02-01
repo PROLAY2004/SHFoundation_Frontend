@@ -1,13 +1,12 @@
+import mainPageElements from './landingSelector.js'
+
 export default function landingPageScroll() {
-	const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-	const sections = document.querySelectorAll('section[id]');
 	const navbarOffset = 80;
 	const HOME_ID = '#home';
-
 	let isClickScrolling = false;
 
 	/* Smooth scroll on nav click*/
-	navLinks.forEach((link) => {
+	mainPageElements.navLinks.forEach((link) => {
 		link.addEventListener('click', function (e) {
 			const targetId = this.getAttribute('href');
 			if (!targetId.startsWith('#')) return;
@@ -37,7 +36,7 @@ export default function landingPageScroll() {
 		const scrollPos = window.scrollY + navbarOffset + 10;
 		let matched = false;
 
-		sections.forEach((section) => {
+		mainPageElements.sections.forEach((section) => {
 			const top = section.offsetTop;
 			const height = section.offsetHeight;
 			const id = section.getAttribute('id');
@@ -60,7 +59,7 @@ export default function landingPageScroll() {
 
 	/* Helper function*/
 	function setActiveLink(targetId) {
-		navLinks.forEach((link) => link.classList.remove('active'));
+		mainPageElements.navLinks.forEach((link) => link.classList.remove('active'));
 
 		const activeLink = document.querySelector(
 			`.navbar-nav .nav-link[href="${targetId}"]`
