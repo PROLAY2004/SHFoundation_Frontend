@@ -8,12 +8,15 @@
     <link rel="icon" type="image/png" href="../../assets/lcons/favicon.png" />
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="module" src="/src/js/admin/contactPage/contact.js"></script>
 </head>
 
-<body id="contactBody" style="display: none;">
+<body id="contactBody" style="display: none;" class="">
+    <div id="page-loader">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <div id="toastSection"></div>
 
     <div class="dashboard-wrapper">
@@ -33,7 +36,8 @@
 
                 <div class="topbar-user">
                     <div class="user-avatar"><img id="userImage" class="w-100 h-100 rounded-circle object-fit-cover"
-                            src="../../assets/images/avatar.jpg" alt="Admin Avatar"></div>
+                            src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                            alt="Admin Avatar"></div>
                     <div>
                         <h6 class="mb-0 fw-semibold" id="userName">Admin User</h6>
                         <small class="text-muted">Administrator</small>
@@ -43,44 +47,9 @@
 
             <!-- Contact Responses Header -->
             <div class="dashboard-header">
-                <div class="d-flex justify-content-between align-items-start flex-wrap">
-                    <div>
-                        <h1 class="fs-3">Contact Responses</h1>
-                        <p>Manage and review all contact form submissions from your website.</p>
-                    </div>
-
-                    <div class="d-flex gap-2 align-items-center mt-2 mt-md-0">
-                        <div class="filter-dropdown">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown">
-                                <i class="bi bi-filter me-2"></i>Filter
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" data-filter="all">All Messages</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="new">New Only</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="user">From Users</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="guest">From Guests</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="status-toggle">
-                            <div class="btn-group" role="group">
-                                <input type="radio" class="btn-check" name="statusFilter" id="statusAll"
-                                    autocomplete="off" checked>
-                                <label class="btn btn-outline-primary" for="statusAll">All</label>
-
-                                <input type="radio" class="btn-check" name="statusFilter" id="statusNew"
-                                    autocomplete="off">
-                                <label class="btn btn-outline-warning" for="statusNew">
-                                    <i class="bi bi-circle-fill me-1"></i>New
-                                </label>
-
-                                <input type="radio" class="btn-check" name="statusFilter" id="statusViewed"
-                                    autocomplete="off">
-                                <label class="btn btn-outline-info" for="statusViewed">Viewed</label>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                    <h1 class="fs-3">Contact Responses</h1>
+                    <p>Manage and review all contact form submissions from your website.</p>
                 </div>
 
                 <!-- Quick Stats -->
@@ -144,299 +113,327 @@
             </div>
 
             <!-- Contact Responses Content -->
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Messages List -->
-                    <div class="col-lg-5 col-xl-4">
-                        <div class="messages-list-container">
-                            <div class="messages-list-header">
-                                <h5>Messages</h5>
-                                <div class="search-box">
-                                    <i class="bi bi-search"></i>
-                                    <input type="text" id="messageSearch" placeholder="Search messages...">
+            <div class="container-fluid px-md-3 pb-5">
+                <!-- Search and Filter Bar -->
+                <div class="search-filter-bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 mb-3 mb-md-0">
+                            <div class="search-wrapper">
+                                <i class="bi bi-search"></i>
+                                <input type="text" id="contactSearch"
+                                    placeholder="Search by name, email, or subject...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="filter-wrapper">
+                                <select class="form-select" id="contactFilter">
+                                    <option value="all">All Messages</option>
+                                    <option value="new">New Only</option>
+                                    <option value="viewed">Viewed Only</option>
+                                    <option value="user">From Users</option>
+                                    <option value="guest">From Guests</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages List -->
+                <div class="messages-list-container">
+                    <!-- Message Item 1 -->
+                    <div class="message-card new-message">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar">
+                                    <i class="bi bi-person-circle"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">John Doe</h6>
+                                    <p class="sender-email">john@example.com</p>
                                 </div>
                             </div>
-
-                            <div class="messages-list" id="messagesList">
-                                <!-- Messages will be loaded here -->
-                                <div class="message-item new" data-id="1">
-                                    <div class="message-item-header">
-                                        <div class="d-flex align-items-center">
-                                            <div class="message-sender-avatar">
-                                                <i class="bi bi-person-circle"></i>
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6 class="mb-0">John Doe</h6>
-                                                <small class="text-muted">john@example.com</small>
-                                            </div>
-                                            <span class="badge bg-warning ms-auto">New</span>
-                                        </div>
-                                    </div>
-                                    <div class="message-item-body">
-                                        <h6 class="message-subject">Website Feedback</h6>
-                                        <p class="message-preview">I wanted to share some feedback about the new
-                                            dashboard interface...</p>
-                                        <div class="message-meta">
-                                            <small><i class="bi bi-clock me-1"></i>2 hours ago</small>
-                                            <small class="ms-3"><i class="bi bi-person me-1"></i>Registered User</small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="message-item" data-id="2">
-                                    <div class="message-item-header">
-                                        <div class="d-flex align-items-center">
-                                            <div class="message-sender-avatar guest">
-                                                <i class="bi bi-person"></i>
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6 class="mb-0">Sarah Johnson</h6>
-                                                <small class="text-muted">sarah.j@email.com</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="message-item-body">
-                                        <h6 class="message-subject">Partnership Inquiry</h6>
-                                        <p class="message-preview">I'm interested in exploring partnership opportunities
-                                            with your organization...</p>
-                                        <div class="message-meta">
-                                            <small><i class="bi bi-clock me-1"></i>1 day ago</small>
-                                            <small class="ms-3"><i class="bi bi-person-x me-1"></i>Guest</small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="message-item new" data-id="3">
-                                    <div class="message-item-header">
-                                        <div class="d-flex align-items-center">
-                                            <div class="message-sender-avatar">
-                                                <i class="bi bi-person-circle"></i>
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6 class="mb-0">Mike Wilson</h6>
-                                                <small class="text-muted">mike.wilson@company.com</small>
-                                            </div>
-                                            <span class="badge bg-warning ms-auto">New</span>
-                                        </div>
-                                    </div>
-                                    <div class="message-item-body">
-                                        <h6 class="message-subject">Bug Report</h6>
-                                        <p class="message-preview">I found an issue with the volunteer registration form
-                                            on mobile devices...</p>
-                                        <div class="message-meta">
-                                            <small><i class="bi bi-clock me-1"></i>3 hours ago</small>
-                                            <small class="ms-3"><i class="bi bi-person me-1"></i>Registered User</small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="message-item" data-id="4">
-                                    <div class="message-item-header">
-                                        <div class="d-flex align-items-center">
-                                            <div class="message-sender-avatar">
-                                                <i class="bi bi-person-circle"></i>
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6 class="mb-0">Emily Chen</h6>
-                                                <small class="text-muted">echen@example.org</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="message-item-body">
-                                        <h6 class="message-subject">Feature Request</h6>
-                                        <p class="message-preview">Would it be possible to add export functionality to
-                                            the reports section?</p>
-                                        <div class="message-meta">
-                                            <small><i class="bi bi-clock me-1"></i>2 days ago</small>
-                                            <small class="ms-3"><i class="bi bi-person me-1"></i>Registered User</small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="message-item new" data-id="5">
-                                    <div class="message-item-header">
-                                        <div class="d-flex align-items-center">
-                                            <div class="message-sender-avatar guest">
-                                                <i class="bi bi-person"></i>
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6 class="mb-0">Alex Thompson</h6>
-                                                <small class="text-muted">alex.t@gmail.com</small>
-                                            </div>
-                                            <span class="badge bg-warning ms-auto">New</span>
-                                        </div>
-                                    </div>
-                                    <div class="message-item-body">
-                                        <h6 class="message-subject">General Question</h6>
-                                        <p class="message-preview">What are the requirements to become a volunteer? I
-                                            couldn't find this info...</p>
-                                        <div class="message-meta">
-                                            <small><i class="bi bi-clock me-1"></i>5 hours ago</small>
-                                            <small class="ms-3"><i class="bi bi-person-x me-1"></i>Guest</small>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="message-subject">
+                                <span>Website Feedback</span>
+                                <p class="message-time">Today, 10:30 AM</p>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-badge new">New</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="1">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="1">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Message Details -->
-                    <div class="col-lg-7 col-xl-8">
-                        <div class="message-detail-container" id="messageDetail">
-                            <div class="message-detail-header">
-                                <h5>Message Details</h5>
-                                <div class="message-actions">
-                                    <button class="btn btn-sm btn-outline-secondary" id="markAsViewedBtn">
-                                        <i class="bi bi-check-circle me-1"></i>Mark as Viewed
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger" id="deleteMessageBtn">
-                                        <i class="bi bi-trash me-1"></i>Delete
-                                    </button>
+                    <!-- Message Item 2 -->
+                    <div class="message-card">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar guest">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">Sarah Johnson</h6>
+                                    <p class="sender-email">sarah.j@email.com</p>
                                 </div>
                             </div>
-
-                            <div class="message-detail-placeholder">
-                                <div class="placeholder-content">
-                                    <i class="bi bi-chat-left-text" style="font-size: 3rem; color: #dee2e6;"></i>
-                                    <h5>Select a message to view details</h5>
-                                    <p class="text-muted">Click on any message from the list to read its content and
-                                        sender information.</p>
-                                </div>
+                            <div class="message-subject">
+                                <span>Partnership Inquiry</span>
+                                <p class="message-time">Yesterday, 2:15 PM</p>
                             </div>
-
-                            <!-- Message Detail Content (hidden by default) -->
-                            <div class="message-detail-content" style="display: none;">
-                                <div class="message-detail-header-info">
-                                    <div class="d-flex align-items-center">
-                                        <div class="detail-sender-avatar" id="detailAvatar">
-                                            <i class="bi bi-person-circle"></i>
-                                        </div>
-                                        <div class="ms-3">
-                                            <h4 id="detailSubject">Website Feedback</h4>
-                                            <div class="d-flex flex-wrap align-items-center gap-2">
-                                                <div class="sender-info">
-                                                    <strong id="detailName">John Doe</strong> •
-                                                    <a href="#" id="detailEmail">john@example.com</a>
-                                                </div>
-                                                <span class="badge bg-warning" id="detailStatusBadge">New</span>
-                                                <span class="badge bg-primary" id="detailUserType">Registered
-                                                    User</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="message-detail-meta">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="meta-item">
-                                                <i class="bi bi-calendar me-2"></i>
-                                                <span>Received: <strong id="detailDate">Today, 10:30 AM</strong></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="meta-item">
-                                                <i class="bi bi-clock-history me-2"></i>
-                                                <span>Status: <strong id="detailStatus">Unread</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- User Info Section (if registered user) -->
-                                    <div class="user-info-card" id="userInfoCard" style="display: none;">
-                                        <div class="user-info-header">
-                                            <h6><i class="bi bi-person-badge me-2"></i>User Information</h6>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="user-info-item">
-                                                    <small class="text-muted">Account Created</small>
-                                                    <div id="userJoinDate">January 15, 2023</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="user-info-item">
-                                                    <small class="text-muted">User Status</small>
-                                                    <div><span class="badge bg-success" id="userStatus">Verified</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="user-info-item">
-                                                    <small class="text-muted">Last Active</small>
-                                                    <div id="userLastActive">2 days ago</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="user-info-item">
-                                                    <small class="text-muted">Total Messages</small>
-                                                    <div id="userMessageCount">5 messages</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user-info-actions mt-3">
-                                            <a href="../users/user-detail.html?id=1"
-                                                class="btn btn-sm btn-outline-primary">
-                                                <i class="bi bi-eye me-1"></i>View Full Profile
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="message-detail-body">
-                                    <div class="message-content">
-                                        <h6>Message:</h6>
-                                        <div class="message-text" id="detailMessage">
-                                            <p>I wanted to share some feedback about the new dashboard interface.
-                                                Overall, I really like the clean design and improved navigation.
-                                                However, I noticed a few issues:</p>
-
-                                            <p>1. The volunteer request table doesn't seem to update in real-time when I
-                                                approve a request. I have to refresh the page to see the change.</p>
-
-                                            <p>2. On mobile devices, the sidebar toggle button is sometimes unresponsive
-                                                on the first tap.</p>
-
-                                            <p>3. The export functionality in the reports section would be more useful
-                                                if it included CSV format in addition to PDF.</p>
-
-                                            <p>Keep up the great work! The platform is really coming along nicely.</p>
-
-                                            <p>Best regards,<br>John</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="message-tags mt-4">
-                                        <h6>Tags:</h6>
-                                        <div class="tags-container">
-                                            <span class="message-tag">Feedback</span>
-                                            <span class="message-tag">UI/UX</span>
-                                            <span class="message-tag">Bug Report</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="message-status">
+                                <span class="status-badge viewed">Viewed</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="2">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="2">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Message Item 3 -->
+                    <div class="message-card new-message">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar">
+                                    <i class="bi bi-person-circle"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">Mike Wilson</h6>
+                                    <p class="sender-email">mike.wilson@company.com</p>
+                                </div>
+                            </div>
+                            <div class="message-subject">
+                                <span>Bug Report</span>
+                                <p class="message-time">Today, 9:45 AM</p>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-badge new">New</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="3">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="3">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Item 4 -->
+                    <div class="message-card">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar">
+                                    <i class="bi bi-person-circle"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">Emily Chen</h6>
+                                    <p class="sender-email">echen@example.org</p>
+                                </div>
+                            </div>
+                            <div class="message-subject">
+                                <span>Feature Request</span>
+                                <p class="message-time">Feb 28, 3:20 PM</p>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-badge viewed">Viewed</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="4">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="4">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Item 5 -->
+                    <div class="message-card new-message">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar guest">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">Alex Thompson</h6>
+                                    <p class="sender-email">alex.t@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="message-subject">
+                                <span>General Question</span>
+                                <p class="message-time">Today, 11:10 AM</p>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-badge new">New</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="5">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="5">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Item 6 -->
+                    <div class="message-card">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar">
+                                    <i class="bi bi-person-circle"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">Robert Kim</h6>
+                                    <p class="sender-email">rkim@tech.com</p>
+                                </div>
+                            </div>
+                            <div class="message-subject">
+                                <span>Support Request</span>
+                                <p class="message-time">Feb 27, 4:30 PM</p>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-badge viewed">Viewed</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="6">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="6">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Item 7 -->
+                    <div class="message-card new-message">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar guest">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">Lisa Wong</h6>
+                                    <p class="sender-email">lisa.wong@email.com</p>
+                                </div>
+                            </div>
+                            <div class="message-subject">
+                                <span>Collaboration Proposal</span>
+                                <p class="message-time">Today, 1:45 PM</p>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-badge new">New</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="7">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="7">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Item 8 -->
+                    <div class="message-card">
+                        <div class="message-content">
+                            <div class="sender-info">
+                                <div class="sender-avatar">
+                                    <i class="bi bi-person-circle"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h6 class="sender-name">David Miller</h6>
+                                    <p class="sender-email">david.m@business.com</p>
+                                </div>
+                            </div>
+                            <div class="message-subject">
+                                <span>Account Issue</span>
+                                <p class="message-time">Feb 26, 11:20 AM</p>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-badge viewed">Viewed</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action view-btn" data-id="8">
+                                    <i class="bi bi-eye"></i>
+                                    <span>View</span>
+                                </button>
+                                <button class="btn-action delete-btn" data-id="8">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-muted">
+                            Showing <span id="showingCount">8</span> of <span id="totalCount">48</span> messages
+                        </div>
+                        <nav>
+                            <ul class="pagination mb-0 d-flex gap-2">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" tabindex="-1">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
     <script>
         // Toggle sidebar on mobile
         document.addEventListener('DOMContentLoaded', function () {
             const sidebarToggle = document.getElementById('sidebarToggle');
             const sidebar = document.getElementById('contactSidebar');
             const sidebarOverlay = document.getElementById('sidebarOverlay');
-            const messageItems = document.querySelectorAll('.message-item');
-            const messageDetailContent = document.querySelector('.message-detail-content');
-            const messageDetailPlaceholder = document.querySelector('.message-detail-placeholder');
-            const markAsViewedBtn = document.getElementById('markAsViewedBtn');
-            const deleteMessageBtn = document.getElementById('deleteMessageBtn');
+            const searchInput = document.getElementById('contactSearch');
+            const contactFilter = document.getElementById('contactFilter');
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            const messageCards = document.querySelectorAll('.message-card');
 
             // Show body after load
             document.getElementById('contactBody').style.display = 'block';
@@ -457,20 +454,30 @@
                 });
             }
 
-            // Handle message item clicks
-            messageItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    // Remove active class from all items
-                    messageItems.forEach(i => i.classList.remove('active'));
+            // Filter functionality
+            if (contactFilter) {
+                contactFilter.addEventListener('change', applyFilters);
+            }
 
-                    // Add active class to clicked item
-                    this.classList.add('active');
+            // Search functionality
+            if (searchInput) {
+                searchInput.addEventListener('input', applyFilters);
+            }
 
-                    // Remove "new" badge if present
-                    const badge = this.querySelector('.badge.bg-warning');
-                    if (badge) {
-                        badge.remove();
-                        this.classList.remove('new');
+            // View button click
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const messageId = this.getAttribute('data-id');
+                    const card = this.closest('.message-card');
+
+                    // Mark as viewed if it's new
+                    if (card.classList.contains('new-message')) {
+                        card.classList.remove('new-message');
+                        const statusBadge = card.querySelector('.status-badge.new');
+                        if (statusBadge) {
+                            statusBadge.textContent = 'Viewed';
+                            statusBadge.className = 'status-badge viewed';
+                        }
 
                         // Update new messages count
                         const newCount = document.getElementById('totalNewMessages');
@@ -480,99 +487,37 @@
                                 newCount.textContent = current - 1;
                             }
                         }
-
-                        // Update sidebar badge
-                        const sidebarBadge = document.getElementById('newMessagesBadge');
-                        if (sidebarBadge) {
-                            let current = parseInt(sidebarBadge.textContent);
-                            if (current > 1) {
-                                sidebarBadge.textContent = current - 1;
-                            } else {
-                                sidebarBadge.remove();
-                            }
-                        }
                     }
 
-                    // Show message detail content
-                    messageDetailContent.style.display = 'block';
-                    messageDetailPlaceholder.style.display = 'none';
-
-                    // Enable action buttons
-                    markAsViewedBtn.disabled = false;
-                    deleteMessageBtn.disabled = false;
+                    // Dispatch view event for modal
+                    const event = new CustomEvent('viewMessage', {
+                        detail: {
+                            messageId: messageId,
+                            messageData: getMessageData(messageId)
+                        }
+                    });
+                    document.dispatchEvent(event);
                 });
             });
 
-            // Mark as viewed button
-            if (markAsViewedBtn) {
-                markAsViewedBtn.addEventListener('click', function () {
-                    const activeItem = document.querySelector('.message-item.active');
-                    if (activeItem) {
-                        // Remove "new" class and badge
-                        activeItem.classList.remove('new');
-                        const badge = activeItem.querySelector('.badge.bg-warning');
-                        if (badge) badge.remove();
+            // Delete button click
+            deleteButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const messageId = this.getAttribute('data-id');
+                    const card = this.closest('.message-card');
 
-                        // Update detail status
-                        const statusBadge = document.getElementById('detailStatusBadge');
-                        const statusText = document.getElementById('detailStatus');
-                        if (statusBadge) {
-                            statusBadge.textContent = 'Viewed';
-                            statusBadge.className = 'badge bg-info';
-                        }
-                        if (statusText) {
-                            statusText.textContent = 'Viewed';
-                        }
+                    if (confirm('Are you sure you want to delete this message?')) {
+                        // Store if it was a new message
+                        const wasNew = card.classList.contains('new-message');
+
+                        // Remove from DOM
+                        card.remove();
 
                         // Update counts
-                        const newCount = document.getElementById('totalNewMessages');
-                        if (newCount) {
-                            let current = parseInt(newCount.textContent);
-                            if (current > 0) {
-                                newCount.textContent = current - 1;
-                            }
-                        }
+                        updateMessageCounts();
 
-                        // Update sidebar badge
-                        const sidebarBadge = document.getElementById('newMessagesBadge');
-                        if (sidebarBadge) {
-                            let current = parseInt(sidebarBadge.textContent);
-                            if (current > 1) {
-                                sidebarBadge.textContent = current - 1;
-                            } else {
-                                sidebarBadge.remove();
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Delete message button
-            if (deleteMessageBtn) {
-                deleteMessageBtn.addEventListener('click', function () {
-                    const activeItem = document.querySelector('.message-item.active');
-                    if (activeItem && confirm('Are you sure you want to delete this message?')) {
-                        activeItem.remove();
-
-                        // Show placeholder again
-                        messageDetailContent.style.display = 'none';
-                        messageDetailPlaceholder.style.display = 'block';
-
-                        // Disable action buttons
-                        markAsViewedBtn.disabled = true;
-                        deleteMessageBtn.disabled = true;
-
-                        // Update total messages count
-                        const totalCount = document.getElementById('totalMessages');
-                        if (totalCount) {
-                            let current = parseInt(totalCount.textContent);
-                            if (current > 0) {
-                                totalCount.textContent = current - 1;
-                            }
-                        }
-
-                        // Update new messages count if it was new
-                        if (activeItem.classList.contains('new')) {
+                        if (wasNew) {
+                            // Update new messages count
                             const newCount = document.getElementById('totalNewMessages');
                             if (newCount) {
                                 let current = parseInt(newCount.textContent);
@@ -580,54 +525,120 @@
                                     newCount.textContent = current - 1;
                                 }
                             }
-
-                            // Update sidebar badge
-                            const sidebarBadge = document.getElementById('newMessagesBadge');
-                            if (sidebarBadge) {
-                                let current = parseInt(sidebarBadge.textContent);
-                                if (current > 1) {
-                                    sidebarBadge.textContent = current - 1;
-                                } else {
-                                    sidebarBadge.remove();
-                                }
-                            }
                         }
+
+                        // Dispatch delete event
+                        const event = new CustomEvent('deleteMessage', {
+                            detail: { messageId: messageId }
+                        });
+                        document.dispatchEvent(event);
+
+                        // Show toast notification
+                        showToast('Message deleted successfully', 'success');
                     }
-                });
-            }
-
-            // Filter functionality
-            const filterItems = document.querySelectorAll('[data-filter]');
-            filterItems.forEach(item => {
-                item.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const filter = this.getAttribute('data-filter');
-
-                    // Update UI to show active filter
-                    filterItems.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
-
-                    // In a real app, you would filter messages here
-                    console.log('Filtering by:', filter);
                 });
             });
 
-            // Search functionality
-            const searchInput = document.getElementById('messageSearch');
-            if (searchInput) {
-                searchInput.addEventListener('input', function () {
-                    const searchTerm = this.value.toLowerCase();
+            function applyFilters() {
+                const filterValue = contactFilter.value;
+                const searchValue = searchInput.value.toLowerCase();
+                let visibleCount = 0;
 
-                    messageItems.forEach(item => {
-                        const text = item.textContent.toLowerCase();
-                        if (text.includes(searchTerm)) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
+                messageCards.forEach(card => {
+                    let shouldShow = true;
+
+                    // Apply filter
+                    if (filterValue !== 'all') {
+                        if (filterValue === 'new') {
+                            shouldShow = card.classList.contains('new-message');
+                        } else if (filterValue === 'viewed') {
+                            shouldShow = !card.classList.contains('new-message');
+                        } else if (filterValue === 'user') {
+                            const isGuest = card.querySelector('.sender-avatar.guest');
+                            shouldShow = !isGuest;
+                        } else if (filterValue === 'guest') {
+                            const isGuest = card.querySelector('.sender-avatar.guest');
+                            shouldShow = !!isGuest;
                         }
-                    });
+                    }
+
+                    // Apply search
+                    if (searchValue && shouldShow) {
+                        const cardText = card.textContent.toLowerCase();
+                        shouldShow = cardText.includes(searchValue);
+                    }
+
+                    card.style.display = shouldShow ? '' : 'none';
+                    if (shouldShow) visibleCount++;
+                });
+
+                document.getElementById('showingCount').textContent = visibleCount;
+            }
+
+            function getMessageData(messageId) {
+                // This would come from your actual data source
+                // For demo, returning sample data
+                const messages = {
+                    '1': {
+                        name: 'John Doe',
+                        email: 'john@example.com',
+                        subject: 'Website Feedback',
+                        message: 'I wanted to share some feedback about the new dashboard interface. Overall, I really like the clean design and improved navigation. However, I noticed a few issues...',
+                        time: 'Today, 10:30 AM',
+                        status: 'new',
+                        type: 'user'
+                    },
+                    '2': {
+                        name: 'Sarah Johnson',
+                        email: 'sarah.j@email.com',
+                        subject: 'Partnership Inquiry',
+                        message: 'I\'m interested in exploring partnership opportunities with your organization...',
+                        time: 'Yesterday, 2:15 PM',
+                        status: 'viewed',
+                        type: 'guest'
+                    }
+                };
+                return messages[messageId] || null;
+            }
+
+            function updateMessageCounts() {
+                const totalCards = messageCards.length;
+                const newCards = document.querySelectorAll('.new-message').length;
+                const userCards = document.querySelectorAll('.message-card .sender-avatar:not(.guest)').length;
+                const guestCards = totalCards - userCards;
+
+                document.getElementById('totalMessages').textContent = totalCards;
+                document.getElementById('totalNewMessages').textContent = newCards;
+                document.getElementById('userMessages').textContent = userCards;
+                document.getElementById('guestMessages').textContent = guestCards;
+            }
+
+            function showToast(message, type = 'info') {
+                const toastSection = document.getElementById('toastSection');
+                const toastId = 'toast-' + Date.now();
+
+                const toastHtml = `
+                    <div id="${toastId}" class="toast ${type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-info'}" role="alert">
+                        <div class="toast-body d-flex justify-content-between align-items-center">
+                            <span>${message}</span>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+                        </div>
+                    </div>
+                `;
+
+                toastSection.insertAdjacentHTML('beforeend', toastHtml);
+
+                const toastElement = document.getElementById(toastId);
+                const bsToast = new bootstrap.Toast(toastElement, { delay: 3000 });
+                bsToast.show();
+
+                toastElement.addEventListener('hidden.bs.toast', function () {
+                    this.remove();
                 });
             }
+
+            // Initialize counts
+            updateMessageCounts();
         });
     </script>
 </body>

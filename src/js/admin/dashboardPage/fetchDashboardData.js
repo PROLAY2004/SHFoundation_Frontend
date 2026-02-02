@@ -16,6 +16,7 @@ export default async function adminDashboardVisualization() {
 		}
 
 		setDashboardData(result.data);
+		dashboardElements.dashboardBody.classList.remove('loading');
 	} catch (error) {
 		console.error('Error displaying dashboard:', error);
 	}
