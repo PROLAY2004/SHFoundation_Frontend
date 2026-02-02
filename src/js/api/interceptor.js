@@ -39,6 +39,14 @@ export default async function apiInterceptor(method, endpoint, body = null) {
 				);
 				break;
 
+			case 'DELETE':
+				response = await api.deleteApi(
+					`${configaration.BASE_URL}${endpoint}`,
+					access_token,
+					body,
+				);
+				break;
+
 			default:
 				throw new Error('No Method Provided');
 		}
