@@ -44,7 +44,7 @@ export default function displaySidebar(pageName){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ${pageName === 'contact' ? 'active' : ''}" href="#">
+                        <a class="nav-link ${pageName === 'contact' ? 'active' : ''}" href="/src/pages/admin/contact.html">
                             <i class="bi bi-chat-left-text"></i>
                             <span>Contact Responses</span>
                         </a>

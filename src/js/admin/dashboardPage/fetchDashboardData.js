@@ -5,6 +5,7 @@ import setDashboardData from './displayDashboard.js';
 
 export default async function adminDashboardVisualization() {
 	try {
+		dashboardElements.dashboardBody.style.display = 'block';
 		dashboardElements.dashboardSidebar.innerHTML = displaySidebar('dashboard');
 
 		const response = await apiInterceptor(`GET`, `/user/admin/dashboard`);
@@ -13,7 +14,7 @@ export default async function adminDashboardVisualization() {
 		if (result.message === 'Not an Admin') {
 			window.location.href = '/src/pages/account/profile.html';
 		}
-		
+
 		setDashboardData(result.data);
 	} catch (error) {
 		console.error('Error displaying dashboard:', error);

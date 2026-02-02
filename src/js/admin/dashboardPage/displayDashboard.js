@@ -10,7 +10,7 @@ export default function setDashboardData(data) {
 	const userCount = data.allUsersCount;
 	const verifiedCount = data.verifiedCount;
 	const pendingCount = data.pendingCount;
-	const newsCount = data.newsLetters.length;
+	const newsCount = data.newsLetterCount;
 	const voluenteerCount = data.volunteers.length;
 	const activeNewsCount = data.activeNewsletter;
 	const blockedNewsCount = data.blockedNewsletter;
@@ -21,7 +21,7 @@ export default function setDashboardData(data) {
 	const bandwidthPercent = ((usage.bandwidth.usage / LIMIT) * 100).toFixed(2);
 	const apiRemaining = usage.rate_limit_remaining;
 	const apiLimit = usage.rate_limit_allowed;
-    const creditsUsedPercent = usage.credits.used_percent;
+	const creditsUsedPercent = usage.credits.used_percent;
 
 	const image = `https://ui-avatars.com/api/?name=${name.split(' ').join('+')}&background=2c8c99&color=fff&size=200`;
 
@@ -58,12 +58,17 @@ export default function setDashboardData(data) {
 			volenteerList.recentVoluenteer(data.volunteers[i]);
 	}
 
+	//contact card details
+	dashboardElements.newContact.innerHTML = data.newContactCount;
+	dashboardElements.oldContact.innerHTML = data.oldContactCount;
+	dashboardElements.totalContacts.innerHTML = String(
+		data.contactCount,
+	).padStart(2, '0');
+
 	// platform details
 	dashboardElements.storageUsed.innerHTML = `${storagePercent}%`;
 	dashboardElements.bandwidth.innerHTML = `${bandwidthPercent}%`;
 	dashboardElements.assetsCount.innerHTML = `${totalAssets}`;
 	dashboardElements.apiLimit.innerHTML = `${apiRemaining} / ${apiLimit}`;
-    dashboardElements.creditLimit.innerHTML = `${creditsUsedPercent}%`;
-
-	dashboardElements.dashboardBody.style.display = 'block';
+	dashboardElements.creditLimit.innerHTML = `${creditsUsedPercent}%`;
 }

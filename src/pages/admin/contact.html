@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Admin - Contact</title>
+    <link rel="icon" type="image/png" href="../../assets/lcons/favicon.png" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="module" src="/src/js/admin/contactPage/contact.js"></script>
+</head>
+
+<body id="contactBody" style="display: none;">
+    <div id="toastSection"></div>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Overlay for Mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="contactSidebar"></aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Topbar -->
+            <header class="topbar d-flex justify-content-between align-items-center">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="topbar-user">
+                    <div class="user-avatar"><img id="userImage" class="w-100 h-100 rounded-circle object-fit-cover"
+                            src="../../assets/images/avatar.jpg" alt="Admin Avatar"></div>
+                    <div>
+                        <h6 class="mb-0 fw-semibold" id="userName">Admin User</h6>
+                        <small class="text-muted">Administrator</small>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contact Responses Header -->
+            <div class="dashboard-header">
+                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                    <div>
+                        <h1 class="fs-3">Contact Responses</h1>
+                        <p>Manage and review all contact form submissions from your website.</p>
+                    </div>
+
+                    <div class="d-flex gap-2 align-items-center mt-2 mt-md-0">
+                        <div class="filter-dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown">
+                                <i class="bi bi-filter me-2"></i>Filter
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-filter="all">All Messages</a></li>
+                                <li><a class="dropdown-item" href="#" data-filter="new">New Only</a></li>
+                                <li><a class="dropdown-item" href="#" data-filter="user">From Users</a></li>
+                                <li><a class="dropdown-item" href="#" data-filter="guest">From Guests</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="status-toggle">
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="statusFilter" id="statusAll"
+                                    autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="statusAll">All</label>
+
+                                <input type="radio" class="btn-check" name="statusFilter" id="statusNew"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-warning" for="statusNew">
+                                    <i class="bi bi-circle-fill me-1"></i>New
+                                </label>
+
+                                <input type="radio" class="btn-check" name="statusFilter" id="statusViewed"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-info" for="statusViewed">Viewed</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="row g-3 mt-3">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="quick-stat new">
+                            <div class="d-flex align-items-center">
+                                <div class="quick-stat-icon">
+                                    <i class="bi bi-envelope-paper"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="mb-0" id="totalNewMessages">12</h4>
+                                    <small>New Messages</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="quick-stat total">
+                            <div class="d-flex align-items-center">
+                                <div class="quick-stat-icon">
+                                    <i class="bi bi-chat-left-text"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="mb-0" id="totalMessages">48</h4>
+                                    <small>Total Messages</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="quick-stat user">
+                            <div class="d-flex align-items-center">
+                                <div class="quick-stat-icon">
+                                    <i class="bi bi-person-check"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="mb-0" id="userMessages">32</h4>
+                                    <small>From Users</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="quick-stat guest">
+                            <div class="d-flex align-items-center">
+                                <div class="quick-stat-icon">
+                                    <i class="bi bi-person-x"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="mb-0" id="guestMessages">16</h4>
+                                    <small>From Guests</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Responses Content -->
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Messages List -->
+                    <div class="col-lg-5 col-xl-4">
+                        <div class="messages-list-container">
+                            <div class="messages-list-header">
+                                <h5>Messages</h5>
+                                <div class="search-box">
+                                    <i class="bi bi-search"></i>
+                                    <input type="text" id="messageSearch" placeholder="Search messages...">
+                                </div>
+                            </div>
+
+                            <div class="messages-list" id="messagesList">
+                                <!-- Messages will be loaded here -->
+                                <div class="message-item new" data-id="1">
+                                    <div class="message-item-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="message-sender-avatar">
+                                                <i class="bi bi-person-circle"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">John Doe</h6>
+                                                <small class="text-muted">john@example.com</small>
+                                            </div>
+                                            <span class="badge bg-warning ms-auto">New</span>
+                                        </div>
+                                    </div>
+                                    <div class="message-item-body">
+                                        <h6 class="message-subject">Website Feedback</h6>
+                                        <p class="message-preview">I wanted to share some feedback about the new
+                                            dashboard interface...</p>
+                                        <div class="message-meta">
+                                            <small><i class="bi bi-clock me-1"></i>2 hours ago</small>
+                                            <small class="ms-3"><i class="bi bi-person me-1"></i>Registered User</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="message-item" data-id="2">
+                                    <div class="message-item-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="message-sender-avatar guest">
+                                                <i class="bi bi-person"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">Sarah Johnson</h6>
+                                                <small class="text-muted">sarah.j@email.com</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message-item-body">
+                                        <h6 class="message-subject">Partnership Inquiry</h6>
+                                        <p class="message-preview">I'm interested in exploring partnership opportunities
+                                            with your organization...</p>
+                                        <div class="message-meta">
+                                            <small><i class="bi bi-clock me-1"></i>1 day ago</small>
+                                            <small class="ms-3"><i class="bi bi-person-x me-1"></i>Guest</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="message-item new" data-id="3">
+                                    <div class="message-item-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="message-sender-avatar">
+                                                <i class="bi bi-person-circle"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">Mike Wilson</h6>
+                                                <small class="text-muted">mike.wilson@company.com</small>
+                                            </div>
+                                            <span class="badge bg-warning ms-auto">New</span>
+                                        </div>
+                                    </div>
+                                    <div class="message-item-body">
+                                        <h6 class="message-subject">Bug Report</h6>
+                                        <p class="message-preview">I found an issue with the volunteer registration form
+                                            on mobile devices...</p>
+                                        <div class="message-meta">
+                                            <small><i class="bi bi-clock me-1"></i>3 hours ago</small>
+                                            <small class="ms-3"><i class="bi bi-person me-1"></i>Registered User</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="message-item" data-id="4">
+                                    <div class="message-item-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="message-sender-avatar">
+                                                <i class="bi bi-person-circle"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">Emily Chen</h6>
+                                                <small class="text-muted">echen@example.org</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message-item-body">
+                                        <h6 class="message-subject">Feature Request</h6>
+                                        <p class="message-preview">Would it be possible to add export functionality to
+                                            the reports section?</p>
+                                        <div class="message-meta">
+                                            <small><i class="bi bi-clock me-1"></i>2 days ago</small>
+                                            <small class="ms-3"><i class="bi bi-person me-1"></i>Registered User</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="message-item new" data-id="5">
+                                    <div class="message-item-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="message-sender-avatar guest">
+                                                <i class="bi bi-person"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">Alex Thompson</h6>
+                                                <small class="text-muted">alex.t@gmail.com</small>
+                                            </div>
+                                            <span class="badge bg-warning ms-auto">New</span>
+                                        </div>
+                                    </div>
+                                    <div class="message-item-body">
+                                        <h6 class="message-subject">General Question</h6>
+                                        <p class="message-preview">What are the requirements to become a volunteer? I
+                                            couldn't find this info...</p>
+                                        <div class="message-meta">
+                                            <small><i class="bi bi-clock me-1"></i>5 hours ago</small>
+                                            <small class="ms-3"><i class="bi bi-person-x me-1"></i>Guest</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Details -->
+                    <div class="col-lg-7 col-xl-8">
+                        <div class="message-detail-container" id="messageDetail">
+                            <div class="message-detail-header">
+                                <h5>Message Details</h5>
+                                <div class="message-actions">
+                                    <button class="btn btn-sm btn-outline-secondary" id="markAsViewedBtn">
+                                        <i class="bi bi-check-circle me-1"></i>Mark as Viewed
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" id="deleteMessageBtn">
+                                        <i class="bi bi-trash me-1"></i>Delete
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="message-detail-placeholder">
+                                <div class="placeholder-content">
+                                    <i class="bi bi-chat-left-text" style="font-size: 3rem; color: #dee2e6;"></i>
+                                    <h5>Select a message to view details</h5>
+                                    <p class="text-muted">Click on any message from the list to read its content and
+                                        sender information.</p>
+                                </div>
+                            </div>
+
+                            <!-- Message Detail Content (hidden by default) -->
+                            <div class="message-detail-content" style="display: none;">
+                                <div class="message-detail-header-info">
+                                    <div class="d-flex align-items-center">
+                                        <div class="detail-sender-avatar" id="detailAvatar">
+                                            <i class="bi bi-person-circle"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <h4 id="detailSubject">Website Feedback</h4>
+                                            <div class="d-flex flex-wrap align-items-center gap-2">
+                                                <div class="sender-info">
+                                                    <strong id="detailName">John Doe</strong> •
+                                                    <a href="#" id="detailEmail">john@example.com</a>
+                                                </div>
+                                                <span class="badge bg-warning" id="detailStatusBadge">New</span>
+                                                <span class="badge bg-primary" id="detailUserType">Registered
+                                                    User</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="message-detail-meta">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="meta-item">
+                                                <i class="bi bi-calendar me-2"></i>
+                                                <span>Received: <strong id="detailDate">Today, 10:30 AM</strong></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="meta-item">
+                                                <i class="bi bi-clock-history me-2"></i>
+                                                <span>Status: <strong id="detailStatus">Unread</strong></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- User Info Section (if registered user) -->
+                                    <div class="user-info-card" id="userInfoCard" style="display: none;">
+                                        <div class="user-info-header">
+                                            <h6><i class="bi bi-person-badge me-2"></i>User Information</h6>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="user-info-item">
+                                                    <small class="text-muted">Account Created</small>
+                                                    <div id="userJoinDate">January 15, 2023</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="user-info-item">
+                                                    <small class="text-muted">User Status</small>
+                                                    <div><span class="badge bg-success" id="userStatus">Verified</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="user-info-item">
+                                                    <small class="text-muted">Last Active</small>
+                                                    <div id="userLastActive">2 days ago</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="user-info-item">
+                                                    <small class="text-muted">Total Messages</small>
+                                                    <div id="userMessageCount">5 messages</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-info-actions mt-3">
+                                            <a href="../users/user-detail.html?id=1"
+                                                class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-eye me-1"></i>View Full Profile
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="message-detail-body">
+                                    <div class="message-content">
+                                        <h6>Message:</h6>
+                                        <div class="message-text" id="detailMessage">
+                                            <p>I wanted to share some feedback about the new dashboard interface.
+                                                Overall, I really like the clean design and improved navigation.
+                                                However, I noticed a few issues:</p>
+
+                                            <p>1. The volunteer request table doesn't seem to update in real-time when I
+                                                approve a request. I have to refresh the page to see the change.</p>
+
+                                            <p>2. On mobile devices, the sidebar toggle button is sometimes unresponsive
+                                                on the first tap.</p>
+
+                                            <p>3. The export functionality in the reports section would be more useful
+                                                if it included CSV format in addition to PDF.</p>
+
+                                            <p>Keep up the great work! The platform is really coming along nicely.</p>
+
+                                            <p>Best regards,<br>John</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-tags mt-4">
+                                        <h6>Tags:</h6>
+                                        <div class="tags-container">
+                                            <span class="message-tag">Feedback</span>
+                                            <span class="message-tag">UI/UX</span>
+                                            <span class="message-tag">Bug Report</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Toggle sidebar on mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('contactSidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            const messageItems = document.querySelectorAll('.message-item');
+            const messageDetailContent = document.querySelector('.message-detail-content');
+            const messageDetailPlaceholder = document.querySelector('.message-detail-placeholder');
+            const markAsViewedBtn = document.getElementById('markAsViewedBtn');
+            const deleteMessageBtn = document.getElementById('deleteMessageBtn');
+
+            // Show body after load
+            document.getElementById('contactBody').style.display = 'block';
+
+            // Toggle sidebar
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function () {
+                    sidebar.classList.add('active');
+                    sidebarOverlay.classList.add('active');
+                });
+            }
+
+            // Close sidebar when overlay is clicked
+            if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', function () {
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                });
+            }
+
+            // Handle message item clicks
+            messageItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    // Remove active class from all items
+                    messageItems.forEach(i => i.classList.remove('active'));
+
+                    // Add active class to clicked item
+                    this.classList.add('active');
+
+                    // Remove "new" badge if present
+                    const badge = this.querySelector('.badge.bg-warning');
+                    if (badge) {
+                        badge.remove();
+                        this.classList.remove('new');
+
+                        // Update new messages count
+                        const newCount = document.getElementById('totalNewMessages');
+                        if (newCount) {
+                            let current = parseInt(newCount.textContent);
+                            if (current > 0) {
+                                newCount.textContent = current - 1;
+                            }
+                        }
+
+                        // Update sidebar badge
+                        const sidebarBadge = document.getElementById('newMessagesBadge');
+                        if (sidebarBadge) {
+                            let current = parseInt(sidebarBadge.textContent);
+                            if (current > 1) {
+                                sidebarBadge.textContent = current - 1;
+                            } else {
+                                sidebarBadge.remove();
+                            }
+                        }
+                    }
+
+                    // Show message detail content
+                    messageDetailContent.style.display = 'block';
+                    messageDetailPlaceholder.style.display = 'none';
+
+                    // Enable action buttons
+                    markAsViewedBtn.disabled = false;
+                    deleteMessageBtn.disabled = false;
+                });
+            });
+
+            // Mark as viewed button
+            if (markAsViewedBtn) {
+                markAsViewedBtn.addEventListener('click', function () {
+                    const activeItem = document.querySelector('.message-item.active');
+                    if (activeItem) {
+                        // Remove "new" class and badge
+                        activeItem.classList.remove('new');
+                        const badge = activeItem.querySelector('.badge.bg-warning');
+                        if (badge) badge.remove();
+
+                        // Update detail status
+                        const statusBadge = document.getElementById('detailStatusBadge');
+                        const statusText = document.getElementById('detailStatus');
+                        if (statusBadge) {
+                            statusBadge.textContent = 'Viewed';
+                            statusBadge.className = 'badge bg-info';
+                        }
+                        if (statusText) {
+                            statusText.textContent = 'Viewed';
+                        }
+
+                        // Update counts
+                        const newCount = document.getElementById('totalNewMessages');
+                        if (newCount) {
+                            let current = parseInt(newCount.textContent);
+                            if (current > 0) {
+                                newCount.textContent = current - 1;
+                            }
+                        }
+
+                        // Update sidebar badge
+                        const sidebarBadge = document.getElementById('newMessagesBadge');
+                        if (sidebarBadge) {
+                            let current = parseInt(sidebarBadge.textContent);
+                            if (current > 1) {
+                                sidebarBadge.textContent = current - 1;
+                            } else {
+                                sidebarBadge.remove();
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Delete message button
+            if (deleteMessageBtn) {
+                deleteMessageBtn.addEventListener('click', function () {
+                    const activeItem = document.querySelector('.message-item.active');
+                    if (activeItem && confirm('Are you sure you want to delete this message?')) {
+                        activeItem.remove();
+
+                        // Show placeholder again
+                        messageDetailContent.style.display = 'none';
+                        messageDetailPlaceholder.style.display = 'block';
+
+                        // Disable action buttons
+                        markAsViewedBtn.disabled = true;
+                        deleteMessageBtn.disabled = true;
+
+                        // Update total messages count
+                        const totalCount = document.getElementById('totalMessages');
+                        if (totalCount) {
+                            let current = parseInt(totalCount.textContent);
+                            if (current > 0) {
+                                totalCount.textContent = current - 1;
+                            }
+                        }
+
+                        // Update new messages count if it was new
+                        if (activeItem.classList.contains('new')) {
+                            const newCount = document.getElementById('totalNewMessages');
+                            if (newCount) {
+                                let current = parseInt(newCount.textContent);
+                                if (current > 0) {
+                                    newCount.textContent = current - 1;
+                                }
+                            }
+
+                            // Update sidebar badge
+                            const sidebarBadge = document.getElementById('newMessagesBadge');
+                            if (sidebarBadge) {
+                                let current = parseInt(sidebarBadge.textContent);
+                                if (current > 1) {
+                                    sidebarBadge.textContent = current - 1;
+                                } else {
+                                    sidebarBadge.remove();
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Filter functionality
+            const filterItems = document.querySelectorAll('[data-filter]');
+            filterItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update UI to show active filter
+                    filterItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // In a real app, you would filter messages here
+                    console.log('Filtering by:', filter);
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('messageSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    const searchTerm = this.value.toLowerCase();
+
+                    messageItems.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

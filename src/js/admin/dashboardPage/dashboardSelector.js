@@ -23,6 +23,9 @@ const dashboardElements = {
 	assetsCount: document.getElementById('assetsCount'),
 	apiLimit: document.getElementById('apiLimit'),
 	creditLimit: document.getElementById('creditLimit'),
+	totalContacts: document.getElementById('totalContacts'),
+	newContact: document.getElementById('newContact'),
+	oldContact: document.getElementById('oldContact'),
 };
 
 export default dashboardElements;
