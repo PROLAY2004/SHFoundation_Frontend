@@ -604,3 +604,308 @@
         font-size: 0.8rem;
     }
 }
+
+/* Delete Modal Styles */
+.delete-modal .modal-header {
+    border-bottom: 1px solid $gray-light;
+    padding-bottom: 1rem;
+}
+
+.modal-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.modal-icon.danger {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+    color: #dc3545;
+}
+
+.modal-icon.info {
+    background: linear-gradient(135deg, rgba(13, 202, 240, 0.1) 0%, rgba(13, 202, 240, 0.05) 100%);
+    color: #0dcaf0;
+}
+
+.delete-preview {
+    background-color: rgba(220, 53, 69, 0.05);
+    border: 1px solid rgba(220, 53, 69, 0.1);
+    border-radius: $border-radius-sm;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.preview-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+}
+
+.preview-item:last-child {
+    margin-bottom: 0;
+}
+
+.preview-item .label {
+    font-weight: 500;
+    color: $dark-color;
+    min-width: 80px;
+    font-size: 0.9rem;
+}
+
+.preview-item .value {
+    color: $gray-color;
+    font-size: 0.9rem;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Message Details Modal */
+.message-modal .modal-header {
+    border-bottom: 1px solid $gray-light;
+    padding-bottom: 1rem;
+}
+
+.modal-title-section {
+    flex: 1;
+}
+
+.modal-subtitle {
+    color: $gray-color;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* Sender Section */
+.sender-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid $gray-light;
+    margin-bottom: 1.5rem;
+}
+
+.sender-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $primary-gradient;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.sender-avatar.guest {
+    background: linear-gradient(135deg, #6c757d 0%, #868e96 100%);
+}
+
+.sender-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.sender-name {
+    font-weight: 600;
+    color: $dark-color;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+.sender-email {
+    color: $gray-color;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.sender-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.message-time {
+    color: $gray-color;
+    font-size: 0.85rem;
+}
+
+/* User Info Section */
+.user-info-section {
+    background-color: rgba($primary-color, 0.03);
+    border-radius: $border-radius-sm;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba($primary-color, 0.1);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.section-header i {
+    color: $primary-color;
+    font-size: 1.1rem;
+}
+
+.section-header h6 {
+    font-weight: 600;
+    color: $dark-color;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-label {
+    font-size: 0.8rem;
+    color: $gray-color;
+    font-weight: 500;
+}
+
+.info-value {
+    font-size: 0.95rem;
+    color: $dark-color;
+    font-weight: 500;
+}
+
+/* Message Content */
+.message-content-section {
+    margin-bottom: 1.5rem;
+}
+
+.message-text {
+    background-color: #f8f9fa;
+    border-radius: $border-radius-sm;
+    padding: 1.25rem;
+    line-height: 1.7;
+    color: $dark-color;
+    font-size: 0.95rem;
+    border: 1px solid $gray-light;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.message-text p {
+    margin-bottom: 0.75rem;
+}
+
+.message-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Metadata Section */
+.metadata-section {
+    background-color: #f8f9fa;
+    border-radius: $border-radius-sm;
+    padding: 1rem;
+    border: 1px solid $gray-light;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: $gray-color;
+    font-size: 0.9rem;
+}
+
+.meta-item i {
+    color: $primary-color;
+    font-size: 1rem;
+}
+
+/* Badge Customizations */
+.badge.bg-warning {
+    background-color: rgba(255, 193, 7, 0.15) !important;
+    color: #ffc107;
+}
+
+.badge.bg-info {
+    background-color: rgba(13, 202, 240, 0.15) !important;
+    color: #0dcaf0;
+}
+
+.badge.user-type {
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+    border: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sender-section {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .sender-avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    .sender-meta {
+        justify-content: center;
+    }
+
+    .message-text {
+        padding: 1rem;
+        font-size: 0.9rem;
+        max-height: 250px;
+    }
+
+    .user-info-section,
+    .metadata-section {
+        padding: 1rem;
+    }
+
+    .modal-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .delete-preview {
+        padding: 0.75rem;
+    }
+
+    .preview-item {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .preview-item .label {
+        min-width: auto;
+    }
+
+    .modal-subtitle {
+        font-size: 0.85rem;
+    }
+}

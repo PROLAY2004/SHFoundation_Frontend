@@ -3,7 +3,6 @@ import * as bootstrap from 'bootstrap';
 import '../../../scss/admin/contact.scss';
 
 import '../../common/sidebarToggle.js';
-import contactElements from './contactSelector.js';
-import displaySidebar from '../../templates/admin/sidebarTemplate.js'
+import displayContact from './fetchContactData.js';
 
-contactElements.contactSidebar.innerHTML = displaySidebar('contact');
+document.addEventListener('DOMContentLoaded', displayContact);
