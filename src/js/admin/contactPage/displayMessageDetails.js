@@ -25,6 +25,7 @@ async function showMessage(messageId, userId) {
 		contactElements.modalMessageText.innerHTML = message.message;
 		contactElements.modalReceivedDate.innerHTML = msgDateTime.split(',')[0];
 		contactElements.modalReceivedTime.innerHTML = msgDateTime.split(',')[1];
+		contactElements.userInfoSection.classList.add('d-none');
 		contactElements.modalMessageStatus.innerHTML =
 			message.status.charAt(0).toUpperCase() + message.status.slice(1);
 

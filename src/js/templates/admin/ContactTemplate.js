@@ -92,4 +92,14 @@ export default class ContactTemplate {
                     </div>
                 </div>`;
 	};
+
+	emptySearchMessages = () => {
+		return ` <div class="card text-center shadow-sm border-0">
+                    <div class="card-body py-5">
+                        <i class="bi bi-chat-dots display-4 text-muted mb-3"></i>
+                        <h5 class="text-muted">No search result found</h5>
+                        <p class="text-muted mb-0">Don’t match any search result.</p>
+                    </div>
+                </div>`;
+	};
 }
