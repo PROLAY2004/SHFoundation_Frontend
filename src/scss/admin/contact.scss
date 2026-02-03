@@ -193,16 +193,16 @@
 
 // Messages List Container
 .messages-list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    height: 50vh;
+        overflow-y: auto;
+        background-color: transparent;
 }
 
 // Message Card
 .message-card {
     background-color: white;
     border-radius: $border-radius-md;
-    box-shadow: $card-shadow;
+    // box-shadow: $card-shadow;
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: $transition;
     overflow: hidden;
@@ -213,7 +213,7 @@
     }
 
     &:hover {
-        box-shadow: $card-hover-shadow;
+        // box-shadow: $card-hover-shadow;
         transform: translateY(-2px);
     }
 }

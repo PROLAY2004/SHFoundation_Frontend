@@ -1,10 +1,10 @@
 import apiInterceptor from '../api/interceptor.js';
-import configaration from '../config/config.js';
 
-export default async function getInfo(email) {
+export default async function getInfo(key, type = 'email') {
 	try {
 		const response = await apiInterceptor('POST', `/user/admin/info`, {
-			email,
+			key,
+			type,
 		});
 
 		if (response.status === 404) {

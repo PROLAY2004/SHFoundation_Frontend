@@ -17,12 +17,12 @@ export default async function chnageStatus(messageId) {
 
 			if (newResult.success) {
 				await displayContact();
-				return newResult;
+				return result.data.messageInfo;
 			} else {
 				console.log(newResult.message);
 			}
 		} else {
-			console.log(result.message);
+			return result.data.messageInfo;
 		}
 	} catch (err) {
 		console.log(err.message);

@@ -17,6 +17,7 @@ export default async function setContactData(data) {
 	const guestMsg = data.guestMessageCount;
 	const image = `https://ui-avatars.com/api/?name=${name.split(' ').join('+')}&background=2c8c99&color=fff&size=200`;
 
+	const savedScrollTop = contactElements.messageContainer.scrollTop;
 	clearPage();
 
 	//display navbar
@@ -59,4 +60,6 @@ export default async function setContactData(data) {
 	} else {
 		contactElements.messageContainer.innerHTML = messageList.emptyMessages();
 	}
+
+	contactElements.messageContainer.scrollTop = savedScrollTop;
 }

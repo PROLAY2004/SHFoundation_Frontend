@@ -143,29 +143,6 @@
                 <div class="messages-list-container" id="messageContainer">
                     <!-- Messages appear here -->
                 </div>
-
-                <!-- Pagination -->
-                <!-- <div class="pagination-container">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-muted">
-                            Showing <span id="showingCount">8</span> of <span id="totalCount">48</span> messages
-                        </div>
-                        <nav>
-                            <ul class="pagination mb-0 d-flex gap-2">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" tabindex="-1">
-                                        <i class="bi bi-chevron-left"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div> -->
             </div>
         </main>
     </div>
@@ -210,22 +187,20 @@
                 <div class="modal-body">
                     <!-- Sender Information -->
                     <div class="sender-section">
-                        <div class="sender-avatar" id="modalSenderAvatar">
-                            <i class="bi bi-person-circle"></i>
-                        </div>
+                        <div class="sender-avatar" id="modalSenderAvatar"></div>
                         <div class="sender-details">
-                            <h6 class="sender-name" id="modalSenderName">John Doe</h6>
-                            <p class="sender-email" id="modalSenderEmail">john@example.com</p>
+                            <h6 class="sender-name" id="modalSenderName">Guest</h6>
+                            <p class="sender-email" id="modalSenderEmail">email@domain.com</p>
                             <div class="sender-meta">
-                                <span class="badge" id="modalMessageStatus">New</span>
+                                <span class="badge" id="modalMessageStatus"></span>
                                 <span class="badge user-type" id="modalUserType">User</span>
-                                <span class="message-time" id="modalMessageTime">Today, 10:30 AM</span>
+                                <span class="message-time" id="modalMessageTime">00/00/0000, 00:00 AM</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- User Info (if registered) -->
-                    <div class="user-info-section" id="userInfoSection">
+                    <div class="user-info-section d-none" id="userInfoSection">
                         <div class="section-header">
                             <i class="bi bi-person-badge"></i>
                             <h6>User Information</h6>
@@ -233,27 +208,27 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="info-item">
-                                    <span class="info-label">Account Created</span>
-                                    <span class="info-value" id="userJoinDate">January 15, 2023</span>
+                                    <span class="info-label">User Name</span>
+                                    <span class="info-value" id="userNameModal">Guest User</span>
                                 </div>
+                                
                             </div>
                             <div class="col-md-6">
                                 <div class="info-item">
                                     <span class="info-label">User Status</span>
-                                    <span class="info-value"><span class="badge bg-success"
-                                            id="userStatus">Verified</span></span>
+                                    <span class="info-value"><span class="badge" id="userStatus">Pending</span></span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-item">
-                                    <span class="info-label">Last Active</span>
-                                    <span class="info-value" id="userLastActive">2 days ago</span>
+                                    <span class="info-label">Account Created</span>
+                                    <span class="info-value" id="userJoinDate">Date & Time</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-item">
                                     <span class="info-label">Total Messages</span>
-                                    <span class="info-value" id="userMessageCount">5 messages</span>
+                                    <span class="info-value" id="userMessageCount">0 messages</span>
                                 </div>
                             </div>
                         </div>
@@ -266,20 +241,7 @@
                             <h6>Message Content</h6>
                         </div>
                         <div class="message-text" id="modalMessageText">
-                            <p>I wanted to share some feedback about the new dashboard interface. Overall, I really like
-                                the
-                                clean design and improved navigation. However, I noticed a few issues:</p>
-                            <p>1. The volunteer request table doesn't seem to update in real-time when I approve a
-                                request.
-                                I have to refresh the page to see the change.</p>
-                            <p>2. On mobile devices, the sidebar toggle button is sometimes unresponsive on the first
-                                tap.
-                            </p>
-                            <p>3. The export functionality in the reports section would be more useful if it included
-                                CSV
-                                format in addition to PDF.</p>
-                            <p>Keep up the great work! The platform is really coming along nicely.</p>
-                            <p>Best regards,<br>John</p>
+                            <!-- message content  -->
                         </div>
                     </div>
 
@@ -289,13 +251,13 @@
                             <div class="col-md-6">
                                 <div class="meta-item">
                                     <i class="bi bi-calendar"></i>
-                                    <span>Received: <strong id="modalReceivedDate">Today</strong></span>
+                                    <span>Received: <strong id="modalReceivedDate">00/00/0000</strong></span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="meta-item">
                                     <i class="bi bi-clock"></i>
-                                    <span>Time: <strong id="modalReceivedTime">10:30 AM</strong></span>
+                                    <span>Time: <strong id="modalReceivedTime">00:00 AM</strong></span>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@ export default class ContactTemplate {
 			: `<i class="bi bi-person-circle"></i>`;
 
 		return `
-            <div class="message-card new-message">
+            <div class="message-card new-message mb-3">
                 <div class="message-content">
                     <div class="sender-info">
                         <div class="sender-avatar">
@@ -28,8 +28,7 @@ export default class ContactTemplate {
                         <span class="status-badge new">New</span>
                     </div>
                     <div class="message-actions">
-                        <button class="btn-action view-btn" data-bs-toggle="modal" onclick="showMessage('${message._id}', '${userId}')"
-                            data-bs-target="#messageDetails">
+                        <button class="btn-action view-btn" onclick="showMessage('${message._id}', '${userId}')">
                             <i class="bi bi-eye"></i>
                             <span>View</span>
                         </button>
@@ -51,7 +50,7 @@ export default class ContactTemplate {
 			: ` <i class="bi bi-person"></i>`;
 
 		return `
-            <div class="message-card">
+            <div class="message-card mb-3">
                 <div class="message-content">
                     <div class="sender-info">
                         <div class="sender-avatar">
@@ -70,8 +69,7 @@ export default class ContactTemplate {
                         <span class="status-badge viewed">Viewed</span>
                     </div>
                     <div class="message-actions">
-                        <button class="btn-action view-btn" data-bs-toggle="modal" onclick="showMessage('${message._id}', '${userId}')"
-                            data-bs-target="#messageDetails">
+                        <button class="btn-action view-btn" onclick="showMessage('${message._id}', '${userId}')">
                             <i class="bi bi-eye"></i>
                             <span>View</span>
                         </button>

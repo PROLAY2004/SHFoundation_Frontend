@@ -11,6 +11,22 @@ const contactElements = {
 	messageContainer: document.getElementById('messageContainer'),
 	confirmDeleteBtn: document.getElementById('confirmDeleteBtn'),
 	deleteModal: document.getElementById('deleteModal'),
+	messageModal: document.getElementById('messageDetails'),
+	modalSenderName: document.getElementById('modalSenderName'),
+	modalSenderEmail: document.getElementById('modalSenderEmail'),
+	modalMessageStatus: document.getElementById('modalMessageStatus'),
+	modalUserType: document.getElementById('modalUserType'),
+	modalMessageTime: document.getElementById('modalMessageTime'),
+	modalMessageText: document.getElementById('modalMessageText'),
+	modalReceivedDate: document.getElementById('modalReceivedDate'),
+	modalReceivedTime: document.getElementById('modalReceivedTime'),
+	userInfoSection: document.getElementById('userInfoSection'),
+	userNameModal: document.getElementById('userNameModal'),
+	userStatus: document.getElementById('userStatus'),
+	userJoinDate: document.getElementById('userJoinDate'),
+	userMessageCount: document.getElementById('userMessageCount'),
+	messageSubject: document.getElementById('messageSubject'),
+	modalSenderAvatar: document.getElementById('modalSenderAvatar'),
 };
 
 export default contactElements;

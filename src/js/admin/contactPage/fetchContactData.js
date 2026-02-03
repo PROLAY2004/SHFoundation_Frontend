@@ -1,6 +1,7 @@
 import contactElements from './contactSelector.js';
 import displaySidebar from '../../templates/admin/sidebarTemplate.js';
-import apiInterceptor from '../../api/interceptor.js';
+import getMsg from './getAllMessages.js';
+
 import setContactData from './displayContact.js';
 
 export default async function displayContact() {
@@ -9,14 +10,9 @@ export default async function displayContact() {
 		contactElements.contactBody.classList.add('loading');
 		contactElements.contactSidebar.innerHTML = displaySidebar('contact');
 
-		const response = await apiInterceptor(`GET`, `/user/admin/contact`);
-		const result = await response.json();
+		const message = await getMsg();
 
-		if (result.message === 'Not an Admin') {
-			window.location.href = '/src/pages/account/profile.html';
-		}
-
-		await setContactData(result.data);
+		await setContactData(message);
 		contactElements.contactBody.classList.remove('loading');
 	} catch (err) {
 		console.log(err.message);
