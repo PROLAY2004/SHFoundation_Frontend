@@ -27,6 +27,7 @@ const contactElements = {
 	userMessageCount: document.getElementById('userMessageCount'),
 	messageSubject: document.getElementById('messageSubject'),
 	modalSenderAvatar: document.getElementById('modalSenderAvatar'),
+	contactSearch: document.getElementById('contactSearch'),
 };
 
 export default contactElements;

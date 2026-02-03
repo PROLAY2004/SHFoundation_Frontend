@@ -11,7 +11,7 @@ export default function setDashboardData(data) {
 	const verifiedCount = data.verifiedCount;
 	const pendingCount = data.pendingCount;
 	const newsCount = data.newsLetterCount;
-	const voluenteerCount = data.volunteers.length;
+	const voluenteerCount = data.volunteerCount;
 	const activeNewsCount = data.activeNewsletter;
 	const blockedNewsCount = data.blockedNewsletter;
 	const usage = data.usage;
@@ -53,7 +53,7 @@ export default function setDashboardData(data) {
 	dashboardElements.pendingVoluenteer.innerHTML = data.pendingVoluenteer;
 
 	// voluenteer list
-	for (let i = voluenteerCount - 1; i > voluenteerCount - 4; i--) {
+	for (let i = 0; i < data.volunteers.length; i++) {
 		dashboardElements.voluenteerList.innerHTML +=
 			volenteerList.recentVoluenteer(data.volunteers[i]);
 	}
