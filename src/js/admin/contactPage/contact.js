@@ -9,6 +9,15 @@ import contactElements from './contactSelector.js';
 import deleteMsg from './deleteContact.js';
 import searchContacts from './searchMessages.js';
 
+let debounceTimer = null;
+
 document.addEventListener('DOMContentLoaded', displayContact);
 contactElements.confirmDeleteBtn.addEventListener('click', deleteMsg);
-contactElements.contactSearch.addEventListener('input', searchContacts);
+
+contactElements.contactSearch.addEventListener('input', () => {
+	clearTimeout(debounceTimer);
+
+	debounceTimer = setTimeout(() => {
+		searchContacts();
+	}, 1000);
+});

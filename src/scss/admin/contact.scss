@@ -193,9 +193,9 @@
 
 // Messages List Container
 .messages-list-container {
-    height: 50vh;
-        overflow-y: auto;
-        background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 // Message Card
