@@ -226,13 +226,13 @@
     align-items: center;
 
     @media (max-width: 992px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 2fr 1fr 1.5fr;
         gap: 1rem;
     }
 
-    @media (max-width: 576px) {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
+    @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
     }
 }
 
@@ -406,6 +406,7 @@
 
 // Pagination
 .pagination {
+    background-color: transparent;
     .page-link {
         border: 1px solid $gray-light;
         color: $gray-color;
@@ -429,10 +430,15 @@
     }
 
     .page-item.disabled .page-link {
-        color: #adb5bd;
+        color: $primary-dark;
+        font-weight: 700;
         background-color: #f8f9fa;
-        border-color: $gray-light;
+        border-color: $gray-color;
     }
+
+        .page-item.disabled{
+            background-color: white !important;
+        }
 }
 
 // Toast Notifications

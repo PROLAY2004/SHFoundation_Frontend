@@ -3,6 +3,7 @@ import chnageStatus from './updateStatus.js';
 import contactElements from './contactSelector.js';
 import formatMessageTime from '../../utils/dateFormater.js';
 import getInfo from '../../utils/fetchUserDetails.js';
+import getMsg from './getAllMessages.js';
 
 const msgModal = new bootstrap.Modal(contactElements.messageModal);
 

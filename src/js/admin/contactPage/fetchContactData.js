@@ -51,20 +51,58 @@ function updatePaginationUI(current, total, totalItems) {
 	);
 
 	let html = '';
-	// Prev Button
+
+	// --- 1. PREV BUTTON ---
 	html += `<li class="page-item ${current === 1 ? 'disabled' : ''}">
-                <a class="page-link" href="#" data-page="${current - 1}"><i class="bi bi-chevron-left"></i></a>
+                <a class="page-link" href="#" data-page="${current - 1}">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
              </li>`;
 
+	// --- 2. ELLIPSIS LOGIC (MODIFIED SECTION) ---
+	const delta = 2; // Number of pages to show before and after current page
+	const left = current - delta;
+	const right = current + delta;
+	const range = [];
+	const rangeWithDots = [];
+	let l;
+
+	// Identify which numbers to show
 	for (let i = 1; i <= total; i++) {
-		html += `<li class="page-item ${i === current ? 'active' : ''}">
-                    <a class="page-link" href="#" data-page="${i}">${i}</a>
-                 </li>`;
+		if (i === 1 || i === total || (i >= left && i <= right)) {
+			range.push(i);
+		}
 	}
 
-	// Next Button
+	// Add dots where gaps exist
+	for (let i of range) {
+		if (l) {
+			if (i - l === 2) {
+				rangeWithDots.push(l + 1);
+			} else if (i - l !== 1) {
+				rangeWithDots.push('...');
+			}
+		}
+		rangeWithDots.push(i);
+		l = i;
+	}
+
+	// --- 3. RENDER THE NUMBERS ---
+	rangeWithDots.forEach((i) => {
+		if (i === '...') {
+			html += `<li class="page-item disabled"><span class="page-link"><i class="fa fa-ellipsis-h"></i></span></li>`;
+		} else {
+			html += `<li class="page-item ${i === current ? 'active' : ''}">
+                        <a class="page-link" href="#" data-page="${i}">${i}</a>
+                     </li>`;
+		}
+	});
+
+	// --- 4. NEXT BUTTON ---
 	html += `<li class="page-item ${current === total || total === 0 ? 'disabled' : ''}">
-                <a class="page-link" href="#" data-page="${current + 1}"><i class="bi bi-chevron-right"></i></a>
+                <a class="page-link" href="#" data-page="${current + 1}">
+                    <i class="bi bi-chevron-right"></i>
+                </a>
              </li>`;
 
 	contactElements.paginationList.innerHTML = html;

@@ -24,19 +24,24 @@ export default class ContactTemplate {
                         <span>${message.subject}</span>
                         <p class="message-time">${formatMessageTime(message.createdAt)}</p>
                     </div>
-                    <div class="message-status">
+                    <div class="message-status message-status d-none d-md-flex">
                         <span class="status-badge new">New</span>
                     </div>
-                    <div class="message-actions">
-                        <button class="btn-action view-btn" onclick="showMessage('${message._id}', '${userId}')">
-                            <i class="bi bi-eye"></i>
-                            <span>View</span>
-                        </button>
-                        <button class="btn-action delete-btn" data-bs-toggle="modal" onclick="setMsgId('${message._id}')"
-                            data-bs-target="#deleteModal">
-                            <i class="bi bi-trash"></i>
-                            <span>Delete</span>
-                        </button>
+                    <div class="message-actions justify-content-between">
+                        <div class="message-status align-items-center d-md-none">
+                            <span class="status-badge viewed">Viewed</span>
+                        </div>
+                        <div class='d-flex gap-2'>
+                            <button class="btn-action view-btn" onclick="showMessage('${message._id}', '${userId}')">
+                                <i class="bi bi-eye"></i>
+                                <span>View</span>
+                            </button>
+                            <button class="btn-action delete-btn" data-bs-toggle="modal" onclick="setMsgId('${message._id}')"
+                                data-bs-target="#deleteModal">
+                                <i class="bi bi-trash"></i>
+                                <span>Delete</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>`;
@@ -65,19 +70,24 @@ export default class ContactTemplate {
                         <span>${message.subject}</span>
                         <p class="message-time">${formatMessageTime(message.createdAt)}</p>
                     </div>
-                    <div class="message-status">
+                    <div class="message-status d-none d-md-flex">
                         <span class="status-badge viewed">Viewed</span>
                     </div>
-                    <div class="message-actions">
-                        <button class="btn-action view-btn" onclick="showMessage('${message._id}', '${userId}')">
-                            <i class="bi bi-eye"></i>
-                            <span>View</span>
-                        </button>
-                        <button class="btn-action delete-btn" data-bs-toggle="modal" onclick="setMsgId('${message._id}')"
-                            data-bs-target="#deleteModal">
-                            <i class="bi bi-trash"></i>
-                            <span>Delete</span>
-                        </button>
+                    <div class="message-actions justify-content-between">
+                        <div class="message-status align-items-center d-md-none">
+                            <span class="status-badge viewed">Viewed</span>
+                        </div>
+                        <div class='d-flex gap-2'>
+                            <button class="btn-action view-btn" onclick="showMessage('${message._id}', '${userId}')">
+                                <i class="bi bi-eye"></i>
+                                <span>View</span>
+                            </button>
+                            <button class="btn-action delete-btn" data-bs-toggle="modal" onclick="setMsgId('${message._id}')"
+                                data-bs-target="#deleteModal">
+                                <i class="bi bi-trash"></i>
+                                <span>Delete</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>`;
