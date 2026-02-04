@@ -3,12 +3,13 @@ import chnageStatus from './updateStatus.js';
 import contactElements from './contactSelector.js';
 import formatMessageTime from '../../utils/dateFormater.js';
 import getInfo from '../../utils/fetchUserDetails.js';
-import getMsg from './getAllMessages.js';
 
 const msgModal = new bootstrap.Modal(contactElements.messageModal);
 
 async function showMessage(messageId, userId) {
 	try {
+		console.log(userId);
+
 		const message = await chnageStatus(messageId);
 		const statusBadgeClass = message.status == 'new' ? 'bg-warning' : 'bg-info';
 		const msgDateTime = formatMessageTime(message.createdAt);

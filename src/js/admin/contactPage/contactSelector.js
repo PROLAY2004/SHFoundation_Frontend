@@ -28,6 +28,11 @@ const contactElements = {
 	messageSubject: document.getElementById('messageSubject'),
 	modalSenderAvatar: document.getElementById('modalSenderAvatar'),
 	contactSearch: document.getElementById('contactSearch'),
+
+	contactFilter: document.getElementById('contactFilter'),
+	paginationList: document.querySelector('.pagination'),
+	showingCount: document.getElementById('showingCount'),
+	totalCount: document.getElementById('totalCount'),
 };
 
 export default contactElements;

@@ -6,8 +6,8 @@ import displayMsgList from './setMessageList.js';
 const messageList = new ContactTemplate();
 
 export default async function setContactData(data) {
+	const { contactDetails } = data;
 	const name = data.currentUser.name;
-	const messages = data.contactDetails;
 	const totalMsg = data.totalContact;
 	const newMsg = data.newContact;
 	const userCount = data.userMessageCount;
@@ -27,11 +27,12 @@ export default async function setContactData(data) {
 	contactElements.guestMessages.innerHTML = String(guestMsg).padStart(2, '0');
 	contactElements.userMessages.innerHTML = String(userCount).padStart(2, '0');
 
-	if (totalMsg) {
-		await displayMsgList(totalMsg, messages);
+	contactElements.messageContainer.scrollTop = savedScrollTop;
+
+	if (contactDetails.length > 0) {
+		await displayMsgList(contactDetails.length, contactDetails);
 	} else {
+		// Show empty state
 		contactElements.messageContainer.innerHTML = messageList.emptyMessages();
 	}
-
-	contactElements.messageContainer.scrollTop = savedScrollTop;
 }

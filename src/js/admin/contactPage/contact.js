@@ -7,17 +7,15 @@ import './displayMessageDetails.js';
 import displayContact from './fetchContactData.js';
 import contactElements from './contactSelector.js';
 import deleteMsg from './deleteContact.js';
-import searchContacts from './searchMessages.js';
 
 let debounceTimer = null;
 
-document.addEventListener('DOMContentLoaded', displayContact);
+document.addEventListener('DOMContentLoaded', () => displayContact(true));
 contactElements.confirmDeleteBtn.addEventListener('click', deleteMsg);
 
 contactElements.contactSearch.addEventListener('input', () => {
 	clearTimeout(debounceTimer);
-
 	debounceTimer = setTimeout(() => {
-		searchContacts();
-	}, 1000);
+		displayContact(true); // Reset to page 1 on new search
+	}, 800);
 });
