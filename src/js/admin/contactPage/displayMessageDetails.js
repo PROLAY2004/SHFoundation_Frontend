@@ -14,7 +14,9 @@ async function showMessage(messageId, userId) {
 		const message = await chnageStatus(messageId);
 		const statusBadgeClass = message.status == 'new' ? 'bg-warning' : 'bg-info';
 		const msgDateTime = formatMessageTime(message.createdAt);
-
+		const parts = msgDateTime.split(',');
+		const time = parts.pop().trim();
+		const date = parts.join(',').trim();
 		msgModal.show();
 
 		contactElements.modalSenderAvatar.innerHTML = `<i class="bi bi-person-circle"></i>`;
@@ -25,8 +27,8 @@ async function showMessage(messageId, userId) {
 		contactElements.modalUserType.innerHTML = userId ? 'User' : 'Guest';
 		contactElements.modalMessageTime.innerHTML = msgDateTime;
 		contactElements.modalMessageText.innerHTML = message.message;
-		contactElements.modalReceivedDate.innerHTML = msgDateTime.split(',')[0];
-		contactElements.modalReceivedTime.innerHTML = msgDateTime.split(',')[1];
+		contactElements.modalReceivedDate.innerHTML = date;
+		contactElements.modalReceivedTime.innerHTML = time;
 		contactElements.userInfoSection.classList.add('d-none');
 		contactElements.modalMessageStatus.innerHTML =
 			message.status.charAt(0).toUpperCase() + message.status.slice(1);

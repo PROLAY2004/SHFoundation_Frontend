@@ -1,6 +1,6 @@
 import * as bootstrap from 'bootstrap';
 import '../../../scss/admin/contact.scss';
-
+import '../../utils/userLogout.js';
 import '../../common/sidebarToggle.js';
 import './deleteContact.js';
 import './displayMessageDetails.js';

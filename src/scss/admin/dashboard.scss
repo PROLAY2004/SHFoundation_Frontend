@@ -3,57 +3,6 @@
 @import '../common/root';
 @import './sidebar';
 
-
-/* Common Container Styles */
-.dashboard-wrapper {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* Topbar */
-.topbar {
-    background-color: white;
-    padding: 1rem 1.5rem;
-    box-shadow: $header-shadow;
-    position: sticky;
-    top: 0;
-    z-index: 98;
-}
-
-.topbar-user {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: $primary-gradient;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-}
-
-/* Dashboard Header */
-.dashboard-header {
-    padding: 1.5rem;
-}
-
-.dashboard-header h1 {
-    font-family: $font-heading;
-    font-weight: 700;
-    color: $dark-color;
-}
-
-.dashboard-header p {
-    color: $gray-color;
-    margin-bottom: 0;
-}
-
 /* Enhanced Cards */
 .stat-card {
     background-color: white;
@@ -236,22 +185,6 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-    .sidebar {
-        transform: translateX(-100%);
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-
-    .sidebar-toggle {
-        display: block !important;
-    }
-
     /* Responsive Chart Height */
     .chart-container {
         height: 220px;
@@ -285,14 +218,6 @@
         width: 56px;
         height: 56px;
     }
-}
-
-.sidebar-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: $dark-color;
 }
 
 /* Quick Actions */

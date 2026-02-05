@@ -35,6 +35,10 @@ export default async function displayContact(resetPage = false) {
 				result.data.totalPages,
 				result.data.totalContact,
 			);
+		} else {
+			if (result.message === 'Not an Admin') {
+				window.location.href = '/src/pages/account/profile.html';
+			}
 		}
 	} catch (err) {
 		console.error(err);

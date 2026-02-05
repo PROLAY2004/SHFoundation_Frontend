@@ -38,7 +38,7 @@ export default function displaySidebar(pageName){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ${pageName === 'voluenteer' ? 'active' : ''}" href="#">
+                        <a class="nav-link ${pageName === 'voluenteer' ? 'active' : ''}" href="/src/pages/admin/voluenteer.html">
                             <i class="bi bi-people"></i>
                             <span>Volunteer</span>
                         </a>
