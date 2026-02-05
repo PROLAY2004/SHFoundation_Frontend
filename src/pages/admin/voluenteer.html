@@ -12,7 +12,7 @@
     <script type="module" src="/src/js/admin/volunteerPage/volunteer.js"></script>
 </head>
 
-<body id="volunteerBody">
+<body id="volunteerBody" style="display: none;">
     <div id="page-loader">
         <div class="spinner-border text-light" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -146,135 +146,9 @@
 
                 <!-- Volunteer Requests List -->
                 <div class="volunteer-list-container d-flex flex-column gap-2" id="volunteerContainer">
-
-                    <div class="volunteer-card status-rejected mb-3">
-                        <div class="volunteer-content d-flex flex-column gap-3 p-3 flex-sm-row">
-                            <div
-                                class="d-flex flex-column gap-2 w-100 flex-md-row justify-content-evenly justify-content-xl-between">
-                                <div class="applicant-info">
-                                    <div class="applicant-avatar">
-                                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Robert Johnson"
-                                            class="w-100 h-100 rounded-circle object-fit-cover">
-                                    </div>
-                                    <div class="applicant-details">
-                                        <h6 class="applicant-name">Robert Johnson</h6>
-                                        <p class="applicant-email">robert.j@email.com</p>
-                                    </div>
-                                </div>
-                                <div class="volunteer-skills d-flex">
-                                    <div class="skills-list justify-content-md-center">
-                                        <span class="skill-badge">Mobile Development</span>
-                                        <span class="skill-badge">Flutter</span>
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="d-flex gap-2 flex-row flex-md-column my-auto me-xl-3 flex-xl-row align-items-center">
-                                    <div class="volunteer-availability">
-                                        <span class="availability-badge">5-10 hours</span>
-                                    </div>
-                                    <div class="application-status">
-                                        <span class="status-badge rejected">Rejected</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="volunteer-actions m-0 m-sm-auto align-self-sm-end">
-                                <button class="btn-action view-btn" data-bs-toggle="modal"
-                                    data-bs-target="#volunteerDetails">
-                                    <i class="bi bi-eye"></i>
-                                    <span>View</span>
-                                </button>
-                            </div>
-                        </div>
+                    <!-- dynamic list for voluenteers -->
                     </div>
 
-                    <div class="volunteer-card status-approved mb-3">
-                        <div class="volunteer-content d-flex flex-column gap-3 p-3 flex-sm-row">
-                            <div
-                                class="d-flex flex-column gap-2 w-100 flex-md-row justify-content-evenly justify-content-xl-between">
-                                <div class="applicant-info">
-                                    <div class="applicant-avatar">
-                                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Brown"
-                                            class="w-100 h-100 rounded-circle object-fit-cover">
-                                    </div>
-                                    <div class="applicant-details">
-                                        <h6 class="applicant-name">Lisa Brown</h6>
-                                        <p class="applicant-email">lisa.brown@email.com</p>
-                                    </div>
-                                </div>
-                                <div class="volunteer-skills d-flex">
-                                    <div class="skills-list justify-content-md-center">
-                                        <span class="skill-badge">Teaching</span>
-                                        <span class="skill-badge">Mentoring</span>
-                                        <span class="skill-badge">Curriculum Design</span>
-                                        <span class="skill-badge">Public Speaking</span>
-                                        <span class="skill-badge">Curriculum Design</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="d-flex gap-2 flex-row flex-md-column my-auto me-xl-3 flex-xl-row align-items-center">
-                                    <div class="volunteer-availability">
-                                        <span class="availability-badge">10+ hours</span>
-                                    </div>
-                                    <div class="application-status">
-                                        <span class="status-badge approved">Approved</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="volunteer-actions m-0 m-sm-auto align-self-sm-end">
-                                <button class="btn-action view-btn" data-bs-toggle="modal"
-                                    data-bs-target="#volunteerDetails">
-                                    <i class="bi bi-eye"></i>
-                                    <span>View</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="volunteer-card status-pending mb-3">
-                        <div class="volunteer-content d-flex flex-column gap-3 p-3 flex-sm-row">
-                            <div
-                                class="d-flex flex-column gap-2 w-100 flex-md-row  justify-content-evenly justify-content-xl-between">
-                                <div class="applicant-info">
-                                    <div class="applicant-avatar">
-                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Kim"
-                                            class="w-100 h-100 rounded-circle object-fit-cover">
-                                    </div>
-                                    <div class="applicant-details">
-                                        <h6 class="applicant-name">David Kim</h6>
-                                        <p class="applicant-email">david.kim@email.com</p>
-                                    </div>
-                                </div>
-                                <div class="volunteer-skills d-flex">
-                                    <div class="skills-list justify-content-md-center">
-                                        <span class="skill-badge">Video Editing</span>
-                                        <span class="skill-badge">Photography</span>
-                                        <span class="skill-badge">Adobe Creative Suite</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="d-flex gap-2 flex-row flex-md-column my-auto me-xl-3 flex-xl-row align-items-center">
-                                    <div class="volunteer-availability">
-                                        <span class="availability-badge">5-10 hours</span>
-                                    </div>
-                                    <div class="application-status">
-                                        <span class="status-badge pending">Pending</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="volunteer-actions m-0 m-sm-auto align-self-sm-end">
-                                <button class="btn-action view-btn" data-bs-toggle="modal"
-                                    data-bs-target="#volunteerDetails">
-                                    <i class="bi bi-eye"></i>
-                                    <span>View</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pagination -->
                 <!-- Pagination -->
                 <div class="pagination-container">
                     <div class="d-flex justify-content-between align-items-center flex-column gap-3 flex-md-row">
@@ -373,14 +247,15 @@
                     <!-- Applicant Information -->
                     <div class="applicant-section">
                         <div class="applicant-avatar" id="modalApplicantAvatar">
-                            <i class="bi bi-person"></i>
+                            <img src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="user avatar"
+                                class="w-100 h-100 rounded-circle object-fit-cover" id="userAvattar">
                         </div>
                         <div class="applicant-details">
                             <h6 class="applicant-name" id="modalApplicantName">Loading...</h6>
                             <p class="applicant-email" id="modalApplicantEmail">email@domain.com</p>
                             <div class="applicant-meta">
                                 <span class="badge" id="modalApplicationStatus">Pending</span>
-                                <span class="badge user-type" id="modalUserStatus">Unverified</span>
+                                <span class="badge user-type" id="modalUserStatus">Verified</span>
                                 <span class="application-time" id="modalApplicationTime">00/00/0000, 00:00 AM</span>
                             </div>
                         </div>
@@ -397,19 +272,6 @@
                                 <div class="info-item">
                                     <span class="info-label">Member Since</span>
                                     <span class="info-value" id="userJoinDate">Date & Time</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span class="info-label">Account Status</span>
-                                    <span class="info-value"><span class="badge"
-                                            id="userAccountStatus">Pending</span></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span class="info-label">Email Verified</span>
-                                    <span class="info-value" id="emailVerified">No</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -441,16 +303,6 @@
                             <label class="detail-label">Weekly Availability</label>
                             <div class="availability-display" id="modalAvailability">
                                 <span class="badge availability-badge">Loading...</span>
-                            </div>
-                        </div>
-
-                        <!-- Terms Accepted -->
-                        <div class="detail-group mb-3">
-                            <label class="detail-label">Terms & Conditions</label>
-                            <div class="terms-display">
-                                <span class="badge terms-badge" id="modalTermsAccepted">
-                                    <i class="bi bi-check-circle-fill"></i> Accepted
-                                </span>
                             </div>
                         </div>
 

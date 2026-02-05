@@ -1,9 +1,9 @@
 import * as bootstrap from 'bootstrap';
-
 import '../../../scss/admin/voluenteer.scss';
-import displaySidebar from '../../templates/admin/sidebarTemplate.js';
-import volunteerElements from './volunteerSelector.js';
+import '../../common/sidebarToggle.js';
+import '../../utils/userLogout.js';
+import './displayModal.js';
 
-console.log('check');
+import displayVoluenteerDetails from './fetchVoluenteerData.js';
 
-volunteerElements.volunteerSidebar.innerHTML = displaySidebar('voluenteer');
+document.addEventListener('DOMContentLoaded', displayVoluenteerDetails);
