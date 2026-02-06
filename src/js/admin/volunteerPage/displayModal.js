@@ -10,6 +10,8 @@ const modal = new bootstrap.Modal(volunteerElements.volunteerDetails);
 
 async function showModal(responseId, userId) {
 	try {
+		volunteerElements.volunteerBody.classList.add('loading');
+
 		const userDataResponse = await getInfo(userId, 'userId');
 		const userData = await userDataResponse.json();
 		const response = await apiInterceptor(
@@ -18,16 +20,18 @@ async function showModal(responseId, userId) {
 			{ responseId },
 		);
 		const result = await response.json();
-		const voluenteerData = result.data.voluenteerInfo;
+		const voluenteerData = result.data;
 
 		if (result.success) {
 			await setModalData(userData.data.userInfo, voluenteerData);
+
+			volunteerElements.volunteerBody.classList.remove('loading');
+			modal.show();
 		} else {
 			volunteerElements.toastSection.innerHTML = displayToast.errorToast(
 				result.message,
 			);
 		}
-		modal.show();
 	} catch (err) {
 		volunteerElements.toastSection.innerHTML = displayToast.errorToast(
 			err.message,

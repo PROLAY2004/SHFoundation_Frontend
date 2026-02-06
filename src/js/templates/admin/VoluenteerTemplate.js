@@ -25,7 +25,7 @@ export default class voluenteerTemplate {
             <div class="volunteer-card status-rejected mb-3">
                 <div class="volunteer-content d-flex flex-column gap-3 p-3 flex-sm-row">
                     <div
-                        class="d-flex flex-column gap-2 w-100 flex-md-row justify-content-evenly justify-content-xl-between">
+                        class="d-flex flex-column gap-2 w-100 flex-md-row justify-content-between">
                         <div class="applicant-info">
                             <div class="applicant-avatar">
                                 ${avatar}
@@ -42,7 +42,7 @@ export default class voluenteerTemplate {
                         </div>
 
                         <div
-                            class="d-flex gap-2 flex-row flex-md-column my-auto me-xl-3 flex-xl-row align-items-center">
+                            class="d-flex gap-2 flex-row flex-md-column my-auto me-3 flex-xl-row align-items-center">
                             <div class="volunteer-availability">
                                 <span class="availability-badge">${data.availability} hours</span>
                             </div>
@@ -74,7 +74,7 @@ export default class voluenteerTemplate {
 		return `<div class="volunteer-card status-approved mb-3">
                     <div class="volunteer-content d-flex flex-column gap-3 p-3 flex-sm-row">
                         <div
-                            class="d-flex flex-column gap-2 w-100 flex-md-row justify-content-evenly justify-content-xl-between">
+                            class="d-flex flex-column gap-2 w-100 flex-md-row justify-content-between">
                             <div class="applicant-info">
                                 <div class="applicant-avatar">
                                     ${avatar}
@@ -90,7 +90,7 @@ export default class voluenteerTemplate {
                                 </div>
                             </div>
                             <div
-                                class="d-flex gap-2 flex-row flex-md-column my-auto me-xl-3 flex-xl-row align-items-center">
+                                class="d-flex gap-2 flex-row flex-md-column my-auto me-3 flex-xl-row align-items-center">
                                 <div class="volunteer-availability">
                                     <span class="availability-badge">${data.availability} hours</span>
                                 </div>
@@ -123,7 +123,7 @@ export default class voluenteerTemplate {
 		return `<div class="volunteer-card status-pending mb-3">
                     <div class="volunteer-content d-flex flex-column gap-3 p-3 flex-sm-row">
                         <div
-                            class="d-flex flex-column gap-2 w-100 flex-md-row  justify-content-evenly justify-content-xl-between">
+                            class="d-flex flex-column gap-2 w-100 flex-md-row justify-content-between">
                             <div class="applicant-info">
                                 <div class="applicant-avatar">
                                     ${avatar}
@@ -139,7 +139,7 @@ export default class voluenteerTemplate {
                                 </div>
                             </div>
                             <div
-                                class="d-flex gap-2 flex-row flex-md-column my-auto me-xl-3 flex-xl-row align-items-center">
+                                class="d-flex gap-2 flex-row flex-md-column my-auto me-3 flex-xl-row align-items-center">
                                 <div class="volunteer-availability">
                                     <span class="availability-badge">${data.availability} hours</span>
                                 </div>

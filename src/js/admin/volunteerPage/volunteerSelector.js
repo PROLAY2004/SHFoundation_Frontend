@@ -16,6 +16,16 @@ const volunteerElements = {
 	userAvattar: document.getElementById('userAvattar'),
 	modalApplicationStatus: document.getElementById('modalApplicationStatus'),
 	modalApplicationTime: document.getElementById('modalApplicationTime'),
+	userJoinDate: document.getElementById('userJoinDate'),
+	totalApplications: document.getElementById('totalApplications'),
+	modalAvailability: document.getElementById('modalAvailability'),
+	modalMotivation: document.getElementById('modalMotivation'),
+	modalSubmittedDate: document.getElementById('modalSubmittedDate'),
+	modalSubmittedTime: document.getElementById('modalSubmittedTime'),
+	modalSkills: document.getElementById('modalSkills'),
+	modalFooter: document.getElementById('modalFooter'),
+	approveBtn: document.getElementById('approveBtn'),
+	rejectBtn: document.getElementById('rejectBtn'),
 };
 
 export default volunteerElements;

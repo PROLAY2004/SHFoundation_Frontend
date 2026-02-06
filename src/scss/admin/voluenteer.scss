@@ -176,7 +176,7 @@
     align-items: center;
     gap: 1rem;
     width: auto;
-    min-width: 0;
+    min-width: 250px;
 }
 
 .applicant-avatar {
@@ -220,16 +220,18 @@
     white-space: nowrap;
 }
 
-
-
 .skills-list {
-    width: 250px;
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     align-items: center;
 }
 
+// @media(min-width:768px) {
+//     .skills-list {
+//         width: 250px;
+//     }
+// }
 @media(min-width:1200px) {
     .skills-list {
         width: auto;
@@ -251,19 +253,20 @@
     min-width: 0;
     display: flex;
     justify-content: center;
-
-    .availability-badge {
-        padding: 0.4rem 0.8rem;
-        border-radius: 50px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-align: center;
-        min-width: 80px;
-        display: inline-block;
-        background-color: rgba(13, 202, 240, 0.15);
-        color: #0dcaf0;
-    }
 }
+
+.availability-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    min-width: 80px;
+    display: inline-block;
+    background-color: rgba(13, 202, 240, 0.15);
+    color: #0dcaf0;
+}
+
 
 // Application Status
 .application-status {
@@ -411,38 +414,7 @@
     }
 }
 
-.action-preview {
-    background-color: rgba(44, 140, 153, 0.05);
-    border: 1px solid rgba(44, 140, 153, 0.1);
-    border-radius: $border-radius-sm;
-    padding: 1rem;
-    margin-top: 1rem;
-}
 
-.preview-item {
-    margin-bottom: 0.5rem;
-    display: flex;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    .label {
-        font-weight: 500;
-        color: $dark-color;
-        min-width: 100px;
-        font-size: 0.9rem;
-    }
-
-    .value {
-        color: $gray-color;
-        font-size: 0.9rem;
-        flex: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-}
 
 // Volunteer Details Modal
 .volunteer-modal .modal-header {
@@ -613,46 +585,6 @@
     }
 }
 
-// Availability Display
-.availability-display {
-    .availability-badge {
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        display: inline-block;
-
-        &.hours-1-5 {
-            background-color: rgba(255, 193, 7, 0.15);
-            color: #ffc107;
-        }
-
-        &.hours-5-10 {
-            background-color: rgba(13, 202, 240, 0.15);
-            color: #0dcaf0;
-        }
-
-        &.hours-10-plus {
-            background-color: rgba(40, 167, 69, 0.15);
-            color: #28a745;
-        }
-    }
-}
-
-// Terms Display
-.terms-display {
-    .terms-badge {
-        background-color: rgba(40, 167, 69, 0.15);
-        color: #28a745;
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-}
 
 // Motivation Text
 .motivation-text {
@@ -665,6 +597,8 @@
     border: 1px solid $gray-light;
     max-height: 200px;
     overflow-y: auto;
+    word-break: break-word;
+        overflow-wrap: break-word;
 }
 
 // Metadata Section
@@ -710,39 +644,7 @@
     border: none;
 }
 
-// Action Buttons in Modal Footer
-.modal-footer .action-buttons {
-    display: flex;
-    gap: 0.75rem;
 
-    .btn {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.75rem;
-        font-weight: 600;
-
-        &.btn-success {
-            background: linear-gradient(135deg, #28a745 0%, #34ce57 100%);
-            border: none;
-
-            &:hover {
-                background: linear-gradient(135deg, #218838 0%, #2db84d 100%);
-            }
-        }
-
-        &.btn-danger {
-            background: linear-gradient(135deg, #dc3545 0%, #e35d6a 100%);
-            border: none;
-
-            &:hover {
-                background: linear-gradient(135deg, #c82333 0%, #d94753 100%);
-            }
-        }
-    }
-}
 
 // Responsive Design
 @media (max-width: 992px) {
@@ -865,7 +767,4 @@
         font-size: 0.8rem;
     }
 
-    .modal-footer .action-buttons {
-        flex-direction: column;
-    }
 }

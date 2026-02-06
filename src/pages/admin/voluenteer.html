@@ -147,7 +147,7 @@
                 <!-- Volunteer Requests List -->
                 <div class="volunteer-list-container d-flex flex-column gap-2" id="volunteerContainer">
                     <!-- dynamic list for voluenteers -->
-                    </div>
+                </div>
 
                 <!-- Pagination -->
                 <div class="pagination-container">
@@ -203,31 +203,6 @@
         </main>
     </div>
 
-    <!-- Action Confirmation Modal -->
-    <div class="modal fade" id="actionModal" tabindex="-1" aria-labelledby="actionModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content action-modal">
-                <div class="modal-header">
-                    <div class="modal-icon" id="actionIcon">
-                        <i class="bi bi-question-circle"></i>
-                    </div>
-                    <h1 class="modal-title fs-5" id="actionModalLabel">Confirm Action</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p id="actionMessage">Are you sure you want to perform this action?</p>
-                    <div class="action-preview" id="actionPreview">
-                        <!-- Preview content will be added dynamically -->
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn" id="confirmActionBtn">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Volunteer Details Modal -->
     <div class="modal fade" id="volunteerDetails" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="volunteerDetailsLabel" aria-hidden="true">
@@ -276,8 +251,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="info-item">
-                                    <span class="info-label">Previous Applications</span>
-                                    <span class="info-value" id="previousApplications">0</span>
+                                    <span class="info-label">Total Applications</span>
+                                    <span class="info-value" id="totalApplications">0</span>
                                 </div>
                             </div>
                         </div>
@@ -301,15 +276,15 @@
                         <!-- Availability -->
                         <div class="detail-group mb-3">
                             <label class="detail-label">Weekly Availability</label>
-                            <div class="availability-display" id="modalAvailability">
-                                <span class="badge availability-badge">Loading...</span>
+                            <div class="availability-display">
+                                <span class="badge availability-badge" id="modalAvailability">Loading...</span>
                             </div>
                         </div>
 
                         <!-- Motivation -->
                         <div class="detail-group">
                             <label class="detail-label">Motivation Statement</label>
-                            <div class="motivation-text" id="modalMotivation">
+                            <div class="motivation-text w-100" id="modalMotivation">
                                 <p>Loading motivation text...</p>
                             </div>
                         </div>
@@ -333,10 +308,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <div class="action-buttons w-100" id="actionButtons">
-                        <!-- Action buttons will be added dynamically based on status -->
-                    </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="btn btn-success" onclick="changeStatus('approved')">Approve Request</button>
+                    <button type="button" class="btn btn-danger" onclick="changeStatus('rejected')">Reject Request</button>
                 </div>
             </div>
         </div>
