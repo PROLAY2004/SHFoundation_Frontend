@@ -1,7 +1,9 @@
 import getInfo from '../../utils/fetchUserDetails';
 import ContactTemplate from '../../templates/admin/ContactTemplate.js';
 import contactElements from './contactSelector.js';
+import Templates from '../../common/Templates.js';
 
+const displayToast = new Templates();
 const messageList = new ContactTemplate();
 
 export default async function displayMsgList(totalMsg, messages) {
@@ -36,6 +38,12 @@ export default async function displayMsgList(totalMsg, messages) {
 			}
 		}
 	} catch (err) {
-		console.log(err.message);
+		contactElements.toastSection.innerHTML = displayToast.errorToast(
+			err.message,
+		);
+	} finally {
+		setTimeout(() => {
+			contactElements.toastSection.innerHTML = '';
+		}, 3000);
 	}
 }

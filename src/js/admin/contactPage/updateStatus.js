@@ -25,6 +25,12 @@ export default async function chnageStatus(messageId) {
 			return result.data.messageInfo;
 		}
 	} catch (err) {
-		console.log(err.message);
+		contactElements.toastSection.innerHTML = displayToast.errorToast(
+			err.message,
+		);
+	} finally {
+		setTimeout(() => {
+			contactElements.toastSection.innerHTML = '';
+		}, 3000);
 	}
 }

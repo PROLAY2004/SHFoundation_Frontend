@@ -1,7 +1,9 @@
 import contactElements from './contactSelector.js';
 import ContactTemplate from '../../templates/admin/ContactTemplate.js';
 import displayMsgList from './setMessageList.js';
+import Templates from '../../common/Templates.js';
 
+const displayToast = new Templates();
 const messageList = new ContactTemplate();
 
 export default async function setContactData(data) {
@@ -32,10 +34,15 @@ export default async function setContactData(data) {
 		if (contactDetails.length > 0) {
 			await displayMsgList(contactDetails.length, contactDetails);
 		} else {
-			// Show empty state
 			contactElements.messageContainer.innerHTML = messageList.emptyMessages();
 		}
 	} catch (err) {
-		console.log(err.message);
+		contactElements.toastSection.innerHTML = displayToast.errorToast(
+			err.message,
+		);
+	} finally {
+		setTimeout(() => {
+			contactElements.toastSection.innerHTML = '';
+		}, 3000);
 	}
 }

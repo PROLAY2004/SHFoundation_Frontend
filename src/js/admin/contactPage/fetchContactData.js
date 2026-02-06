@@ -2,7 +2,9 @@ import displaySidebar from '../../templates/admin/sidebarTemplate.js';
 import contactElements from './contactSelector.js';
 import apiInterceptor from '../../api/interceptor.js';
 import setContactData from './displayContact.js';
+import Templates from '../../common/Templates.js';
 
+const displayToast = new Templates();
 let currentState = {
 	page: 1,
 	limit: 5,
@@ -39,11 +41,21 @@ export default async function displayContact(resetPage = false) {
 			if (result.message === 'Not an Admin') {
 				window.location.href = '/src/pages/account/profile.html';
 			}
+
+			contactElements.toastSection.innerHTML = displayToast.errorToast(
+				result.message,
+			);
 		}
 	} catch (err) {
-		console.error(err);
+		contactElements.toastSection.innerHTML = displayToast.errorToast(
+			err.message,
+		);
 	} finally {
 		contactElements.contactBody.classList.remove('loading');
+
+		setTimeout(() => {
+			contactElements.toastSection.innerHTML = '';
+		}, 300);
 	}
 }
 
@@ -112,17 +124,5 @@ function updatePaginationUI(current, total, totalItems) {
 	contactElements.paginationList.innerHTML = html;
 }
 
-// Global listener for pagination clicks
-contactElements.paginationList.addEventListener('click', (e) => {
-	e.preventDefault();
-	const page = e.target.closest('.page-link')?.dataset.page;
-	if (page) {
-		currentState.page = parseInt(page);
-		displayContact();
-	}
-});
 
-// Listener for Filter
-contactElements.contactFilter.addEventListener('change', () =>
-	displayContact(true),
-);
+

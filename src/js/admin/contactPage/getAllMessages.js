@@ -1,4 +1,8 @@
 import apiInterceptor from '../../api/interceptor.js';
+import Templates from '../../common/Templates.js';
+import contactElements from './contactSelector.js';
+
+const displayToast = new Templates();
 
 export default async function getMsg() {
 	try {
@@ -27,10 +31,18 @@ export default async function getMsg() {
 			if (result.message === 'Not an Admin') {
 				window.location.href = '/src/pages/account/profile.html';
 			}
-			return null;
+
+			contactElements.toastSection.innerHTML = displayToast.errorToast(
+				result.message,
+			);
 		}
 	} catch (err) {
-		console.error('getMsg Error:', err.message);
-		return null;
+		contactElements.toastSection.innerHTML = displayToast.errorToast(
+			err.message,
+		);
+	} finally {
+		setTimeout(() => {
+			contactElements.toastSection.innerHTML = '';
+		}, 3000);
 	}
 }
