@@ -32,7 +32,7 @@ export default function displaySidebar(pageName){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ${pageName === 'newsletter' ? 'active' : ''}" href="#">
+                        <a class="nav-link ${pageName === 'newsletter' ? 'active' : ''}" href="/src/pages/admin/newsletter.html">
                             <i class="bi bi-envelope"></i>
                             <span>Newsletter</span>
                         </a>

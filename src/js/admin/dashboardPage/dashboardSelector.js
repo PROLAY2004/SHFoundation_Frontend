@@ -26,6 +26,7 @@ const dashboardElements = {
 	totalContacts: document.getElementById('totalContacts'),
 	newContact: document.getElementById('newContact'),
 	oldContact: document.getElementById('oldContact'),
+	newsShowMore: document.getElementById('newsShowMore'),
 };
 
 export default dashboardElements;

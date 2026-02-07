@@ -3,7 +3,7 @@ import newsChart from './displayNewsletterChart.js';
 import userChart from './displayUserChart.js';
 import voluenteerTemplate from '../../templates/admin/VoluenteerTemplate.js';
 
-const volenteerList = new voluenteerTemplate();
+const volenteerListTemplate = new voluenteerTemplate();
 
 export default function setDashboardData(data) {
 	const name = data.currentUser.name;
@@ -55,7 +55,12 @@ export default function setDashboardData(data) {
 	// voluenteer list
 	for (let i = 0; i < data.volunteers.length; i++) {
 		dashboardElements.voluenteerList.innerHTML +=
-			volenteerList.recentVoluenteer(data.volunteers[i]);
+			volenteerListTemplate.recentVoluenteer(data.volunteers[i]);
+	}
+
+	if (!data.volunteers.length) {
+		dashboardElements.voluenteerList.innerHTML =
+			volenteerListTemplate.emptyRecentVolunteer();
 	}
 
 	//contact card details

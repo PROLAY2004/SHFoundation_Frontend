@@ -11,6 +11,33 @@ export default class voluenteerTemplate {
                 </div>`;
 	};
 
+	emptyRecentVolunteer = () => {
+		return `
+		<div class="d-flex flex-column align-items-center justify-content-center text-center my-auto">
+			
+			<!-- Icon -->
+			<div class="mb-3">
+				<i class="bi bi-people text-secondary" style="font-size: 3.5rem;"></i>
+			</div>
+
+			<!-- Title -->
+			<h5 class="fw-semibold mb-1">No Recent Volunteers</h5>
+
+			<!-- Subtitle -->
+			<p class="text-muted mb-3">
+				New volunteer requests will appear here once someone applies.
+			</p>
+
+			<!-- Action hint -->
+			<span class="badge bg-light text-dark px-3 py-2">
+				<i class="bi bi-clock-history me-1"></i>
+				Waiting for activity
+			</span>
+
+		</div>
+	`;
+	};
+
 	rejectedVoluenteer = (data, user = '') => {
 		const avatar = user
 			? `<img src="${user.imagePath}" alt="user avatar"
