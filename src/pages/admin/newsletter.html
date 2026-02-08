@@ -62,7 +62,7 @@
                                     <i class="bi bi-envelope-fill"></i>
                                 </div>
                                 <div class="ms-3">
-                                    <h4 class="mb-0" id="totalSubscriptions">00</h4>
+                                    <h4 class="mb-0" id="totalSubs">00</h4>
                                     <small>Total Subscriptions</small>
                                 </div>
                             </div>
@@ -76,8 +76,8 @@
                                     <i class="bi bi-check-circle"></i>
                                 </div>
                                 <div class="ms-3">
-                                    <h4 class="mb-0" id="activeSubscriptions">00</h4>
-                                    <small>Active</small>
+                                    <h4 class="mb-0" id="activeSubs">00</h4>
+                                    <small>Active Users</small>
                                 </div>
                             </div>
                         </div>
@@ -90,8 +90,8 @@
                                     <i class="bi bi-slash-circle"></i>
                                 </div>
                                 <div class="ms-3">
-                                    <h4 class="mb-0" id="blockedSubscriptions">00</h4>
-                                    <small>Blocked</small>
+                                    <h4 class="mb-0" id="blockedSubs">00</h4>
+                                    <small>Blocked Users</small>
                                 </div>
                             </div>
                         </div>
@@ -104,8 +104,8 @@
                                     <i class="bi bi-person-fill"></i>
                                 </div>
                                 <div class="ms-3">
-                                    <h4 class="mb-0" id="userSubscriptions">00</h4>
-                                    <small>From Users</small>
+                                    <h4 class="mb-0" id="nonActive">00</h4>
+                                    <small>Inactive Users</small>
                                 </div>
                             </div>
                         </div>
@@ -133,6 +133,7 @@
                                     <option value="monthly">Monthly</option>
                                     <option value="disabled">Disabled</option>
                                     <option value="active">Active Only</option>
+                                    <option value="inactive">Inactive Only</option>
                                     <option value="blocked">Blocked Only</option>
                                 </select>
                             </div>
@@ -142,206 +143,7 @@
 
                 <!-- Newsletter List -->
                 <div class="newsletter-list-container" id="newsletterContainer">
-                    <!-- Demo Subscriptions -->
-                    <div class="subscription-card">
-                        <div class="subscription-content">
-                            <!-- Subscriber Info -->
-                            <div class="subscriber-info">
-                                <div class="subscriber-avatar">
-                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
-                                </div>
-                                <div class="subscriber-details">
-                                    <h6 class="subscriber-name">Sarah Johnson</h6>
-                                    <p class="subscriber-email">sarah.j@example.com</p>
-                                    <div class="subscriber-meta">
-                                        <span class="badge user-badge">Registered User</span>
-                                        <span class="subscriber-id">User ID: U-001</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Subscription Details -->
-                            <div class="subscription-details">
-                                <div class="detail-item">
-                                    <span class="detail-label">Type</span>
-                                    <span class="detail-value">
-                                        <span class="badge type-badge weekly">Weekly</span>
-                                    </span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Joined</span>
-                                    <span class="detail-value">2 days ago</span>
-                                </div>
-                            </div>
-
-                            <!-- Status -->
-                            <div class="subscription-status">
-                                <span class="status-badge active">Active</span>
-                            </div>
-
-                            <!-- Actions -->
-                            <div class="subscription-actions">
-                                <button class="btn-action view-btn" data-id="1">
-                                    <i class="bi bi-eye"></i>
-                                    <span>View</span>
-                                </button>
-                                <button class="btn-action block-btn" data-id="1">
-                                    <i class="bi bi-slash-circle"></i>
-                                    <span>Block</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="subscription-card">
-                        <div class="subscription-content">
-                            <!-- Subscriber Info -->
-                            <div class="subscriber-info">
-                                <div class="subscriber-avatar guest">
-                                    <i class="bi bi-envelope"></i>
-                                </div>
-                                <div class="subscriber-details">
-                                    <h6 class="subscriber-name">Guest Subscriber</h6>
-                                    <p class="subscriber-email">marketing@startup.co</p>
-                                    <div class="subscriber-meta">
-                                        <span class="badge guest-badge">Email Only</span>
-                                        <span class="subscriber-id">No User ID</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Subscription Details -->
-                            <div class="subscription-details">
-                                <div class="detail-item">
-                                    <span class="detail-label">Type</span>
-                                    <span class="detail-value">
-                                        <span class="badge type-badge monthly">Monthly</span>
-                                    </span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Joined</span>
-                                    <span class="detail-value">1 week ago</span>
-                                </div>
-                            </div>
-
-                            <!-- Status -->
-                            <div class="subscription-status">
-                                <span class="status-badge active">Active</span>
-                            </div>
-
-                            <!-- Actions -->
-                            <div class="subscription-actions">
-                                <button class="btn-action view-btn" data-id="2">
-                                    <i class="bi bi-eye"></i>
-                                    <span>View</span>
-                                </button>
-                                <button class="btn-action block-btn" data-id="2">
-                                    <i class="bi bi-slash-circle"></i>
-                                    <span>Block</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="subscription-card">
-                        <div class="subscription-content">
-                            <!-- Subscriber Info -->
-                            <div class="subscriber-info">
-                                <div class="subscriber-avatar">
-                                    <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Michael Chen">
-                                </div>
-                                <div class="subscriber-details">
-                                    <h6 class="subscriber-name">Michael Chen</h6>
-                                    <p class="subscriber-email">michael.chen@tech.com</p>
-                                    <div class="subscriber-meta">
-                                        <span class="badge user-badge">Verified User</span>
-                                        <span class="subscriber-id">User ID: U-003</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Subscription Details -->
-                            <div class="subscription-details">
-                                <div class="detail-item">
-                                    <span class="detail-label">Type</span>
-                                    <span class="detail-value">
-                                        <span class="badge type-badge disabled">Disabled</span>
-                                    </span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Joined</span>
-                                    <span class="detail-value">3 months ago</span>
-                                </div>
-                            </div>
-
-                            <!-- Status -->
-                            <div class="subscription-status">
-                                <span class="status-badge blocked">Blocked</span>
-                            </div>
-
-                            <!-- Actions -->
-                            <div class="subscription-actions">
-                                <button class="btn-action view-btn" data-id="3">
-                                    <i class="bi bi-eye"></i>
-                                    <span>View</span>
-                                </button>
-                                <button class="btn-action unblock-btn" data-id="3">
-                                    <i class="bi bi-check-circle"></i>
-                                    <span>Unblock</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="subscription-card">
-                        <div class="subscription-content">
-                            <!-- Subscriber Info -->
-                            <div class="subscriber-info">
-                                <div class="subscriber-avatar">
-                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Wilson">
-                                </div>
-                                <div class="subscriber-details">
-                                    <h6 class="subscriber-name">Emma Wilson</h6>
-                                    <p class="subscriber-email">emma.w@design.com</p>
-                                    <div class="subscriber-meta">
-                                        <span class="badge user-badge">Registered User</span>
-                                        <span class="subscriber-id">User ID: U-004</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Subscription Details -->
-                            <div class="subscription-details">
-                                <div class="detail-item">
-                                    <span class="detail-label">Type</span>
-                                    <span class="detail-value">
-                                        <span class="badge type-badge weekly">Weekly</span>
-                                    </span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Joined</span>
-                                    <span class="detail-value">1 month ago</span>
-                                </div>
-                            </div>
-
-                            <!-- Status -->
-                            <div class="subscription-status">
-                                <span class="status-badge active">Active</span>
-                            </div>
-
-                            <!-- Actions -->
-                            <div class="subscription-actions">
-                                <button class="btn-action view-btn" data-id="4">
-                                    <i class="bi bi-eye"></i>
-                                    <span>View</span>
-                                </button>
-                                <button class="btn-action block-btn" data-id="4">
-                                    <i class="bi bi-slash-circle"></i>
-                                    <span>Block</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- newsletter dynamic lists -->
                 </div>
 
                 <!-- Pagination -->
@@ -387,6 +189,28 @@
         </main>
     </div>
 
+    <!-- Block/Unblock Confirmation Modal -->
+    <div class="modal fade" id="actionModal" tabindex="-1" aria-labelledby="actionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content action-modal">
+                <div class="modal-header">
+                    <div class="modal-icon" id="actionModalIcon">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+                    <h1 class="modal-title fs-5" id="actionModalLabel">Confirm Action</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="actionModalText">Are you sure you want to perform this action?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmActionBtn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Subscription Details Modal -->
     <div class="modal fade" id="subscriptionDetails" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="subscriptionDetailsLabel" aria-hidden="true">
@@ -413,44 +237,8 @@
                             <p class="subscriber-email" id="modalSubscriberEmailFull">email@domain.com</p>
                             <div class="subscriber-meta">
                                 <span class="badge" id="modalSubscriptionStatus">Active</span>
-                                <span class="badge user-type" id="modalUserType">Registered User</span>
+                                <span class="badge user-type" id="modalUserType">User</span>
                                 <span class="subscription-time" id="modalSubscriptionTime">00/00/0000, 00:00 AM</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- User Information (if registered) -->
-                    <div class="user-info-section" id="userInfoSection">
-                        <div class="section-header">
-                            <i class="bi bi-person-badge"></i>
-                            <h6>User Information</h6>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span class="info-label">User ID</span>
-                                    <span class="info-value" id="modalUserId">Not Available</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span class="info-label">Verification Status</span>
-                                    <span class="info-value">
-                                        <span class="badge" id="modalVerificationStatus">Unverified</span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span class="info-label">Account Created</span>
-                                    <span class="info-value" id="modalUserCreated">Date & Time</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span class="info-label">Total Subscriptions</span>
-                                    <span class="info-value" id="modalTotalSubscriptions">1</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -466,7 +254,7 @@
                                 <div class="detail-group">
                                     <label class="detail-label">Subscription Type</label>
                                     <div class="subscription-type-display">
-                                        <span class="badge type-badge" id="modalSubscriptionType">Weekly</span>
+                                        <span class="badge type-badge monthly" id="modalSubscriptionType">Weekly</span>
                                     </div>
                                 </div>
                             </div>
@@ -475,22 +263,6 @@
                                     <label class="detail-label">Subscription Status</label>
                                     <div class="subscription-status-display">
                                         <span class="badge status-badge" id="modalDetailStatus">Active</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-group">
-                                    <label class="detail-label">Email Preferences</label>
-                                    <div class="preferences-display">
-                                        <span class="badge preference-badge" id="modalPreferences">HTML & Text</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-group">
-                                    <label class="detail-label">Last Email Sent</label>
-                                    <div class="last-email-display" id="modalLastEmail">
-                                        Never
                                     </div>
                                 </div>
                             </div>
@@ -503,26 +275,17 @@
                             <div class="col-md-6">
                                 <div class="meta-item">
                                     <i class="bi bi-calendar-check"></i>
-                                    <span>Subscribed: <strong id="modalSubscribedDate">00/00/0000</strong></span>
+                                    <span>Subscription Date: <strong id="modalSubscribedDate">00/00/0000</strong></span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="meta-item">
                                     <i class="bi bi-clock-history"></i>
-                                    <span>Last Updated: <strong id="modalUpdatedDate">00/00/0000</strong></span>
+                                    <span>Subscription Time: <strong id="modalUpdatedTime">00/00/0000</strong></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer" id="modalFooter">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="unblockSubscriptionBtn" style="display: none;">
-                        <i class="bi bi-check-circle"></i> Unblock Subscription
-                    </button>
-                    <button type="button" class="btn btn-danger" id="blockSubscriptionBtn" style="display: none;">
-                        <i class="bi bi-slash-circle"></i> Block Subscription
-                    </button>
                 </div>
             </div>
         </div>

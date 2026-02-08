@@ -267,6 +267,7 @@
 // Subscription Details
 .subscription-details {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 0.5rem;
 }
@@ -297,19 +298,9 @@
     font-size: 0.8rem;
     font-weight: 600;
 
-    &.weekly {
-        background-color: rgba(255, 193, 7, 0.15);
-        color: #ffc107;
-    }
-
     &.monthly {
         background-color: rgba(13, 202, 240, 0.15);
         color: #0dcaf0;
-    }
-
-    &.disabled {
-        background-color: rgba(108, 117, 125, 0.15);
-        color: #6c757d;
     }
 }
 
@@ -337,10 +328,6 @@
         color: #dc3545;
     }
 
-    &.disabled {
-        background-color: rgba(108, 117, 125, 0.15);
-        color: #6c757d;
-    }
 }
 
 // Subscription Actions
