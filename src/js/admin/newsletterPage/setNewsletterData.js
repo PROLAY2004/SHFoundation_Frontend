@@ -8,41 +8,66 @@ const displayToast = new Templates();
 
 export default async function setData(data) {
 	try {
-		const name = data.currentUser.name;
-		const newsLetterData = data.newsletters;
-		const totalCount = data.totalSubscriptions;
-		const activeCount = data.activeSubscriptions;
-		const blockedCount = data.blockedSubscriptions;
-		const inactiveCount = data.inactiveSubscriptions;
+		const {
+			newsletters,
+			currentUser,
+			totalSubscriptions,
+			activeSubscriptions,
+			blockedSubscriptions,
+			inactiveSubscriptions,
+		} = data;
+		const name = currentUser.name;
 		const image = `https://ui-avatars.com/api/?name=${name.split(' ').join('+')}&background=2c8c99&color=fff&size=200`;
 
-		newsElements.userImage.src = data.currentUser.imagePath || image;
+		newsElements.userImage.src = currentUser.imagePath || image;
 		newsElements.userName.innerHTML = name;
-		newsElements.totalSubs.innerHTML = String(totalCount).padStart(2, '0');
-		newsElements.activeSubs.innerHTML = String(activeCount).padStart(2, '0');
-		newsElements.blockedSubs.innerHTML = String(blockedCount).padStart(2, '0');
-		newsElements.nonActive.innerHTML = String(inactiveCount).padStart(2, '0');
+
+		// Dashboard Cards
+		newsElements.totalSubs.innerHTML = String(totalSubscriptions).padStart(
+			2,
+			'0',
+		);
+		newsElements.activeSubs.innerHTML = String(activeSubscriptions).padStart(
+			2,
+			'0',
+		);
+		newsElements.blockedSubs.innerHTML = String(blockedSubscriptions).padStart(
+			2,
+			'0',
+		);
+		newsElements.nonActive.innerHTML = String(inactiveSubscriptions).padStart(
+			2,
+			'0',
+		);
+
 		newsElements.newsletterContainer.innerHTML = '';
 
-		for (let i = 0; i < totalCount; i++) {
-			const userResponse = await getInfo(newsLetterData[i].email);
-			let user = null;
+		if (newsletters.length === 0) {
+			newsElements.newsletterContainer.innerHTML = newsletterList.emptySubs();
+			return;
+		}
 
-			if (userResponse) {
-				const userResult = await userResponse.json();
-				user = userResult.data.userInfo;
+		// Use for...of to handle async getInfo calls properly
+		for (const item of newsletters) {
+			let user = null;
+			try {
+				const userResponse = await getInfo(item.email);
+				if (userResponse.ok) {
+					const userResult = await userResponse.json();
+					user = userResult.data.userInfo;
+				}
+			} catch (e) {
+				console.log('Guest or error fetching user info');
 			}
 
 			newsElements.newsletterContainer.innerHTML +=
-				newsletterList.newsSubscriptions(newsLetterData[i], user);
-		}
-
-		if (!totalCount) {
-			newsElements.newsletterContainer.innerHTML = newsletterList.emptySubs();
+				newsletterList.newsSubscriptions(item, user);
 		}
 	} catch (err) {
 		newsElements.toastSection.innerHTML = displayToast.errorToast(err.message);
 	} finally {
-		newsElements.toastSection.innerHTML = '';
+		setTimeout(() => {
+			newsElements.toastSection.innerHTML = '';
+		}, 3000);
 	}
 }

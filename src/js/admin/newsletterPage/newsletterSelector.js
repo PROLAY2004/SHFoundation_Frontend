@@ -11,6 +11,15 @@ const newsElements = {
 	newsletterContainer: document.getElementById('newsletterContainer'),
 	actionModal: document.getElementById('actionModal'),
 	confirmActionBtn: document.getElementById('confirmActionBtn'),
+
+	// Search, Filter, Pagination
+	newsletterSearch: document.getElementById('newsletterSearch'),
+	newsletterFilter: document.getElementById('newsletterFilter'),
+	paginationList: document.querySelector('.pagination'),
+	showingCount: document.getElementById('showingCount'),
+	totalCount: document.getElementById('totalCount'),
+
+	// Modal fields
 	modalSubscriberEmail: document.getElementById('modalSubscriberEmail'),
 	modalSubscriberName: document.getElementById('modalSubscriberName'),
 	modalSubscriberEmailFull: document.getElementById('modalSubscriberEmailFull'),
@@ -18,7 +27,6 @@ const newsElements = {
 	modalUserType: document.getElementById('modalUserType'),
 	modalSubscriptionTime: document.getElementById('modalSubscriptionTime'),
 	modalSubscriberAvatar: document.getElementById('modalSubscriberAvatar'),
-
 	modalSubscriptionType: document.getElementById('modalSubscriptionType'),
 	modalDetailStatus: document.getElementById('modalDetailStatus'),
 	modalSubscribedDate: document.getElementById('modalSubscribedDate'),
