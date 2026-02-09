@@ -26,43 +26,46 @@ export default class NewsletterTemplate {
 
 		return `
             <div class="subscription-card">
-                <div class="subscription-content">
+                <div class="subscription-content justify-content-between d-flex flex-column p-3 align-items-start gap-2 flex-sm-row">
                     <!-- Subscriber Info -->
-                    <div class="subscriber-info">
-                        <div class="subscriber-avatar ${user ? '' : 'guest'}">
-                            ${avatar}
+                    <div class="d-flex flex-column gap-2 flex-lg-row my-lg-auto gap-lg-3 w-100 justify-content-lg-between">
+                        <div class="subscriber-info">
+                            <div class="subscriber-avatar ${user ? '' : 'guest'}">
+                                ${avatar}
+                            </div>
+                            <div class="subscriber-details">
+                                <h6 class="subscriber-name">${name}</h6>
+                                <p class="subscriber-email">${data.email}</p>
+                            </div>
                         </div>
-                        <div class="subscriber-details">
-                            <h6 class="subscriber-name">${name}</h6>
-                            <p class="subscriber-email">${data.email}</p>
+
+                        <!-- Subscription Details -->
+                        <div class="subscription-details d-flex gap-2 flex-lg-column align-items-lg-center">
+                            <div class="detail-item">
+                                <span class="detail-value">
+                                    <span class="badge type-badge monthly">${type}</span>
+                                </span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-value text-center">${formatMessageTime(data.createdAt)}</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Subscription Details -->
-                    <div class="subscription-details">
-                        <div class="detail-item">
-                            <span class="detail-value">
-                                <span class="badge type-badge monthly">${type}</span>
-                            </span>
+                   <div class="d-flex gap-3 justify-content-between my-sm-auto w-100">
+                        <div class="subscription-status my-auto mx-md-auto ">
+                            <span class="status-badge ${data.isActive ? 'active' : 'blocked'}">${data.isActive ? 'Active' : 'Blocked'}</span>
                         </div>
-                        <div class="detail-item">
-                            <span class="detail-value">${formatMessageTime(data.createdAt)}</span>
+
+                        <!-- Actions -->
+                        <div class="subscription-actions d-flex gap-2">
+                            <button class="btn-action view-btn" data-bs-toggle="modal" data-bs-target="#subscriptionDetails" onclick="showDetails('${data._id}', '${user ? user._id : ''}')">
+                                <i class="bi bi-eye"></i>
+                                <span>View</span>
+                            </button>
+
+                            ${btn}                        
                         </div>
-                    </div>
-
-                    <!-- Status -->
-                    <div class="subscription-status">
-                        <span class="status-badge ${data.isActive ? 'active' : 'blocked'}">${data.isActive ? 'Active' : 'Blocked'}</span>
-                    </div>
-
-                    <!-- Actions -->
-                    <div class="subscription-actions">
-                        <button class="btn-action view-btn" data-bs-toggle="modal" data-bs-target="#subscriptionDetails" onclick="showDetails('${data._id}', '${user ? user._id : ''}')">
-                            <i class="bi bi-eye"></i>
-                            <span>View</span>
-                        </button>
-
-                        ${btn}                        
                     </div>
                 </div>
             </div>`;

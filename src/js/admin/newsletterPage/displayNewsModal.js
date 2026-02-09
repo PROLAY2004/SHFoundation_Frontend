@@ -19,8 +19,8 @@ async function showDetails(subId, userId) {
 		const userData = result.data.userData;
 		const subsData = result.data.subsData;
 		let avatar = '';
-		const DateTime = formatMessageTime(subsData.createdAt);
-		const parts = DateTime.split(',');
+		const dateTime = formatMessageTime(subsData.createdAt);
+		const parts = dateTime.split(',');
 		const time = parts.pop().trim();
 		const date = parts.join(',').trim();
 
@@ -65,7 +65,7 @@ async function showDetails(subId, userId) {
 				subsData.isActive ? 'bg-success' : 'bg-danger',
 			);
 			newsElements.modalUserType.innerHTML = userId ? 'User' : 'Guest';
-			newsElements.modalSubscriptionTime.innerHTML = DateTime;
+			newsElements.modalSubscriptionTime.innerHTML = dateTime;
 			newsElements.modalSubscriberAvatar.innerHTML = avatar;
 			newsElements.modalSubscriptionType.innerHTML =
 				subsData.type.charAt(0).toUpperCase() + subsData.type.slice(1);
